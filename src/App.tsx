@@ -1,7 +1,7 @@
-import CategoryItem from './Components/category/categoryItem'
-import "./categories.styles.scss"
+import './categories.styles.scss'
 import { categoryModel } from './Model/categoryModel'
 import React from 'react'
+import Listings from './Components/listing/listings'
 
 function App() {
     const categories: categoryModel[] = [
@@ -11,13 +11,7 @@ function App() {
             url: 'abc',
         },
     ]
-    return (
-        <div className="categories-container">
-            {categories.map((category) => (
-                <CategoryItem key={category.id} category={category} />
-            ))}
-        </div>
-    )
+    return <Listings categories={categories} />
 }
 
 export default App
