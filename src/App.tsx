@@ -1,17 +1,16 @@
-import './categories.styles.scss'
-import { categoryModel } from './Model/categoryModel'
+import { Routes, Route } from 'react-router-dom'
 import React from 'react'
-import Listings from './Components/listing/listings'
+import HomePage from './Routes/Home/HomePage'
+import NavBar from './Routes/Nav/NavBar'
 
-function App() {
-    const categories: categoryModel[] = [
-        {
-            id: 1,
-            name: 'Pretend Play',
-            url: 'abc',
-        },
-    ]
-    return <Listings categories={categories} />
+const App = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<NavBar />}>
+                <Route index element={<HomePage />} />
+            </Route>
+        </Routes>
+    )
 }
 
 export default App

@@ -1,7 +1,7 @@
 import React from 'react'
-import CategoryItem from '../category/categoryItem'
-import { categoryModel } from '../../Model/categoryModel'
-import "./listings.styles.scss"
+import CategoryItem from '../Category/CategoryItem'
+import { categoryModel } from '../../Model/CategoryModel'
+import './Listings.styles.scss'
 
 interface ListingsProps {
     categories: categoryModel[]

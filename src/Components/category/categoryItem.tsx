@@ -1,6 +1,6 @@
 import React from 'react'
-import './categoryItem.styles.scss'
-import { categoryModel } from '../../Model/categoryModel'
+import './CategoryItem.styles.scss'
+import { categoryModel } from '../../Model/CategoryModel'
 interface CategoryItemProps {
     category: categoryModel
 }
