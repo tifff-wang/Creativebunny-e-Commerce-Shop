@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
     createAuthUserWithEmailAndPassword,
     createUserDocument,
 } from '../../Utils/Firebase/Firebase.utils'
-import React from 'react'
+import { UserContext } from '../../Contexts/User.context'
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignUpForm.styles.scss'
@@ -45,7 +45,6 @@ const SignUpForm = () => {
             if (!user) {
                 throw new Error('User not found')
             }
-
             await createUserDocument(user, { displayName })
             resetFormFields()
         } catch (error) {
@@ -97,7 +96,9 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     required
                 />
-                <Button buttonType = "default" type = "submit">Sign Up</Button>
+                <Button buttonType="default" type="submit">
+                    Sign Up
+                </Button>
             </form>
         </div>
     )

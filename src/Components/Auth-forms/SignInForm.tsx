@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import React from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from '../../Contexts/User.context'
 import {
-    createUserDocument,
     signInAuthUserWithEmailAndPassword,
     signInWithGooglePopup,
 } from '../../Utils/Firebase/Firebase.utils'
-import React from 'react'
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignInForm.styles.scss'
+import userEvent from '@testing-library/user-event'
 
 const defaultFormFields = {
     email: '',
@@ -30,27 +31,26 @@ const SignInForm = () => {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault()
-        
+
         try {
-          const response = await signInAuthUserWithEmailAndPassword(
-              email,
-              password
-          )
+            await signInAuthUserWithEmailAndPassword(
+                email,
+                password
+            ) 
             resetFormFields()
         } catch (error) {
-          if((error as any).code === "auth/wrong-password") {
-            alert("Incorrect password")
-          } else if ((error as any).code === 'auth/user-not-found') {
-              alert('Can not find the email, please sign up')
-          } else {
-            console.log("Something went wrong")
-          }
+            if ((error as any).code === 400) {
+                alert('Incorrect password')
+            } else if ((error as any).code === 'auth/user-not-found') {
+                alert('Can not find the email, please sign up')
+            } else {
+                console.log('Something went wrong')
+            }
         }
     }
 
-    const signInWithGoogle = async() => {     
-           const { user } = await signInWithGooglePopup()
-           await createUserDocument(user)
+    const signInWithGoogle = async () => {
+        await signInWithGooglePopup()
     }
 
     return (
@@ -80,7 +80,11 @@ const SignInForm = () => {
                     <Button buttonType="inverted" type="submit">
                         Sign In
                     </Button>
-                    <Button buttonType="google" type="button" onClick={signInWithGoogle}>
+                    <Button
+                        buttonType="google"
+                        type="button"
+                        onClick={signInWithGoogle}
+                    >
                         Sign Up With Google
                     </Button>
                 </div>
