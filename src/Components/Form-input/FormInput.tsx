@@ -1,15 +1,23 @@
 import React from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import "./FormInput.styles.scss"
 
-interface FormInputProps {
+interface InputGroupProps extends ComponentPropsWithoutRef<'input'> {
     label: string
 }
-
-const FormInput = (props: FormInputProps) => {
-    const { label, ...otherProps } = props
+const FormInput = ({ label, ...rest }: InputGroupProps) => {
     return (
-        <div>
-            <label>{label}</label>
-            <input {...otherProps} />
+        <div className="input-container">
+            <input className="form-input" {...rest} />
+            {label && (
+                <label
+                    className={`${
+                        rest.value? 'shrink' : ''
+                    } input-label`}
+                >
+                    {label}
+                </label>
+            )}
         </div>
     )
 }

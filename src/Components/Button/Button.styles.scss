@@ -1,0 +1,47 @@
+.button-container {
+    display: flex;
+    height: 40px;
+    width: 165px;
+    font-size: 14px;
+    background-color: white;
+    font-weight:bolder;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 24px;
+
+    &.default-button {
+        
+        color: #927464;
+        border: solid 2px #a78877;
+        width: 180px;
+
+        &:hover {
+            border: none;
+            background-color:rgb(99, 99, 99);
+            color: white;
+        }
+    }
+
+    &.google-button {
+        background-color: #ededed;
+        color: #4285f4;
+        width: 180px;
+
+        &:hover {
+            background-color: none;
+            color: #357ff6;
+        }
+    }
+
+    &.inverted-button {
+        background-color: #a78877;
+        color: rgb(255, 255, 255);
+
+        &:hover {
+            background-color: rgb(99, 99, 99);
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+
+    h2 {
+        margin: 20px 0;
+        color: #474747;
+    }
+
+    p {
+        font-size: large;
+        color: #474747;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
