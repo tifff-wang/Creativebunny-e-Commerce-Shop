@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState, useEffect } from 'react'
+import React, { createContext, ReactNode, useState} from 'react'
 import TOYS from '../toys-data.json'
 import { ToyModel } from '../Model/ToyModel'
 

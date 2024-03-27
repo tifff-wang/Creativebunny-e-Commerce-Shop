@@ -1,6 +1,4 @@
-import React from 'react'
-import { useState, useContext } from 'react'
-import { UserContext } from '../../Contexts/User.context'
+import React, { useState } from 'react'
 import {
     signInAuthUserWithEmailAndPassword,
     signInWithGooglePopup,
@@ -8,7 +6,6 @@ import {
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignInForm.styles.scss'
-import userEvent from '@testing-library/user-event'
 
 const defaultFormFields = {
     email: '',
