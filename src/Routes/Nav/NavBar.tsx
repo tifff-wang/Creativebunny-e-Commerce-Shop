@@ -1,11 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './NavBar.styles.scss'
 import { Outlet, Link } from 'react-router-dom'
 import { UserContext } from '../../Contexts/User.context'
 import { signOutAuthUser } from '../../Utils/Firebase/Firebase.utils'
+import CartIcon from '../../Components/Cart-icon/CartIcon'
+import CartDropdown from '../../Components/Cart/CartDropdown'
+import { CartContext } from '../../Contexts/Cart.context'
 
 const NavBar = () => {
     const { currentUser } = useContext(UserContext)
+    const { cartDropdownOpen} = useContext(CartContext)
     const handleClick = async () => {
         try {
             await signOutAuthUser()
@@ -34,7 +38,10 @@ const NavBar = () => {
                             SIGN IN
                         </Link>
                     )}
+
+                    <CartIcon/>
                 </div>
+                {cartDropdownOpen && <CartDropdown />}
             </div>
             <Outlet />
         </>
