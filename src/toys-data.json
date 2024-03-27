@@ -2,49 +2,49 @@
     {
         "id": 1,
         "name": "Shape Slide",
-        "imageUrl": "https://i.ibb.co/5R7HHSS/Screenshot-2024-03-27-at-10-45-11-AM.png",
+        "imageUrl": "/images/toy-photos/shape-slide.webp",
         "price": 10
     },
     {
         "id": 2,
         "name": "Bunny Shaker",
-        "imageUrl": "https://i.ibb.co/T0Sz1fN/Screenshot-2024-03-27-at-10-44-54-AM.png",
+        "imageUrl": "/images/toy-photos/bunny-shaker.webp",
         "price": 26
     },
     {
         "id": 3,
         "name": "Cat Shaker",
-        "imageUrl": "https://i.ibb.co/DYcY9f8/Screenshot-2024-03-27-at-10-44-44-AM.png",
+        "imageUrl": "/images/toy-photos/cat-shaker.webp",
         "price": 20
     },
     {
         "id": 4,
         "name": "Star Shaker",
-        "imageUrl": "https://i.ibb.co/ZN2DfcD/Screenshot-2024-03-27-at-10-44-32-AM.png",
+        "imageUrl":"/images/toy-photos/star-shaker.webp",
         "price": 26
     },
     {
         "id": 5,
         "name": "Carpentry Tool Box",
-        "imageUrl": "https://i.ibb.co/dtmB134/Screenshot-2024-03-27-at-10-44-21-AM.png",
+        "imageUrl": "/images/toy-photos/carpentry.webp",
         "price": 28
     },
     {
         "id": 6,
-        "name": "Baking Set",
-        "imageUrl": "https://i.ibb.co/vHtVT8R/Screenshot-2024-03-27-at-10-45-31-AM.png",
+        "name": "Pizza Set",
+        "imageUrl": "/images/toy-photos/pizza-set.webp",
         "price": 26
     },
     {
         "id": 7,
         "name": "Bakery Set",
-        "imageUrl": "https://i.ibb.co/CPVHcXt/Screenshot-2024-03-27-at-10-45-55-AM.png",
+        "imageUrl": "/images/toy-photos/bakery-set.webp",
         "price": 24
     },
     {
         "id": 8,
         "name": "Stacking Stone",
-        "imageUrl": "https://i.ibb.co/XVXGX5J/Screenshot-2024-03-27-at-3-07-47-PM.png",
+        "imageUrl": "/images/toy-photos/stacking-stone.webp",
         "price": 15
     }
 ]
