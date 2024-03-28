@@ -8,14 +8,20 @@ interface CartContextProps {
     cartItemList: CartItemModel[]
     addItemToCart: (item: ToyModel) => void
     totalQuantity: number
+    totalPrice: number
+    changeItemQty: (item: CartItemModel, isUp: boolean) => void
+    deleteItem: (item: CartItemModel) => void
 }
 
 export const CartContext = createContext<CartContextProps>({
     cartDropdownOpen: false,
     setCartDropdownOpen: () => null,
     cartItemList: [],
-    addItemToCart: (item: ToyModel) => null,
+    addItemToCart: () => null,
     totalQuantity: 0,
+    totalPrice: 0,
+    changeItemQty: () => null,
+    deleteItem: () => null,
 })
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -28,6 +34,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         (acc, currentItem) => acc + currentItem.quantity,
         0
     )
+    const totalPrice = cartItemList.reduce(
+        (acc, currentItem) => acc + currentItem.quantity * currentItem.price,
+        0
+    )
+    const changeItemQty = (item: CartItemModel, isUp: boolean) => {
+        setCartItemList(changeQty(cartItemList, item, isUp))
+    }
+    const deleteItem = (item: CartItemModel) => {
+        setCartItemList(deleteCartItem(cartItemList, item))
+    }
 
     const value = {
         cartDropdownOpen,
@@ -35,6 +51,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         cartItemList,
         addItemToCart,
         totalQuantity,
+        totalPrice,
+        changeItemQty,
+        deleteItem,
     }
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
@@ -55,4 +74,31 @@ const addCartItem = (cartItemList: CartItemModel[], item: ToyModel) => {
     }
 
     return [...cartItemList, { ...item, quantity: 1 }]
+}
+
+const changeQty = (
+    cartItemList: CartItemModel[],
+    item: CartItemModel,
+    isUp: boolean
+) => {
+    const updatedCartItems = cartItemList.map((cartItem) => {
+        if (cartItem.id === item.id) {
+            return {
+                ...cartItem,
+                quantity: Math.max(cartItem.quantity + (isUp ? 1 : -1), 1),
+            }
+        }
+        return cartItem
+    })
+    return updatedCartItems
+}
+
+const deleteCartItem = (
+    cartItemList: CartItemModel[],
+    itemToDelete: CartItemModel
+) => {
+    const updatedCartItems = cartItemList.filter(
+        (item) => item.id !== itemToDelete.id
+    )
+    return updatedCartItems
 }

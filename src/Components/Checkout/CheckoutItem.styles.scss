@@ -1,0 +1,17 @@
+.table-row {
+    height: 100px;
+  
+    .item-image {
+        height: 80px;
+        width: 80px;
+        border-radius: 45px;
+    }
+
+    .remove-button {
+        cursor: pointer;
+    }
+
+    .checkout-table-icon {
+        cursor: pointer;
+    }
+}
