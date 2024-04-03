@@ -1,17 +1,26 @@
-import React, { createContext, ReactNode, useState} from 'react'
-import TOYS from '../toys-data.json'
+import React, { createContext, ReactNode, useEffect, useState } from 'react'
+import { getCategoriesAndDocuments } from '../Utils/Firebase/Firebase.utils'
 import { ToyModel } from '../Model/ToyModel'
 
 interface ToysContextProps {
-    toysData: ToyModel[]
+    toysData: { [key: string]: ToyModel[] }
 }
 
 export const ToysContext = createContext<ToysContextProps>({
-    toysData: [],
+    toysData: {},
 })
 
 export const ToysProvider = ({ children }: { children: ReactNode }) => {
-    const [toysData, setToysData] = useState(TOYS)
+    const [toysData, setToysData] = useState<{ [key: string]: ToyModel[] }>({})
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getCategoriesAndDocuments()
+            setToysData(data)
+        }
+        fetchData()
+    }, [])
+
     const value = { toysData }
     return <ToysContext.Provider value={value}>{children}</ToysContext.Provider>
 }

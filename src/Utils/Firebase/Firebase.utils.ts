@@ -8,9 +8,20 @@ import {
     signOut,
     onAuthStateChanged,
     NextOrObserver,
-    User
+    User,
 } from 'firebase/auth'
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    collection,
+    writeBatch,
+    query,
+    getDocs,
+} from 'firebase/firestore'
+import { ToyDataModel } from '../../Model/ToyDataModel'
+import { ToyModel } from '../../Model/ToyModel'
 
 const firebaseConfig = {
     apiKey: 'AIzaSyC03aXbzBnVAaewz6BYd_PWRFjy6MUnFZU',
@@ -32,6 +43,41 @@ export const auth = getAuth()
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 
 export const db = getFirestore()
+
+export const createCollectionAndDocuments = async (
+    collectionKey: string,
+    items: ToyDataModel[]
+) => {
+    const collectionRef = collection(db, collectionKey)
+    const batch = writeBatch(db)
+
+    items.forEach((item) => {
+        const newDocument = doc(collectionRef, item.category.toLowerCase())
+        batch.set(newDocument, item)
+    })
+
+    await batch.commit()
+}
+
+export const getCategoriesAndDocuments = async () => {
+    const collectionRef = collection(db, 'categories')
+    const querySnapshot = await getDocs(query(collectionRef))
+
+    const categoryMap: { [key: string]: ToyModel[] } = {}
+
+    querySnapshot.forEach((doc) => {
+        const categoryData = doc.data()
+        const key = categoryData.category.toLowerCase()
+
+        if (!categoryMap[key]) {
+            categoryMap[key] = []
+        }
+
+        categoryMap[key].push(...categoryData.products)
+    })
+
+    return categoryMap
+}
 
 export const createUserDocument = async (
     userAuth: {
@@ -86,4 +132,5 @@ export const signInAuthUserWithEmailAndPassword = async (
 
 export const signOutAuthUser = async () => await signOut(auth)
 
-export const onAuthStateChangedListener = (callback: NextOrObserver<User>) => onAuthStateChanged(auth,callback)
+export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
+    onAuthStateChanged(auth, callback)
