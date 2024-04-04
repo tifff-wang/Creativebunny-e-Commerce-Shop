@@ -1,13 +1,30 @@
-import { Routes, Route} from 'react-router-dom'
-import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import HomePage from './Routes/Home/HomePage'
 import NavBar from './Routes/Nav/NavBar'
 import AuthPage from './Routes/Auth/AuthPage'
 import ToyPreviewPage from './Routes/Toys/ToyPreviewPage'
 import CheckoutPage from './Routes/Checkout/CheckoutPage'
 import ToyListPage from './Routes/Toys/ToyListPage'
+import React, { useEffect } from 'react'
+import {
+    createUserDocument,
+    onAuthStateChangedListener,
+} from './Utils/Firebase/Firebase.utils'
+import { useDispatch } from 'react-redux'
+import { setCurrentUser } from './Store/User/userSlice'
 
 const App = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const unsubscribe = onAuthStateChangedListener((user) => {
+            if (user) {
+                createUserDocument(user)
+            }
+            dispatch(setCurrentUser(user))
+        })
+        return unsubscribe
+    }, [])
+
     return (
         <Routes>
             <Route path="/" element={<NavBar />}>

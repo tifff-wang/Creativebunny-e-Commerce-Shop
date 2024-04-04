@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
-import { ToysContext } from '../../Contexts/Toy.context'
+import React from 'react'
 import ProductCard from '../../Components/Product-Card/ProductCard'
 import './ToyPreviewPage.styles.scss'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { categoriesData } from '../../Store/Category/categorySelector'
 
 const ToyPage = () => {
-    const { toysData } = useContext(ToysContext)
+    const toysData = useSelector(categoriesData)
 
     return (
         <>

@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { categoryModel } from '../../Model/CategoryModel'
 import Listings from '../../Components/Listing/Listings'
+import { useDispatch } from 'react-redux'
+import { getCategoriesAndDocuments } from '../../Utils/Firebase/Firebase.utils'
+import { setCategories } from '../../Store/Category/categorySlice'
 
 const HomePage = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const getCategoriesData = async () => {
+            const categoriesArray = await getCategoriesAndDocuments()
+            dispatch(setCategories(categoriesArray))
+        }
+
+        getCategoriesData()
+    }, [])
+
     const categories: categoryModel[] = [
         {
             id: 1,

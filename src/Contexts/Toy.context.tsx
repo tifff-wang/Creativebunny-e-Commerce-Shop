@@ -13,13 +13,13 @@ export const ToysContext = createContext<ToysContextProps>({
 export const ToysProvider = ({ children }: { children: ReactNode }) => {
     const [toysData, setToysData] = useState<{ [key: string]: ToyModel[] }>({})
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getCategoriesAndDocuments()
-            setToysData(data)
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const data = await getCategoriesAndDocuments()
+    //         setToysData(data)
+    //     }
+    //     fetchData()
+    // }, [])
 
     const value = { toysData }
     return <ToysContext.Provider value={value}>{children}</ToysContext.Provider>

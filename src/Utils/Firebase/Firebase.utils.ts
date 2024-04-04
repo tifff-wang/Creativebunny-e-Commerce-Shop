@@ -63,20 +63,7 @@ export const getCategoriesAndDocuments = async () => {
     const collectionRef = collection(db, 'categories')
     const querySnapshot = await getDocs(query(collectionRef))
 
-    const categoryMap: { [key: string]: ToyModel[] } = {}
-
-    querySnapshot.forEach((doc) => {
-        const categoryData = doc.data()
-        const key = categoryData.category.toLowerCase()
-
-        if (!categoryMap[key]) {
-            categoryMap[key] = []
-        }
-
-        categoryMap[key].push(...categoryData.products)
-    })
-
-    return categoryMap
+    return querySnapshot.docs.map((doc) => doc.data())
 }
 
 export const createUserDocument = async (
