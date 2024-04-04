@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryItem from '../Category/CategoryItem'
+import CategoryItem from '../Category/categoryItem'
 import { categoryModel } from '../../Model/CategoryModel'
 import './Listings.styles.scss'
 
