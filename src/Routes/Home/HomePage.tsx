@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { categoryModel } from '../../Model/CategoryModel'
-import Listings from '../../Components/Listing/Listings'
-import { useDispatch } from 'react-redux'
-import { getCategoriesAndDocuments } from '../../Utils/Firebase/Firebase.utils'
-import { setCategories } from '../../Store/Category/categorySlice'
+import Listings from '../../Components/Listing/listings'
+
 
 const HomePage = () => {
     
