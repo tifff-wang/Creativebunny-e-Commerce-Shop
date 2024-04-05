@@ -6,6 +6,7 @@ import {
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignInForm.styles.scss'
+import { useNavigate } from 'react-router-dom'
 
 const defaultFormFields = {
     email: '',
@@ -13,6 +14,7 @@ const defaultFormFields = {
 }
 
 const SignInForm = () => {
+    const navigate = useNavigate()
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { email, password } = formFields
 
@@ -30,11 +32,9 @@ const SignInForm = () => {
         event.preventDefault()
 
         try {
-            await signInAuthUserWithEmailAndPassword(
-                email,
-                password
-            ) 
+            await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields()
+            navigate('/')
         } catch (error) {
             if ((error as any).code === 400) {
                 alert('Incorrect password')
@@ -48,6 +48,7 @@ const SignInForm = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup()
+        navigate('/')
     }
 
     return (
@@ -82,7 +83,7 @@ const SignInForm = () => {
                         type="button"
                         onClick={signInWithGoogle}
                     >
-                        Sign Up With Google
+                        Sign In With Google
                     </Button>
                 </div>
             </form>

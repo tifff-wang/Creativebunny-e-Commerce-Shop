@@ -6,17 +6,7 @@ import { getCategoriesAndDocuments } from '../../Utils/Firebase/Firebase.utils'
 import { setCategories } from '../../Store/Category/categorySlice'
 
 const HomePage = () => {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        const getCategoriesData = async () => {
-            const categoriesArray = await getCategoriesAndDocuments()
-            dispatch(setCategories(categoriesArray))
-        }
-
-        getCategoriesData()
-    }, [])
-
+    
     const categories: categoryModel[] = [
         {
             id: 1,

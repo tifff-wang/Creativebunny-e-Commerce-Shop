@@ -1,15 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import './NavBar.styles.scss'
 import { Outlet, Link } from 'react-router-dom'
-import { UserContext } from '../../Contexts/User.context'
 import { signOutAuthUser } from '../../Utils/Firebase/Firebase.utils'
 import CartIcon from '../../Components/Cart-icon/CartIcon'
 import CartDropdown from '../../Components/Cart/CartDropdown'
-import { CartContext } from '../../Contexts/Cart.context'
+import { CartDropdownOpenStatus } from '../../Store/Cart/cartSelector'
+import { useSelector } from 'react-redux'
+import { selectedCurrentUser } from '../../Store/User/userSlice'
 
 const NavBar = () => {
-    const { currentUser } = useContext(UserContext)
-    const { cartDropdownOpen} = useContext(CartContext)
+    const currentUser = useSelector(selectedCurrentUser)
+    const cartDropdownOpen = useSelector(CartDropdownOpenStatus)
     const handleClick = async () => {
         try {
             await signOutAuthUser()

@@ -1,13 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { CartItemModel } from '../../Model/CartItemModel'
 import { IoMdArrowDropup } from 'react-icons/io'
 import { IoMdArrowDropdown } from 'react-icons/io'
-import { CartContext } from '../../Contexts/Cart.context'
 import { MdDeleteOutline } from 'react-icons/md'
 import './CheckoutItem.styles.scss'
+import { useDispatch } from 'react-redux'
+import {
+    changeItemQuantity,
+    deleteItemfromCart,
+} from '../../Store/Cart/cartSlice'
 
 const CheckoutItem = ({ item }: { item: CartItemModel }) => {
-    const { changeItemQty, deleteItem } = useContext(CartContext)
+    const dispatch = useDispatch()
     const subtotal = item.price * item.quantity
     return (
         <tr className="table-row">
@@ -24,12 +28,20 @@ const CheckoutItem = ({ item }: { item: CartItemModel }) => {
                 <div>
                     <IoMdArrowDropup
                         className="checkout-table-icon"
-                        onClick={() => changeItemQty(item, true)}
+                        onClick={() =>
+                            dispatch(
+                                changeItemQuantity({ item: item, isUp: true })
+                            )
+                        }
                     />
                     {item.quantity}
                     <IoMdArrowDropdown
                         className="checkout-table-icon"
-                        onClick={() => changeItemQty(item, false)}
+                        onClick={() =>
+                            dispatch(
+                                changeItemQuantity({ item: item, isUp: false })
+                            )
+                        }
                     />
                 </div>
             </th>
@@ -37,7 +49,7 @@ const CheckoutItem = ({ item }: { item: CartItemModel }) => {
             <th>
                 <MdDeleteOutline
                     className="checkout-table-icon"
-                    onClick={() => deleteItem(item)}
+                    onClick={() => dispatch(deleteItemfromCart(item))}
                 />
             </th>
         </tr>

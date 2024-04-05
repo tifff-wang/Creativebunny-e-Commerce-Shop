@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import CheckoutItem from './CheckoutItem'
-import { CartContext } from '../../Contexts/Cart.context'
 import './CheckoutTable.styles.scss'
+import { useSelector } from 'react-redux'
+import { selectedCartItems, totalPrice } from '../../Store/Cart/cartSelector'
 
 const CheckoutTable = () => {
-    const { cartItemList, totalPrice } = useContext(CartContext)
+    const currentCartItems = useSelector(selectedCartItems)
+    const currentTotalPrice = useSelector(totalPrice)
     return (
         <table className="checkout-table">
             <thead>
@@ -18,12 +20,12 @@ const CheckoutTable = () => {
             </thead>
 
             <tbody>
-                {cartItemList.length > 0 ? (
-                    cartItemList.map((item) => {
+                {currentCartItems.length > 0 ? (
+                    currentCartItems.map((item) => {
                         return <CheckoutItem item={item} />
                     })
                 ) : (
-                    <tr className='cart-empty'>
+                    <tr className="cart-empty">
                         <th scope="row" colSpan={6}>
                             The cart is empty
                         </th>
@@ -35,7 +37,7 @@ const CheckoutTable = () => {
                     <th scope="row" colSpan={5}>
                         Total Price:
                     </th>
-                    <td>${totalPrice}</td>
+                    <td>${currentTotalPrice}</td>
                 </tr>
             </tfoot>
         </table>

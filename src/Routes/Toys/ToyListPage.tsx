@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ToysContext } from '../../Contexts/Toy.context'
 import ProductCard from '../../Components/Product-Card/ProductCard'
 import './ToyListPage.styles.scss'
 import { ToyModel } from '../../Model/ToyModel'
+import { useSelector } from 'react-redux'
+import { categoriesData } from '../../Store/Category/categorySelector'
 
 const ToyListPage = () => {
     const { categoryName } = useParams()
-    const { toysData } = useContext(ToysContext)
+    const toysData = useSelector(categoriesData)
     const [products, setProducts] = useState<ToyModel[]>([])
 
     useEffect(() => {

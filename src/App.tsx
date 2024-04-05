@@ -8,10 +8,12 @@ import ToyListPage from './Routes/Toys/ToyListPage'
 import React, { useEffect } from 'react'
 import {
     createUserDocument,
+    getCategoriesAndDocuments,
     onAuthStateChangedListener,
 } from './Utils/Firebase/Firebase.utils'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './Store/User/userSlice'
+import { setCategories } from './Store/Category/categorySlice'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -20,10 +22,23 @@ const App = () => {
             if (user) {
                 createUserDocument(user)
             }
-            dispatch(setCurrentUser(user))
+           
+           dispatch(setCurrentUser(user))
         })
         return unsubscribe
     }, [])
+
+   
+
+    useEffect(() => {
+        const getCategoriesData = async () => {
+            const categoriesArray = await getCategoriesAndDocuments()
+            dispatch(setCategories(categoriesArray))
+        }
+
+        getCategoriesData()
+    }, [])
+
 
     return (
         <Routes>

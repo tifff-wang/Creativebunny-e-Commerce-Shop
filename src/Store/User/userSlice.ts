@@ -1,7 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 
-const USER_INITIAL_STATE = {
+interface AuthState {
+    accessToken: string
+    displayName: string
+    email: string
+}
+
+interface UserState {
+    currentUser: AuthState | null
+}
+
+const USER_INITIAL_STATE: UserState = {
     currentUser: null,
 }
 
@@ -10,7 +20,12 @@ export const userSlice = createSlice({
     initialState: USER_INITIAL_STATE,
     reducers: {
         setCurrentUser(state, action) {
-            state.currentUser = action.payload
+            const { accessToken, displayName, email } = action.payload
+            state.currentUser = {
+                accessToken,
+                displayName,
+                email,
+            }
         },
     },
 })
