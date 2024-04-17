@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { categoryModel } from '../../Model/CategoryModel'
-import Listings from '../../Components/Listing/listings'
+import Listings from '../../Components/listing/listings'
 
 
 const HomePage = () => {
