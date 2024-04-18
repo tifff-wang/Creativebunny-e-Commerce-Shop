@@ -1,5 +1,5 @@
 import React from 'react'
-import { CategoryModel } from '../../Model/ToyCategoryModel'
+import { CategoryModel } from '../../Model/CategoryModel'
 import Listings from '../../Components/Listings/Listings'
 
 const HomePage = () => {

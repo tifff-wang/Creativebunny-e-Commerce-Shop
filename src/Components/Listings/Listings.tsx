@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryItem from '../CategoryItem/CategoryItem'
-import { CategoryModel } from '../../Model/ToyCategoryModel'
+import { CategoryModel } from '../../Model/CategoryModel'
 import './Listings.styles.scss'
 
 interface ListingsProps {
