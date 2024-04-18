@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 import { categoryModel } from '../../Model/CategoryModel'
-import Listings from '../../Components/Listing/listings'
-
+import Listings from '../../Components/Listing/Listings'
 
 const HomePage = () => {
-    
     const categories: categoryModel[] = [
         {
             id: 1,
