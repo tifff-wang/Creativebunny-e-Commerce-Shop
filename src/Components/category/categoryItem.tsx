@@ -1,9 +1,9 @@
 import React from 'react'
 import './CategoryItem.styles.scss'
-import { categoryModel } from '../../Model/CategoryModel'
+import { CategoryModel } from '../../Model/CategoryModel'
 import { useNavigate } from 'react-router-dom'
 interface CategoryItemProps {
-    category: categoryModel
+    category: CategoryModel
 }
 
 const CategoryItem = ({ category }: CategoryItemProps) => {

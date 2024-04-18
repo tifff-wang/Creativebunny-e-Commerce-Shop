@@ -1,6 +1,6 @@
-export interface categoryModel {
-  id: number,
-  name: string,
-  url: string
-  route: string
+export interface CategoryModel {
+    id: number
+    name: string
+    url: string
+    route: string
 }
