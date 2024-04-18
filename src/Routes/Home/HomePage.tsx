@@ -1,6 +1,6 @@
 import React from 'react'
 import { CategoryModel } from '../../Model/CategoryModel'
-import Listings from '../../Components/Listing/Listings'
+import Listings from '../../Components/Listings/Listings'
 
 const HomePage = () => {
     const categories: CategoryModel[] = [
