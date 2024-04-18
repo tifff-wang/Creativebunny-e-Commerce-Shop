@@ -1,0 +1,17 @@
+.stripe-form-container {
+    width: 1/2;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .stripe-form{
+      height: 100px;
+
+      .stripe-card{
+        display:grid;
+        grid-auto-columns: auto;
+      }
+    }
+}

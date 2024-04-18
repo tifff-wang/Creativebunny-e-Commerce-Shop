@@ -7,13 +7,14 @@ import { store } from './Store/store'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import { Elements } from '@stripe/react-stripe-js'
+import { stripePromise } from './Utils/Stripe/Stripe.utils'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                <Elements>
+                <Elements stripe={stripePromise}>
                     <App />
                 </Elements>
             </BrowserRouter>

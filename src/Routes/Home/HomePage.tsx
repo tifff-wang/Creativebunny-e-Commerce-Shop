@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
-import { categoryModel } from '../../Model/CategoryModel'
-import Listings from '../../Components/Listing/listings'
-
+import React from 'react'
+import { CategoryModel } from '../../Model/ToyCategoryModel'
+import Listings from '../../Components/Listings/Listings'
 
 const HomePage = () => {
-    
-    const categories: categoryModel[] = [
+    const categories: CategoryModel[] = [
         {
             id: 1,
             name: 'Pretend Play',

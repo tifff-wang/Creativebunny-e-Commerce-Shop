@@ -1,10 +1,10 @@
 import React from 'react'
-import CategoryItem from '../Category/CategoryItem'
-import { categoryModel } from '../../Model/CategoryModel'
+import CategoryItem from '../CategoryItem/CategoryItem'
+import { CategoryModel } from '../../Model/ToyCategoryModel'
 import './Listings.styles.scss'
 
 interface ListingsProps {
-    categories: categoryModel[]
+    categories: CategoryModel[]
 }
 const Listings = ({ categories }: ListingsProps) => {
     return (
