@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
     CardElement,
-    Elements,
     useStripe,
     useElements,
 } from '@stripe/react-stripe-js'
@@ -17,24 +16,19 @@ const StripeForm = () => {
     const amount = useSelector(totalPrice)
     const currentUser = useSelector(selectedCurrentUser)
 
-    const [errorMessage, setErrorMessage] = useState(null)
-
     const handleSubmit = async (e: any) => {
         e.preventDefault()
         if (!stripe || !elements) {
             return
         }
 
-        const response = await fetch(
-            '/netlify/functions/create-payment-intent',
-            {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ amount: amount * 100 }),
-            }
-        ).then((res) => {
+        const response = await fetch('/api/create-payment-intent', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ amount: amount * 100 }),
+        }).then((res) => {
             return res.json()
         })
 
@@ -75,6 +69,3 @@ const StripeForm = () => {
 }
 
 export default StripeForm
-function selectCurrentUser(state: unknown): unknown {
-    throw new Error('Function not implemented.')
-}
