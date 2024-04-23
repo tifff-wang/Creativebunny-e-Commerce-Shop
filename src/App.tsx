@@ -14,6 +14,7 @@ import {
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './Store/User/userSlice'
 import { setCategories } from './Store/Category/categorySlice'
+import PayCompletionPage from './Routes/Checkout/PayCompletionPage'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -22,13 +23,11 @@ const App = () => {
             if (user) {
                 createUserDocument(user)
             }
-           
-           dispatch(setCurrentUser(user))
+
+            dispatch(setCurrentUser(user))
         })
         return unsubscribe
     }, [])
-
-   
 
     useEffect(() => {
         const getCategoriesData = async () => {
@@ -39,7 +38,6 @@ const App = () => {
         getCategoriesData()
     }, [])
 
-
     return (
         <Routes>
             <Route path="/" element={<NavBar />}>
@@ -48,6 +46,7 @@ const App = () => {
                 <Route path="toys/*" element={<ToyPreviewPage />} />
                 <Route path="toys/:categoryName" element={<ToyListPage />} />
                 <Route path="checkout" element={<CheckoutPage />} />
+                <Route path="completion" element={<PayCompletionPage />} />
             </Route>
         </Routes>
     )

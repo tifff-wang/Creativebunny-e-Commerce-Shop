@@ -14,9 +14,9 @@ root.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                <Elements stripe={stripePromise}>
+                
                     <App />
-                </Elements>
+               
             </BrowserRouter>
         </Provider>
     </React.StrictMode>
