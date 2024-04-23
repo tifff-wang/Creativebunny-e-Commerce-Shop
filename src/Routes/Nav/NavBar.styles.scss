@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 80px;
-    align-items: baseline;
-    background-color: #f5e7df;
+    align-items:center;
+    background-color: #fdfdfd;
     padding-top: 10px;
 
     .logo-container {
@@ -13,21 +13,20 @@
         margin-left: 50px;
 
         .logo {
-            width: 70px;
+            width: 100px;
         }
     }
 
     .nav-links-container {
-        width: 50%;
+        width: 30%;
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content:space-around;
         margin-right: 40px;
 
-        .nav-link {
-            padding: 10px 15px;
-            color: #555555;
+        Button {
+            width: 100px;
             cursor: pointer;
         }
     }
