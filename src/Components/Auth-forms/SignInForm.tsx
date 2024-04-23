@@ -36,12 +36,12 @@ const SignInForm = () => {
             resetFormFields()
             navigate('/')
         } catch (error) {
-            if ((error as any).code === 400) {
+            if ((error as any).code === 'auth/invalid-credential') {
                 alert('Incorrect password')
             } else if ((error as any).code === 'auth/user-not-found') {
                 alert('Can not find the email, please sign up')
             } else {
-                console.log('Something went wrong')
+                alert('Oops, something went wrong, please try again later')
             }
         }
     }

@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import {
     createAuthUserWithEmailAndPassword,
     createUserDocument,
@@ -50,7 +50,7 @@ const SignUpForm = () => {
             if ((error as any).code === 'auth/email-already-in-use') {
                 alert('Email aleary exists, please sign in')
             } else {
-                console.log(error)
+                alert('Oops, something went wrong, please try again later')
             }
         }
     }
@@ -95,7 +95,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     required
                 />
-                <Button buttonType="default" type="submit">
+                <Button buttonType="inverted" type="submit">
                     Sign Up
                 </Button>
             </form>
