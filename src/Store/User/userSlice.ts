@@ -8,11 +8,15 @@ interface AuthState {
 }
 
 interface UserState {
-    currentUser: AuthState | null
+    currentUser: AuthState
 }
 
 const USER_INITIAL_STATE: UserState = {
-    currentUser: null,
+    currentUser: {
+        accessToken: '',
+        displayName: '',
+        email: '',
+    },
 }
 
 export const userSlice = createSlice({

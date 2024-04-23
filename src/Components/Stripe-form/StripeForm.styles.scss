@@ -1,17 +1,27 @@
 .stripe-form-container {
-    width: 1/2;
     height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 200px;
 
-    .stripe-form{
-      height: 100px;
+    h2 {
+        margin-bottom: 20px;
+    }
 
-      .stripe-card{
-        display:grid;
-        grid-auto-columns: auto;
-      }
+    .stripe-form {
+        height: 100px;
+        min-width: 500px;
+
+        .stripe-card {
+            display: grid;
+            grid-auto-columns: auto;
+            margin-bottom: 30px;
+        }
+
+        Button {
+            margin: auto
+        }
     }
 }
