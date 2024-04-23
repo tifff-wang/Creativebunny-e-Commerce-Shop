@@ -8,15 +8,11 @@ interface AuthState {
 }
 
 interface UserState {
-    currentUser: AuthState
+    currentUser: AuthState | null
 }
 
 const USER_INITIAL_STATE: UserState = {
-    currentUser: {
-        accessToken: '',
-        displayName: '',
-        email: '',
-    },
+    currentUser: null,
 }
 
 export const userSlice = createSlice({
@@ -24,11 +20,15 @@ export const userSlice = createSlice({
     initialState: USER_INITIAL_STATE,
     reducers: {
         setCurrentUser(state, action) {
-            const { accessToken, displayName, email } = action.payload
-            state.currentUser = {
-                accessToken,
-                displayName,
-                email,
+            if (action.payload) {
+                const { accessToken, displayName, email } = action.payload
+                state.currentUser = {
+                    accessToken: accessToken || '',
+                    displayName: displayName || '',
+                    email: email || '',
+                }
+            } else {
+                state.currentUser = null
             }
         },
     },

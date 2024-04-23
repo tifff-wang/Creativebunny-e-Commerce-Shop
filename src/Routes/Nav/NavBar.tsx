@@ -1,19 +1,23 @@
 import React from 'react'
 import './NavBar.styles.scss'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { signOutAuthUser } from '../../Utils/Firebase/Firebase.utils'
 import CartIcon from '../../Components/Cart-icon/CartIcon'
 import CartDropdown from '../../Components/Cart/CartDropdown'
 import { CartDropdownOpenStatus } from '../../Store/Cart/cartSelector'
-import { useSelector } from 'react-redux'
-import { selectedCurrentUser } from '../../Store/User/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectedCurrentUser, setCurrentUser } from '../../Store/User/userSlice'
 
 const NavBar = () => {
     const currentUser = useSelector(selectedCurrentUser)
     const cartDropdownOpen = useSelector(CartDropdownOpenStatus)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const handleClick = async () => {
         try {
             await signOutAuthUser()
+            dispatch(setCurrentUser(null))
+            navigate('/auth')
         } catch (error) {
             console.log(error)
         }
@@ -40,7 +44,7 @@ const NavBar = () => {
                         </Link>
                     )}
 
-                    <CartIcon/>
+                    <CartIcon />
                 </div>
                 {cartDropdownOpen && <CartDropdown />}
             </div>

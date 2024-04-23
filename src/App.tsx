@@ -22,9 +22,10 @@ const App = () => {
         const unsubscribe = onAuthStateChangedListener((user) => {
             if (user) {
                 createUserDocument(user)
+                dispatch(setCurrentUser(user))
+            } else {
+                dispatch(setCurrentUser(null))
             }
-
-            dispatch(setCurrentUser(user))
         })
         return unsubscribe
     }, [])
