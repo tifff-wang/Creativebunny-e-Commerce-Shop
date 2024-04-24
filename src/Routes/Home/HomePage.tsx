@@ -3,6 +3,7 @@ import { CategoryModel } from '../../Model/CategoryModel'
 import Listings from '../../Components/Listings/Listings'
 import HeroSection from '../../Components/LandingPage/HeroSection'
 import InfoSection from '../../Components/LandingPage/InfoSection'
+import ProductBanner from '../../Components/LandingPage/ProductBanner'
 
 const HomePage = () => {
     const categories: CategoryModel[] = [
@@ -41,6 +42,7 @@ const HomePage = () => {
         <>
             <HeroSection />
             <InfoSection />
+            <ProductBanner />
             <Listings categories={categories} />
         </>
     )
