@@ -2,6 +2,7 @@ import React from 'react'
 import { CategoryModel } from '../../Model/CategoryModel'
 import Listings from '../../Components/Listings/Listings'
 import HeroSection from '../../Components/LandingPage/HeroSection'
+import InfoSection from '../../Components/LandingPage/InfoSection'
 
 const HomePage = () => {
     const categories: CategoryModel[] = [
@@ -39,6 +40,7 @@ const HomePage = () => {
     return (
         <>
             <HeroSection />
+            <InfoSection />
             <Listings categories={categories} />
         </>
     )

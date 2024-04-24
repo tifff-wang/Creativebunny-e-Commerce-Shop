@@ -1,0 +1,37 @@
+.info-section-container {
+    height: 300px;
+    // background-color: beige;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+
+    .info-card {
+        // background-color: bisque;
+        height: 100%;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+
+        .info-image-container{
+          height:40%;
+          margin-bottom:20px;
+
+          img{
+            height:100%;
+          }
+        }
+
+        h3{
+          font-size: 12px;
+          font-family: system-ui;
+          font-weight: 300;
+          text-align: center;
+          width:70%;
+          line-height: 18px;
+        }
+    }
+}
