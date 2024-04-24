@@ -8,10 +8,15 @@ interface ListingsProps {
 }
 const Listings = ({ categories }: ListingsProps) => {
     return (
-        <div className="listings-container">
-            {categories.map((category) => (
-                <CategoryItem key={category.id} category={category} />
-            ))}
+        <div className="categories-section-container">
+            <div className="categories-section-title">
+                <h2>POPULAR CATEGORIES</h2>
+            </div>
+            <div className="listings-container">
+                {categories.map((category) => (
+                    <CategoryItem key={category.id} category={category} />
+                ))}
+            </div>
         </div>
     )
 }

@@ -1,6 +1,18 @@
-.listings-container {
+.categories-section-container{
+  margin-left:20px;
+  margin-right:20px;
+
+  .categories-section-title{
+    margin: 0 0 20px 10px;
+  }
+
+  .listings-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+}
+
+
+
