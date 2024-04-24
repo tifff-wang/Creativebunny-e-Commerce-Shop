@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import HomePage from './Routes/Home/HomePage'
 import NavBar from './Routes/Nav/NavBar'
 import AuthPage from './Routes/Auth/AuthPage'
@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './Store/User/userSlice'
 import { setCategories } from './Store/Category/categorySlice'
 import PayCompletionPage from './Routes/Checkout/PayCompletionPage'
+import Footer from './Routes/Footer/Footer'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -40,16 +41,23 @@ const App = () => {
     }, [])
 
     return (
-        <Routes>
-            <Route path="/" element={<NavBar />}>
-                <Route index element={<HomePage />} />
-                <Route path="auth" element={<AuthPage />} />
-                <Route path="toys/*" element={<ToyPreviewPage />} />
-                <Route path="toys/:categoryName" element={<ToyListPage />} />
-                <Route path="checkout" element={<CheckoutPage />} />
-                <Route path="completion" element={<PayCompletionPage />} />
-            </Route>
-        </Routes>
+        <>
+            <NavBar />
+            <Routes>
+                <Route path="/">
+                    <Route index element={<HomePage />} />
+                    <Route path="auth" element={<AuthPage />} />
+                    <Route path="toys/*" element={<ToyPreviewPage />} />
+                    <Route
+                        path="toys/:categoryName"
+                        element={<ToyListPage />}
+                    />
+                    <Route path="checkout" element={<CheckoutPage />} />
+                    <Route path="completion" element={<PayCompletionPage />} />
+                </Route>
+            </Routes>
+            <Footer />
+        </>
     )
 }
 
