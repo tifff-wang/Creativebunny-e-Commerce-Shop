@@ -1,6 +1,7 @@
 import React from 'react'
 import { CategoryModel } from '../../Model/CategoryModel'
 import Listings from '../../Components/Listings/Listings'
+import HeroSection from '../../Components/LandingPage/HeroSection'
 
 const HomePage = () => {
     const categories: CategoryModel[] = [
@@ -35,7 +36,12 @@ const HomePage = () => {
             route: 'toys/carpentry',
         },
     ]
-    return <Listings categories={categories} />
+    return (
+        <>
+            <HeroSection />
+            <Listings categories={categories} />
+        </>
+    )
 }
 
 export default HomePage

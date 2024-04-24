@@ -1,0 +1,47 @@
+.hero-container {
+    height: 500px;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    .hero-image-container {
+        width: 50%;
+        display: flex;
+
+        .hero-image {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+        }
+    }
+
+    .hero-description-container {
+        width: 40%;
+        margin: auto;
+
+        h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 20px;
+            font-family: system-ui;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        Button {
+            background-color: rgba(255, 243, 226, 0.659);
+            color: rgb(45, 45, 45);
+            font-family: system-ui;
+            font-weight: 800;
+        }
+    }
+}
