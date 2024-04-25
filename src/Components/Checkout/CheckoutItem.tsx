@@ -26,20 +26,20 @@ const CheckoutItem = ({ item }: { item: CartItemModel }) => {
             <th>${item.price}</th>
             <th>
                 <div>
-                    <IoMdArrowDropup
-                        className="checkout-table-icon"
-                        onClick={() =>
-                            dispatch(
-                                changeItemQuantity({ item: item, isUp: true })
-                            )
-                        }
-                    />
-                    {item.quantity}
                     <IoMdArrowDropdown
                         className="checkout-table-icon"
                         onClick={() =>
                             dispatch(
                                 changeItemQuantity({ item: item, isUp: false })
+                            )
+                        }
+                    />
+                    {item.quantity}
+                    <IoMdArrowDropup
+                        className="checkout-table-icon"
+                        onClick={() =>
+                            dispatch(
+                                changeItemQuantity({ item: item, isUp: true })
                             )
                         }
                     />
