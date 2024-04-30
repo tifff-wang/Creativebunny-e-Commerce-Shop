@@ -19,8 +19,15 @@ export const cartSlice = createSlice({
         setCartDropdownOpen(state, action: PayloadAction<boolean>) {
             state.cartDropdownOpen = action.payload
         },
-        addItemToCart(state, action) {
-            state.cartItems = addCartItem(state.cartItems, action.payload)
+        addItemToCart(
+            state,
+            action: PayloadAction<{ item: ToyModel; addQuantity: number }>
+        ) {
+            state.cartItems = addCartItem(
+                state.cartItems,
+                action.payload.item,
+                action.payload.addQuantity
+            )
         },
         changeItemQuantity(
             state,
@@ -38,17 +45,19 @@ export const cartSlice = createSlice({
     },
 })
 
-export const { setCartDropdownOpen, addItemToCart,changeItemQuantity, deleteItemfromCart } =
-    cartSlice.actions
+export const {
+    setCartDropdownOpen,
+    addItemToCart,
+    changeItemQuantity,
+    deleteItemfromCart,
+} = cartSlice.actions
 
 export const cartReducer = cartSlice.reducer
 
-
-
-
 const addCartItem = (
     cartItemList: CartItemModel[],
-    item: ToyModel
+    item: ToyModel,
+    addQuantity: number
 ): CartItemModel[] => {
     const existingCartItem = cartItemList.filter((cartItem) => {
         return cartItem.id === item.id
@@ -57,14 +66,17 @@ const addCartItem = (
     if (existingCartItem.length > 0) {
         const updatedCartItems = cartItemList.map((cartItem) => {
             if (cartItem.id === item.id) {
-                return { ...cartItem, quantity: cartItem.quantity + 1 }
+                return {
+                    ...cartItem,
+                    quantity: cartItem.quantity + addQuantity,
+                }
             }
             return cartItem
         })
         return updatedCartItems
     }
 
-    return [...cartItemList, { ...item, quantity: 1 }]
+    return [...cartItemList, { ...item, quantity: addQuantity }]
 }
 
 const changeQty = (
