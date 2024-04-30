@@ -4,7 +4,8 @@ import Button from '../../Components/Button/Button'
 import { ToyModel } from '../../Model/ToyModel'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectProductById } from '../../Store/Category/categorySelector'
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai'
+
 import { addItemToCart } from '../../Store/Cart/cartSlice'
 import './ToyDetailPage.styles.scss'
 
@@ -40,18 +41,25 @@ const ToyDetailPage = () => {
                     <h2 className="product-name">{product?.name}</h2>
                     <h3 className="product-price">${product?.price}</h3>
                     <div className="add-to-cart-container">
-                        <div>
-                            <IoMdArrowDropdown
-                                className="checkout-table-icon"
-                                onClick={() =>
-                                    setQuantity(Math.max(quantity - 1, 1))
-                                }
-                            />
-                            {quantity}
-                            <IoMdArrowDropup
-                                className="checkout-table-icon"
-                                onClick={() => setQuantity(quantity + 1)}
-                            />
+                        <div className="quantity-icon-container">
+                            
+                                <AiOutlineMinusCircle
+                                    className="checkout-table-icon"
+                                    onClick={() =>
+                                        setQuantity(Math.max(quantity - 1, 1))
+                                    }
+                                    size={20}
+                                />
+                        
+
+                            <div className="product-quantity">{quantity}</div>
+                           
+                                <AiOutlinePlusCircle
+                                    className="checkout-table-icon"
+                                    onClick={() => setQuantity(quantity + 1)}
+                                    size={20}
+                                />
+                           
                         </div>
                         {product && (
                             <Button
