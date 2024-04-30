@@ -28,3 +28,19 @@ export const categoriesData = createSelector(
         return categoryMap
     }
 )
+
+export const selectProductById = (productId: number) =>
+    createSelector([categoriesData], (categoryMap) => {
+        for (const categoryProducts of Object.values(categoryMap)) {
+            const foundProduct = categoryProducts.find(
+                (product) => product.id === productId
+            )
+            if (foundProduct) {
+                return foundProduct
+            }
+        }
+       
+        return null
+    })
+
+

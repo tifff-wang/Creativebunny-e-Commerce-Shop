@@ -1,0 +1,41 @@
+.product-detail-container {
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+
+    .product-detail-image-container {
+        width: 50%;
+
+        .product-detail-image {
+            width: 90%;
+        }
+    }
+
+    .product-detail-info {
+      margin-left:20px;
+
+        .product-name {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 28px;
+            font-family: ubuntu;
+            margin-bottom: 10px;
+            
+        }
+
+        .add-to-cart-container{
+          display:flex;
+          flex-direction: row;
+          border-top: solid 0.5px darkgrey;
+          padding-top: 20px;
+          
+        }
+
+
+    }
+}

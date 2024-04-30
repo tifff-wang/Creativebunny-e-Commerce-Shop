@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ProductCard from '../../Components/Product-Card/ProductCard'
 import './ToyListPage.styles.scss'
 import { ToyModel } from '../../Model/ToyModel'
@@ -8,6 +8,7 @@ import { categoriesData } from '../../Store/Category/categorySelector'
 
 const ToyListPage = () => {
     const { categoryName } = useParams()
+    const navigate = useNavigate()
     const toysData = useSelector(categoriesData)
     const [products, setProducts] = useState<ToyModel[]>([])
 
@@ -19,13 +20,21 @@ const ToyListPage = () => {
         }
     }, [toysData, categoryName])
 
+    const handleClick = (productId: number) => {
+        navigate(`/toys/${categoryName}/${productId}`)
+    }
+
     return (
         <div className="toys-list-container">
             <h2 className="category-title">{categoryName}</h2>
             <div className="toys-card-container">
                 {products &&
                     products.map((product) => {
-                        return <ProductCard key={product.id} toy={product} />
+                        return (
+                            <div onClick={() => handleClick(product.id)}>
+                                <ProductCard key={product.id} toy={product} />
+                            </div>
+                        )
                     })}
             </div>
         </div>

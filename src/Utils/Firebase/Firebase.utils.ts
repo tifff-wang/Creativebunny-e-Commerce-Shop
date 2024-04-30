@@ -19,6 +19,7 @@ import {
     writeBatch,
     query,
     getDocs,
+    where,
 } from 'firebase/firestore'
 import { ToyDataModel } from '../../Model/ToyDataModel'
 import { ToyModel } from '../../Model/ToyModel'

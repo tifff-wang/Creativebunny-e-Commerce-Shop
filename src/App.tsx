@@ -16,6 +16,7 @@ import { setCurrentUser } from './Store/User/userSlice'
 import { setCategories } from './Store/Category/categorySlice'
 import PayCompletionPage from './Routes/Checkout/PayCompletionPage'
 import Footer from './Routes/Footer/Footer'
+import ToyDetailPage from './Routes/Toys/ToyDetailPage'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -47,11 +48,14 @@ const App = () => {
                 <Route path="/">
                     <Route index element={<HomePage />} />
                     <Route path="auth" element={<AuthPage />} />
-                    <Route path="toys/*" element={<ToyPreviewPage />} />
+
+                    <Route path="toys/:categoryName/:productId" element={<ToyDetailPage />} />
                     <Route
                         path="toys/:categoryName"
                         element={<ToyListPage />}
                     />
+                    <Route path="toys/*" element={<ToyPreviewPage />} />
+
                     <Route path="checkout" element={<CheckoutPage />} />
                     <Route path="completion" element={<PayCompletionPage />} />
                 </Route>
