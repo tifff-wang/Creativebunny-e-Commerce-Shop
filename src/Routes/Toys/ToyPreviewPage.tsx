@@ -26,6 +26,7 @@ const ToyPage = () => {
                                     <ProductCard
                                         key={product.id}
                                         toy={product}
+                                        categoryName={categoryName}
                                     />
                                 )
                             })}

@@ -3,34 +3,25 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 360px;
+    height: 350px;
     align-items: center;
     z-index: 10;
+    background-color: rgb(246, 246, 246);
+    border-radius: 5px;
 
     img {
         width: 100%;
-        height: 95%;
+        height: 80%;
         object-fit: cover;
         margin-bottom: 5px;
         z-index: 0;
-    }
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        cursor: pointer;
 
-    button {
-        position: absolute;
-        width: 80%;
-        opacity: 0.8;
-        top: 250px;
-        display: none;
-    }
 
-    &:hover {
-        img {
+        &:hover {
             opacity: 0.85;
-        }
-
-        button {
-            opacity: 0.9;
-            display: flex;
         }
     }
 
@@ -39,14 +30,32 @@
         width: 100%;
         height: 5%;
         justify-content: space-between;
+        align-items: center;
         font-size: 18px;
+        margin-top: 20px;
+        margin-left:20px;
+        
 
-        .name {
-            width: 90%;
+        .name-price-container {
+            display: flex;
+            flex-direction: column;
         }
 
-        .price {
-            width: 10%;
+        .add-to-cart-icon-container {
+            border-radius: 15px;
+            background-color: rgb(255, 166, 0);
+            padding: 4px 5px 5px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right:20px;
+            cursor: pointer;
+
+            &:hover {
+            background-color: rgb(255, 240, 223);
+            color: rgb(33, 33, 33);
+        }
         }
     }
 }

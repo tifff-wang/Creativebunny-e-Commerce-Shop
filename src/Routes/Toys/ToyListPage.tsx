@@ -20,20 +20,19 @@ const ToyListPage = () => {
         }
     }, [toysData, categoryName])
 
-    const handleClick = (productId: number) => {
-        navigate(`/toys/${categoryName}/${productId}`)
-    }
-
     return (
         <div className="toys-list-container">
             <h2 className="category-title">{categoryName}</h2>
             <div className="toys-card-container">
                 {products &&
+                    categoryName &&
                     products.map((product) => {
                         return (
-                            <div onClick={() => handleClick(product.id)}>
-                                <ProductCard key={product.id} toy={product} />
-                            </div>
+                            <ProductCard
+                                key={product.id}
+                                toy={product}
+                                categoryName={categoryName}
+                            />
                         )
                     })}
             </div>
