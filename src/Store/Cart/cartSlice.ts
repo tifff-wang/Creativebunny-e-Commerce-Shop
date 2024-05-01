@@ -8,7 +8,7 @@ interface CartInitialState {
 }
 
 const CART_INITIAL_STATE: CartInitialState = {
-    cartItems: [],
+    cartItems: JSON.parse(localStorage.getItem('cart') || '[]'),
     cartDropdownOpen: false,
 }
 
@@ -73,10 +73,15 @@ const addCartItem = (
             }
             return cartItem
         })
+        localStorage.setItem('cart', JSON.stringify(updatedCartItems))
         return updatedCartItems
     }
-
-    return [...cartItemList, { ...item, quantity: addQuantity }]
+    const updatedCartItems = [
+        ...cartItemList,
+        { ...item, quantity: addQuantity },
+    ]
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems))
+    return updatedCartItems
 }
 
 const changeQty = (
@@ -91,8 +96,10 @@ const changeQty = (
                 quantity: Math.max(cartItem.quantity + (isUp ? 1 : -1), 1),
             }
         }
+
         return cartItem
     })
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems))
     return updatedCartItems
 }
 
@@ -103,5 +110,6 @@ const deleteCartItem = (
     const updatedCartItems = cartItemList.filter(
         (item) => item.id !== itemToDelete.id
     )
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems))
     return updatedCartItems
 }
