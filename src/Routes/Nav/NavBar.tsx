@@ -32,20 +32,17 @@ const NavBar = () => {
                 </Link>
 
                 <div className="nav-links-container">
-                    <Link className="nav-link" to="/toys">
+                    <Link className="nav-link" to="/products">
                         PRODUCTS
                     </Link>
                     <CartIcon />
                     {currentUser ? (
-                        <Button
-                            buttonType='default'
-                            onClick={handleClick}
-                        >
+                        <Button buttonType="default" onClick={handleClick}>
                             LOGOUT
                         </Button>
                     ) : (
                         <Button
-                            buttonType='inverted'
+                            buttonType="inverted"
                             onClick={() => navigate('/auth')}
                         >
                             SIGN IN

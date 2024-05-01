@@ -26,9 +26,6 @@ const ToyDetailPage = () => {
 
     return (
         <>
-            <div>
-                <button onClick={() => navigate(-1)}>Back</button>
-            </div>
             <div className="product-detail-container">
                 <div className="product-detail-image-container">
                     <img

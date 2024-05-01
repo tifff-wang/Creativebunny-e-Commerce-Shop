@@ -13,7 +13,7 @@ const ToyPage = () => {
             {Object.keys(toysData).map((categoryName) => (
                 <div key={categoryName}>
                     <Link
-                        to={`/toys/${categoryName}`}
+                        to={`/products/${categoryName}`}
                         className="category-title"
                     >
                         {categoryName.toUpperCase()}

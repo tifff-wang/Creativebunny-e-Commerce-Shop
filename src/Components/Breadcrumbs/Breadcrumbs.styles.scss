@@ -1,0 +1,30 @@
+.breadcrumbs-container {
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px 24px;
+    margin-top: -6px;
+    font-family: roboto;
+    font-size: 14px;
+    font-weight: 300;
+    color: black;
+    z-index: 0;
+
+    .home-slash {
+        margin-left: 5px;
+    }
+
+    .crumb {
+        margin-left: 5px;
+    }
+
+    .crumb-link {
+        text-decoration: underline;
+    }
+
+    .last-crumb {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgb(49, 49, 49);
+    }
+}

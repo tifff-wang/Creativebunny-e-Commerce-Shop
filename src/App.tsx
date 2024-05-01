@@ -17,6 +17,7 @@ import { setCategories } from './Store/Category/categorySlice'
 import PayCompletionPage from './Routes/Checkout/PayCompletionPage'
 import Footer from './Routes/Footer/Footer'
 import ToyDetailPage from './Routes/Toys/ToyDetailPage'
+import Breadcrumbs from './Components/Breadcrumbs/Breadcrumbs'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -44,17 +45,21 @@ const App = () => {
     return (
         <>
             <NavBar />
+            <Breadcrumbs />
             <Routes>
                 <Route path="/">
                     <Route index element={<HomePage />} />
                     <Route path="auth" element={<AuthPage />} />
 
-                    <Route path="toys/:categoryName/:productId" element={<ToyDetailPage />} />
                     <Route
-                        path="toys/:categoryName"
+                        path="products/:categoryName/:productId"
+                        element={<ToyDetailPage />}
+                    />
+                    <Route
+                        path="products/:categoryName"
                         element={<ToyListPage />}
                     />
-                    <Route path="toys/*" element={<ToyPreviewPage />} />
+                    <Route path="products/*" element={<ToyPreviewPage />} />
 
                     <Route path="checkout" element={<CheckoutPage />} />
                     <Route path="completion" element={<PayCompletionPage />} />

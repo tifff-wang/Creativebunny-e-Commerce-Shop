@@ -1,16 +1,15 @@
 .navigation {
     position: fixed;
-    top:0;
+    top: 0;
     height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 16px;
     align-items: center;
     background-color: #fdfdfd;
     padding-top: 10px;
     box-shadow: 0 5px 10px #e8e8e854;
-    z-index:1000;
+    z-index: 1000;
 
     .logo-container {
         height: 100%;
