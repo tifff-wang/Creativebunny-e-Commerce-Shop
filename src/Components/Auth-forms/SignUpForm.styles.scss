@@ -3,6 +3,15 @@
     flex-direction: column;
     width: 360px;
 
+    .signin-error-message {
+        margin-top: 20px;
+        background-color: rgba(255, 0, 0, 0.224);
+        color: rgb(39, 39, 39);
+        font-size: 14px;
+        font-family: system-ui;
+        padding: 10px;
+    }
+
     h2 {
         margin: 20px 0;
         color: #474747;

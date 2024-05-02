@@ -16,6 +16,7 @@ const defaultFormFields = {
 const SignInForm = () => {
     const navigate = useNavigate()
     const [formFields, setFormFields] = useState(defaultFormFields)
+    const [errorMessage, setErrorMessage] = useState('')
     const { email, password } = formFields
 
     const resetFormFields = () => {
@@ -24,7 +25,6 @@ const SignInForm = () => {
 
     const handleChange = (event: any) => {
         const { name, value } = event.target
-
         setFormFields({ ...formFields, [name]: value })
     }
 
@@ -37,11 +37,13 @@ const SignInForm = () => {
             navigate('/')
         } catch (error) {
             if ((error as any).code === 'auth/invalid-credential') {
-                alert('Incorrect password')
+                setErrorMessage('Incorrect password')
             } else if ((error as any).code === 'auth/user-not-found') {
-                alert('Can not find the email, please sign up')
+                setErrorMessage('Can not find the email, please sign up')
             } else {
-                alert('Oops, something went wrong, please try again later')
+                setErrorMessage(
+                    'Oops, something went wrong, please try again later'
+                )
             }
         }
     }
@@ -55,6 +57,9 @@ const SignInForm = () => {
         <div className="sign-in-container">
             <h2>Already have an account?</h2>
             <p>Sign In</p>
+            {!errorMessage || (
+                <p className="signin-error-message">{errorMessage}</p>
+            )}
             <form onSubmit={handleSubmit}>
                 <FormInput
                     label="Email"
