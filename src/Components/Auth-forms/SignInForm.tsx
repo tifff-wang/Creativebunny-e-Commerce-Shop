@@ -34,7 +34,7 @@ const SignInForm = () => {
         try {
             await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields()
-            navigate('/')
+            navigate(-1)
         } catch (error) {
             if ((error as any).code === 'auth/invalid-credential') {
                 setErrorMessage('Incorrect password')
@@ -50,7 +50,7 @@ const SignInForm = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup()
-        navigate('/')
+        navigate(-1)
     }
 
     return (

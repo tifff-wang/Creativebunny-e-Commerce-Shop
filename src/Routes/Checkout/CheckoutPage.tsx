@@ -7,10 +7,14 @@ import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from '../../Utils/Stripe/Stripe.utils'
 import { useSelector } from 'react-redux'
 import { totalPrice } from '../../Store/Cart/cartSelector'
+import { selectedCurrentUser } from '../../Store/User/userSelector'
 
 const CheckoutPage = () => {
     const [clientSecret, setClientSecret] = useState('')
+    const currentUser = useSelector(selectedCurrentUser)
     const amount = useSelector(totalPrice)
+    
+
     useEffect(() => {
         fetch('/.netlify/functions/create-payment-intent', {
             method: 'POST',
@@ -34,18 +38,32 @@ const CheckoutPage = () => {
                     continue shopping
                 </Link>
                 <CheckoutTable />
-                <div>
-                    {clientSecret ? (
-                        <Elements
-                            stripe={stripePromise}
-                            options={{ clientSecret }}
+                {currentUser ? (
+                    <div>
+                        {clientSecret ? (
+                            <Elements
+                                stripe={stripePromise}
+                                options={{ clientSecret }}
+                            >
+                                <StripeForm />
+                            </Elements>
+                        ) : (
+                            <p>Loading payment details...</p>
+                        )}
+                    </div>
+                ) : (
+                    <div className="signin-direct-message">
+                        Please{' '}
+                        <Link
+                            className="signin-link"
+                            to="/auth"
+                          
                         >
-                            <StripeForm />
-                        </Elements>
-                    ) : (
-                        <p>Loading payment details...</p>
-                    )}
-                </div>
+                            Sign In
+                        </Link>{' '}
+                        to make the payment
+                    </div>
+                )}
             </div>
         </>
     )
