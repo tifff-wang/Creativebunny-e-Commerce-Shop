@@ -7,6 +7,7 @@ import { selectedCartItems, totalPrice } from '../../Store/Cart/cartSelector'
 const CheckoutTable = () => {
     const currentCartItems = useSelector(selectedCartItems)
     const currentTotalPrice = useSelector(totalPrice)
+
     return (
         <table className="checkout-table">
             <thead>

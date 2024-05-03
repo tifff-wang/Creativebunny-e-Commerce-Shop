@@ -1,12 +1,12 @@
 .checkout-table {
     width: 100%;
-    background-color: rgb(246, 246, 246);
     padding: 20px 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
 
     .table-header {
-        font-size: 18px;
+        font-size: 16px;
         height: 60px;
-        
 
         .item {
             width: 20%;
@@ -22,19 +22,17 @@
     }
 
     .cart-empty {
-      text-align: center;
-      height: 80px;
+        text-align: center;
+        height: 80px;
     }
 
     tfoot {
-      text-align: end;
-      font-size: 28px;
-      height: 80px;
-      
-   
-      td {
-        text-align: center;
-      }
-    }
+        text-align: end;
+        font-size: 24px;
+        height: 80px;
 
+        td {
+            text-align: center;
+        }
+    }
 }

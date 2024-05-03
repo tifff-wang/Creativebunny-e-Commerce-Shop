@@ -42,6 +42,10 @@ export const cartSlice = createSlice({
         deleteItemfromCart(state, action) {
             state.cartItems = deleteCartItem(state.cartItems, action.payload)
         },
+        clearCart(state) {
+            state.cartItems = []
+            localStorage.removeItem('cart')
+        },
     },
 })
 
@@ -50,6 +54,7 @@ export const {
     addItemToCart,
     changeItemQuantity,
     deleteItemfromCart,
+    clearCart,
 } = cartSlice.actions
 
 export const cartReducer = cartSlice.reducer
@@ -113,3 +118,9 @@ const deleteCartItem = (
     localStorage.setItem('cart', JSON.stringify(updatedCartItems))
     return updatedCartItems
 }
+
+// const clearCartItems = (cartItemList: CartItemModel[]): CartItemModel[] => {
+//     const updatedCartItems = cartItemList.filter((item) => item === null)
+//     localStorage.removeItem('cart')
+//     return updatedCartItems
+// }

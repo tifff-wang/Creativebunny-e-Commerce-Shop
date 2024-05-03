@@ -2,10 +2,16 @@ import React, { useState } from 'react'
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import Button from '../Button/Button'
 import './StripeForm.styles.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearCart } from '../../Store/Cart/cartSlice'
+import CartItem from '../Cart/CartItem'
+import { selectedCartItems } from '../../Store/Cart/cartSelector'
 
 const StripeForm = () => {
     const stripe = useStripe()
+    const dispatch = useDispatch()
     const elements = useElements()
+    const cartItems = useSelector(selectedCartItems)
     const [isProcessing, setIsProcessing] = useState(false)
 
     const handleSubmit = async (e: any) => {
@@ -26,7 +32,7 @@ const StripeForm = () => {
 
         if (error) {
             alert(error.message)
-        }
+        } 
 
         setIsProcessing(false)
     }

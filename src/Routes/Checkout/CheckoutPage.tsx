@@ -13,7 +13,6 @@ const CheckoutPage = () => {
     const [clientSecret, setClientSecret] = useState('')
     const currentUser = useSelector(selectedCurrentUser)
     const amount = useSelector(totalPrice)
-    
 
     useEffect(() => {
         fetch('/.netlify/functions/create-payment-intent', {
@@ -31,10 +30,11 @@ const CheckoutPage = () => {
             }
         })
     }, [])
+    
     return (
         <>
             <div className="checkout-container">
-                <Link className="continue-shopping" to="/toys">
+                <Link className="continue-shopping" to="/products">
                     continue shopping
                 </Link>
                 <CheckoutTable />
@@ -54,11 +54,7 @@ const CheckoutPage = () => {
                 ) : (
                     <div className="signin-direct-message">
                         Please{' '}
-                        <Link
-                            className="signin-link"
-                            to="/auth"
-                          
-                        >
+                        <Link className="signin-link" to="/auth">
                             Sign In
                         </Link>{' '}
                         to make the payment
