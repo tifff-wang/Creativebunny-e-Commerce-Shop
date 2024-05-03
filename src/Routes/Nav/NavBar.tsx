@@ -8,12 +8,15 @@ import { CartDropdownOpenStatus } from '../../Store/Cart/cartSelector'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectedCurrentUser, setCurrentUser } from '../../Store/User/userSlice'
 import Button from '../../Components/Button/Button'
+import { FaUser } from 'react-icons/fa'
 
 const NavBar = () => {
     const currentUser = useSelector(selectedCurrentUser)
+    const firstName = currentUser?.displayName.split(' ')[0]
     const cartDropdownOpen = useSelector(CartDropdownOpenStatus)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
     const handleClick = async () => {
         try {
             await signOutAuthUser()
@@ -35,18 +38,28 @@ const NavBar = () => {
                     <Link className="nav-link" to="/products">
                         PRODUCTS
                     </Link>
-                    <CartIcon />
+
                     {currentUser ? (
-                        <Button buttonType="default" onClick={handleClick}>
-                            LOGOUT
-                        </Button>
+                        <div className="current-user-container">
+                            <div className="username">
+                                <FaUser />
+                                <p>Welcome {firstName}</p>
+                            </div>
+                            <CartIcon />
+                            <Button buttonType="default" onClick={handleClick}>
+                                Logout
+                            </Button>
+                        </div>
                     ) : (
-                        <Button
-                            buttonType="inverted"
-                            onClick={() => navigate('/auth')}
-                        >
-                            SIGN IN
-                        </Button>
+                        <div className="current-user-container">
+                            <CartIcon />
+                            <Button
+                                buttonType="inverted"
+                                onClick={() => navigate('/auth')}
+                            >
+                                SIGN IN
+                            </Button>
+                        </div>
                     )}
                 </div>
                 {cartDropdownOpen && <CartDropdown />}
