@@ -20,17 +20,17 @@ const CheckoutItem = ({
     const dispatch = useDispatch()
     const subtotal = item.price * item.quantity
     return (
-        <tr className="table-row">
-            <th>
+        <tr>
+            <td className="image">
                 <img
                     className="item-image"
                     src={item.imageUrl}
                     alt={`${item.name}`}
                 />
-            </th>
-            <th>{item.name}</th>
-            <th>${item.price}</th>
-            <th>
+            </td>
+            <td>{item.name}</td>
+            <td>${item.price}</td>
+            <td>
                 {canChangeQty ? (
                     <div className="item-qty">
                         <IoMdArrowDropdown
@@ -64,9 +64,9 @@ const CheckoutItem = ({
                 ) : (
                     <div>{item.quantity}</div>
                 )}
-            </th>
+            </td>
 
-            <th className="subtotal">${subtotal}</th>
+            <td className="subtotal">${subtotal}</td>
         </tr>
     )
 }

@@ -11,57 +11,59 @@ const CheckoutTable = ({canChangeQty}:{canChangeQty:boolean}) => {
     const shipping = 6.99
 
     return (
-        <table>
-            <thead>
-                <tr className="table-header">
-                    <th className="item">Item</th>
-                    <th className="name">Name</th>
-                    <th className="price">Unit Price</th>
-                    <th className="qty">Qty</th>
-                    <th className="subtotal">Total</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {currentCartItems.length > 0 ? (
-                    currentCartItems.map((item) => {
-                        return (
-                            <CheckoutItem
-                                key={item.id}
-                                item={item}
-                                canChangeQty={canChangeQty}
-                            />
-                        )
-                    })
-                ) : (
-                    <tr className="cart-empty">
-                        <th scope="row" colSpan={5}>
-                            The cart is empty
-                        </th>
+        <div className="cart-table-container">
+            <table>
+                <thead>
+                    <tr className="table-header">
+                        <th className="item">Item</th>
+                        <th className="name">Name</th>
+                        <th className="price">Unit Price</th>
+                        <th className="qty">Qty</th>
+                        <th className="subtotal">Total</th>
                     </tr>
-                )}
-            </tbody>
-            <tfoot>
-                <tr className="subtotal-and-shipping">
-                    <th scope="row" colSpan={4}>
-                        Subtotal:
-                    </th>
-                    <td>${currentTotalPrice}</td>
-                </tr>
-                <tr className="subtotal-and-shipping">
-                    <th scope="row" colSpan={4}>
-                        Shipping:
-                    </th>
-                    <td>$ {shipping}</td>
-                </tr>
-                <tr className="total-price">
-                    <th scope="row" colSpan={4}>
-                        Total Price:
-                    </th>
-                    <td>${currentTotalPrice + shipping}</td>
-                </tr>
-            </tfoot>
-        </table>
+                </thead>
+
+                <tbody>
+                    {currentCartItems.length > 0 ? (
+                        currentCartItems.map((item) => {
+                            return (
+                                <CheckoutItem
+                                    key={item.id}
+                                    item={item}
+                                    canChangeQty={canChangeQty}
+                                />
+                            )
+                        })
+                    ) : (
+                        <tr className="cart-empty">
+                            <th scope="row" colSpan={5}>
+                                The cart is empty
+                            </th>
+                        </tr>
+                    )}
+                </tbody>
+                <tfoot>
+                    <tr className="foot-row">
+                        <th scope="row" colSpan={4}>
+                            Subtotal:
+                        </th>
+                        <td>${currentTotalPrice}</td>
+                    </tr>
+                    <tr className="foot-row">
+                        <th className="shipping" scope="row" colSpan={4}>
+                            Shipping:
+                        </th>
+                        <td className="shipping">$ {shipping}</td>
+                    </tr>
+                    <tr className="foot-row total-price">
+                        <th scope="row" colSpan={4}>
+                            Total Price:
+                        </th>
+                        <td>${currentTotalPrice + shipping}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     )
 }
 

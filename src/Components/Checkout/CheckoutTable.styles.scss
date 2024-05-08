@@ -1,18 +1,28 @@
+.cart-table-container{
+    border-radius: 15px;
+    box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
+    padding: 20px;
+
+}
+
 table {
     width: 100%;
-    padding: 20px 20px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
+    border-radius: 10px;
+    border-collapse: collapse;
 
     thead tr {
         font-size: 14px;
-        height: 60px;
+        height: 40px;
         font-family: roboto;
 
         th.subtotal {
             width: 15%;
             text-align: end;
         }
+    }
+
+    thead th{
+      border-bottom: solid 0.6px rgb(223, 223, 223);
     }
 
     .cart-empty {
@@ -24,31 +34,24 @@ table {
         text-align: end;
         font-size: 18px;
 
-        .table-divider td {
-            border-top: 1px solid rgb(240, 240, 240);
-            height: 20px;
-        }
-
-        .subtotal-and-shipping {
+        .foot-row {
             font-family: roboto;
             font-size: 14px;
             font-weight: 500;
+            height: 35px;
+        }
+
+        .total-price {
+            font-size: 16px;
+            height:50px;
         }
 
         td {
             text-align: end;
         }
+    }
 
-        .check-out-button th {
-            padding-top: 48px;
-            position: relative; 
-
-            Button {
-                position: absolute; // Absolute positioning for the button container
-                bottom: 0; // Align to the bottom of the parent <tr>
-                right: 0; // Align to the right of the parent <tr>
-                
-            }
-        }
+    tfoot tr .shipping{
+      border-bottom: solid 1px rgb(238, 238, 238);
     }
 }
