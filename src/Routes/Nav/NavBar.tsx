@@ -36,7 +36,7 @@ const NavBar = () => {
 
                 <div className="nav-links-container">
                     <Link className="nav-link" to="/products">
-                        PRODUCTS
+                        Products
                     </Link>
 
                     {currentUser ? (

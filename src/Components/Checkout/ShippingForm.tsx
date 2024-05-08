@@ -31,17 +31,16 @@ const ShippingForm = () => {
         dispatch(setDeliveryDetailSaved(true))
     }
 
-    const handleClick = (event:any) =>{
-      setformInEdit(true)
-      dispatch(setDeliveryDetailSaved(false))
+    const handleClick = (event: any) => {
+        setformInEdit(true)
+        dispatch(setDeliveryDetailSaved(false))
     }
-    
 
     return (
         <>
             {formInEdit ? (
                 <div className="delivery-detail-container">
-                    <h2>Delivery Detail</h2>
+                    <h2>2. Delivery Detail</h2>
                     <div className="email-container">
                         <p>Email:{currentUser?.email} </p>
                         <div>Edit</div>
@@ -96,11 +95,11 @@ const ShippingForm = () => {
                 </div>
             ) : (
                 <div>
-                    <h2>Delivery Detail</h2>
+                    <h2>2. Shipping Detail </h2>
                     <div className="delivery-detail-summary">
                         <p>{currentUser?.email}</p>
                         <p>
-                            {formFields.firstName}
+                            {formFields.firstName}&nbsp;
                             {formFields.lastName}
                         </p>
                         <p>{formFields.deliveryAddress}</p>
