@@ -3,9 +3,9 @@ import CheckoutItem from './CheckoutItem'
 import './CheckoutTable.styles.scss'
 import { useSelector } from 'react-redux'
 import { selectedCartItems, totalPrice } from '../../Store/Cart/cartSelector'
-import Button from '../Button/Button'
 
-const CheckoutTable = () => {
+
+const CheckoutTable = ({canChangeQty}:{canChangeQty:boolean}) => {
     const currentCartItems = useSelector(selectedCartItems)
     const currentTotalPrice = useSelector(totalPrice)
     const shipping = 6.99
@@ -25,7 +25,13 @@ const CheckoutTable = () => {
             <tbody>
                 {currentCartItems.length > 0 ? (
                     currentCartItems.map((item) => {
-                        return <CheckoutItem key={item.id} item={item} />
+                        return (
+                            <CheckoutItem
+                                key={item.id}
+                                item={item}
+                                canChangeQty={canChangeQty}
+                            />
+                        )
                     })
                 ) : (
                     <tr className="cart-empty">
@@ -36,10 +42,6 @@ const CheckoutTable = () => {
                 )}
             </tbody>
             <tfoot>
-                <tr className="table-divider">
-                    <td colSpan={5}></td>
-                </tr>
-
                 <tr className="subtotal-and-shipping">
                     <th scope="row" colSpan={4}>
                         Subtotal:
@@ -52,20 +54,11 @@ const CheckoutTable = () => {
                     </th>
                     <td>$ {shipping}</td>
                 </tr>
-                <tr className="table-divider">
-                    <td colSpan={5}></td>
-                </tr>
                 <tr className="total-price">
                     <th scope="row" colSpan={4}>
                         Total Price:
                     </th>
                     <td>${currentTotalPrice + shipping}</td>
-                </tr>
-                <tr className="check-out-button">
-                    <th scope="row" colSpan={5}>
-                        {' '}
-                        <Button buttonType="inverted">Check Out</Button>
-                    </th>
                 </tr>
             </tfoot>
         </table>

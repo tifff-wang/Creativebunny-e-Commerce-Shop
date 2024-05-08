@@ -62,7 +62,7 @@ const App = () => {
                     />
                     <Route path="products/*" element={<ToyPreviewPage />} />
                     <Route path="cart" element={<ViewCartPage />} />
-                    <Route path="checkout" element={<CheckoutPage />} />
+                    <Route path="cart/checkout" element={<CheckoutPage />} />
                     <Route path="completion" element={<PayCompletionPage />} />
                 </Route>
             </Routes>
