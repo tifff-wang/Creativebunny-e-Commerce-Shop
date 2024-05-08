@@ -1,23 +1,17 @@
-.checkout-table {
+table {
     width: 100%;
     padding: 20px 20px;
     border-radius: 20px;
     box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
 
-    .table-header {
-        font-size: 16px;
+    thead tr {
+        font-size: 14px;
         height: 60px;
+        font-family: roboto;
 
-        .item {
-            width: 20%;
-        }
-
-        .name {
-            width: 25%;
-        }
-
-        .subtotal {
-            width: 20%;
+        th.subtotal {
+            width: 15%;
+            text-align: end;
         }
     }
 
@@ -28,11 +22,33 @@
 
     tfoot {
         text-align: end;
-        font-size: 24px;
-        height: 80px;
+        font-size: 18px;
+
+        .table-divider td {
+            border-top: 1px solid rgb(240, 240, 240);
+            height: 20px;
+        }
+
+        .subtotal-and-shipping {
+            font-family: roboto;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
         td {
-            text-align: center;
+            text-align: end;
+        }
+
+        .check-out-button th {
+            padding-top: 48px;
+            position: relative; 
+
+            Button {
+                position: absolute; // Absolute positioning for the button container
+                bottom: 0; // Align to the bottom of the parent <tr>
+                right: 0; // Align to the right of the parent <tr>
+                
+            }
         }
     }
 }

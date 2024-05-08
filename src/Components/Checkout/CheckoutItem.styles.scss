@@ -1,10 +1,23 @@
 .table-row {
     height: 100px;
+    
   
     .item-image {
         height: 80px;
         width: 80px;
         border-radius: 45px;
+    }
+
+    th{
+      font-family: roboto;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .item-qty{
+      display:flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .remove-button {
@@ -13,5 +26,9 @@
 
     .checkout-table-icon {
         cursor: pointer;
+    }
+    
+    .subtotal{
+      text-align: end;
     }
 }

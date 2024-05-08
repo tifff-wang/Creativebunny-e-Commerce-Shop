@@ -3,7 +3,6 @@ import HomePage from './Routes/Home/HomePage'
 import NavBar from './Routes/Nav/NavBar'
 import AuthPage from './Routes/Auth/AuthPage'
 import ToyPreviewPage from './Routes/Toys/ToyPreviewPage'
-import CheckoutPage from './Routes/Checkout/CheckoutPage'
 import ToyListPage from './Routes/Toys/ToyListPage'
 import React, { useEffect } from 'react'
 import {
@@ -18,6 +17,8 @@ import PayCompletionPage from './Routes/Checkout/PayCompletionPage'
 import Footer from './Routes/Footer/Footer'
 import ToyDetailPage from './Routes/Toys/ToyDetailPage'
 import Breadcrumbs from './Components/Breadcrumbs/Breadcrumbs'
+import ViewCartPage from './Routes/Checkout/ViewCartPage'
+import CheckoutPage from './Routes/Checkout/CheckoutPage'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -60,7 +61,7 @@ const App = () => {
                         element={<ToyListPage />}
                     />
                     <Route path="products/*" element={<ToyPreviewPage />} />
-
+                    <Route path="cart" element={<ViewCartPage />} />
                     <Route path="checkout" element={<CheckoutPage />} />
                     <Route path="completion" element={<PayCompletionPage />} />
                 </Route>

@@ -13,7 +13,7 @@ const CartDropdown = () => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate('/checkout')
+        navigate('/cart')
         dispatch(setCartDropdownOpen(false))
     }
     return (
@@ -26,7 +26,7 @@ const CartDropdown = () => {
                         })}
                     </div>
                     <Button buttonType="inverted" onClick={handleClick}>
-                        Checkout
+                        View Cart
                     </Button>
                 </>
             ) : (

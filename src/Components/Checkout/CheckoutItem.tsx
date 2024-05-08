@@ -25,7 +25,7 @@ const CheckoutItem = ({ item }: { item: CartItemModel }) => {
             <th>{item.name}</th>
             <th>${item.price}</th>
             <th>
-                <div>
+                <div className="item-qty">
                     <IoMdArrowDropdown
                         className="checkout-table-icon"
                         onClick={() =>
@@ -43,15 +43,14 @@ const CheckoutItem = ({ item }: { item: CartItemModel }) => {
                             )
                         }
                     />
+                    <MdDeleteOutline
+                        className="checkout-table-icon"
+                        onClick={() => dispatch(deleteItemfromCart(item))}
+                    />
                 </div>
             </th>
-            <th>${subtotal}</th>
-            <th>
-                <MdDeleteOutline
-                    className="checkout-table-icon"
-                    onClick={() => dispatch(deleteItemfromCart(item))}
-                />
-            </th>
+
+            <th className="subtotal">${subtotal}</th>
         </tr>
     )
 }
