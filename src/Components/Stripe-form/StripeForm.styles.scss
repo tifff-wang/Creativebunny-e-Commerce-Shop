@@ -10,7 +10,14 @@
 
     .stripe-form {
         height: 100px;
-        min-width: 350px;
+        width:100%;
+        
+
+        .stripe-inputs-container {
+            border-radius: 15px;
+            box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
+            padding:20px;
+        }
 
         .stripe-card {
             display: grid;
@@ -19,7 +26,7 @@
         }
 
         Button {
-            margin: auto
+            margin: auto;
         }
     }
 }

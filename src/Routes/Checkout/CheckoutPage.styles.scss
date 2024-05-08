@@ -1,16 +1,19 @@
 .checkout-page-container {
     display: flex;
     flex-direction: row;
-    margin: 10px auto 80px auto;
+    margin: 60px auto 300px auto;
+
+    .cart-summary-text {
+        margin-bottom: 20px;
+    }
 
     .checkout-summary {
         width: 40%;
-        padding: 60px;
+        padding: 0px 60px 60px 60px;
     }
 
     .stripe-payment {
         width: 40%;
-        margin-left:30px;
-        padding-top:60px;
+        margin-left: 30px;
     }
 }

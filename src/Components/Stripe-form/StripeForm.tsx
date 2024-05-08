@@ -41,10 +41,12 @@ const StripeForm = () => {
         <div className="stripe-form-container">
             <form className="stripe-form" onSubmit={handleSubmit}>
                 <h2>Pay with Stripe</h2>
-                <PaymentElement className="stripe-card" />
-                <Button buttonType="inverted">
-                    {isProcessing ? 'Proseccing...' : 'Pay Now'}
-                </Button>
+                <div className="stripe-inputs-container">
+                    <PaymentElement className="stripe-card" />
+                    <Button buttonType="inverted">
+                        {isProcessing ? 'Proseccing...' : 'Pay Now'}
+                    </Button>
+                </div>
             </form>
         </div>
     )
