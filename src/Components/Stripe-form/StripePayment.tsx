@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectedCurrentUser } from '../../Store/User/userSelector'
 import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from '../../Utils/Stripe/Stripe.utils'
 import StripeForm from './StripeForm'
-import { Link } from 'react-router-dom'
 import { totalPrice } from '../../Store/Cart/cartSelector'
 import './StripePayment.styles.scss'
 
 const StripePayment = () => {
-    const [clientSecret, setClientSecret] = useState('')
-    const currentUser = useSelector(selectedCurrentUser)
+    const [clientSecret, setClientSecret] = useState('')  
     const amount = useSelector(totalPrice)
 
     useEffect(() => {
@@ -31,8 +28,6 @@ const StripePayment = () => {
     }, [])
 
     return (
-        <>
-            {currentUser ? (
                 <div>
                     {clientSecret ? (
                         <Elements
@@ -45,16 +40,6 @@ const StripePayment = () => {
                         <p>Loading payment details...</p>
                     )}
                 </div>
-            ) : (
-                <div className="signin-direct-message">
-                    Please{' '}
-                    <Link className="signin-link" to="/auth">
-                        Sign In
-                    </Link>{' '}
-                    to make the payment
-                </div>
-            )}
-        </>
     )
 }
 

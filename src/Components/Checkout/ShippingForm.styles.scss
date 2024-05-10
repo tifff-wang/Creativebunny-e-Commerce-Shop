@@ -4,18 +4,11 @@
     display: flex;
     flex-direction: column;
 
-    .email-container {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        margin-top: 20px;
-    }
-
-    .fullname-container {
-        display: flex;
-        flex-direction: row;
-        height: 100px;
-        gap: 60px;
+    .delivery-method{
+      font-family: system-ui;
+      font-size: 14px;
+      margin: 14px 0 0 4px;
+      font-weight: 600;
     }
 
     .save-button-container {
