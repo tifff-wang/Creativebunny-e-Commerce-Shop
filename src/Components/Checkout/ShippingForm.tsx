@@ -1,26 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import { selectedCurrentUser } from '../../Store/User/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import './ShippingForm.styles.scss'
-import { setDeliveryDetailSaved } from '../../Store/Checkout/checkoutSlice'
+import {
+    setDeliveryDetailSaved,
+    setDeliveryInfo,
+} from '../../Store/Checkout/checkoutSlice'
+import {
+    currentDeliveryDetailSaved,
+    currentDeliveryInfoStatus,
+} from '../../Store/Checkout/checkoutSelector'
 
 const ShippingForm = () => {
-    const currentUser = useSelector(selectedCurrentUser)
-
-    const defaultFormFields = {
-        email: currentUser?.email,
-        firstName: '',
-        lastName: '',
-        deliveryAddress: '',
-        message: '',
-    }
-    const [formFields, setFormFields] = useState(defaultFormFields)
-    const { email, firstName, lastName, deliveryAddress, message } = formFields
-
-    const [formInEdit, setformInEdit] = useState(true)
     const dispatch = useDispatch()
+    const currentUser = useSelector(selectedCurrentUser)
+    const currentDeliveryInfo = useSelector(currentDeliveryInfoStatus)
+    const isDeliveryInfoSaved = useSelector(currentDeliveryDetailSaved)
+    const [formFields, setFormFields] = useState(currentDeliveryInfo)
+    const { email, firstName, lastName, deliveryAddress, message } = formFields
+    const [formInEdit, setformInEdit] = useState(!isDeliveryInfoSaved)
+
+    useEffect(() => {
+        if (currentUser?.email && !formFields.email) {
+            setFormFields((prevFields) => ({
+                ...prevFields,
+                email: currentUser.email,
+            }))
+        }
+    }, [currentUser, formFields.email])
 
     const handleChange = (event: any) => {
         const { name, value } = event.target
@@ -31,6 +40,7 @@ const ShippingForm = () => {
         event.preventDefault()
         setformInEdit(false)
         dispatch(setDeliveryDetailSaved(true))
+        dispatch(setDeliveryInfo(formFields))
     }
 
     const handleClick = async (event: any) => {
@@ -107,13 +117,13 @@ const ShippingForm = () => {
                     </div>
                 ) : (
                     <div className="delivery-detail-summary">
-                        <p>{email}</p>
+                        <p>{currentDeliveryInfo.email}</p>
                         <p>
-                            {firstName}&nbsp;
+                            {currentDeliveryInfo.firstName}&nbsp;
                             {lastName}
                         </p>
-                        <p>{deliveryAddress}</p>
-                        <p>Delivery note: {message}</p>
+                        <p>{currentDeliveryInfo.deliveryAddress}</p>
+                        <p>Delivery note: {currentDeliveryInfo.message}</p>
                         <button className="edit-button" onClick={handleClick}>
                             edit
                         </button>
