@@ -4,8 +4,7 @@ import './CheckoutTable.styles.scss'
 import { useSelector } from 'react-redux'
 import { selectedCartItems, totalPrice } from '../../Store/Cart/cartSelector'
 
-
-const CheckoutTable = ({canChangeQty}:{canChangeQty:boolean}) => {
+const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
     const currentCartItems = useSelector(selectedCartItems)
     const currentTotalPrice = useSelector(totalPrice)
     const shipping = 6.99
@@ -59,7 +58,7 @@ const CheckoutTable = ({canChangeQty}:{canChangeQty:boolean}) => {
                         <th scope="row" colSpan={4}>
                             Total Price:
                         </th>
-                        <td>${currentTotalPrice + shipping}</td>
+                        <td>${(currentTotalPrice + shipping).toFixed(2)}</td>
                     </tr>
                 </tfoot>
             </table>

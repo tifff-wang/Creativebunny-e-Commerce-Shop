@@ -1,11 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
-
-interface AuthState {
-    accessToken: string
-    displayName: string
-    email: string
-}
+import { AuthState } from '../../Model/AuthStateModel'
 
 interface UserState {
     currentUser: AuthState | null
@@ -21,8 +16,9 @@ export const userSlice = createSlice({
     reducers: {
         setCurrentUser(state, action) {
             if (action.payload) {
-                const { accessToken, displayName, email } = action.payload
+                const { uid, accessToken, displayName, email } = action.payload
                 state.currentUser = {
+                    uid: uid || "",
                     accessToken: accessToken || '',
                     displayName: displayName || '',
                     email: email || '',

@@ -2,13 +2,24 @@ import React, { useState } from 'react'
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import Button from '../Button/Button'
 import './StripeForm.styles.scss'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectedCartItems } from '../../Store/Cart/cartSelector'
+import { currentDeliveryInfoStatus } from '../../Store/Checkout/checkoutSelector'
+import { selectedCurrentUser } from '../../Store/User/userSelector'
+import { selectedCartItems, totalPrice } from '../../Store/Cart/cartSelector'
+import { OrderModel } from '../../Model/OrderModel'
+import { createOrderDocuments } from '../../Utils/Firebase/Firebase.utils'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
 
 const StripeForm = () => {
     const stripe = useStripe()
     const elements = useElements()
     const [isProcessing, setIsProcessing] = useState(false)
+    const currentDeliveryInfo = useSelector(currentDeliveryInfoStatus)
+    const currentUser = useSelector(selectedCurrentUser)
+    const currentTotalPrice = useSelector(totalPrice)
+    const orderItems = useSelector(selectedCartItems)
+    const navigate = useNavigate()
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
@@ -19,16 +30,38 @@ const StripeForm = () => {
 
         setIsProcessing(true)
 
-        const { error } = await stripe.confirmPayment({
+        const { error, paymentIntent } = await stripe.confirmPayment({
             elements,
             confirmParams: {
                 return_url: `${window.location.origin}/completion`,
             },
+            redirect: 'if_required',
         })
 
         if (error) {
             alert(error.message)
-        } 
+            setIsProcessing(false)
+            return
+        } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+            console.log('Payment succeeded')
+            if (currentDeliveryInfo && currentUser) {
+                const order: OrderModel = {
+                    id: uuid(),
+                    orderItems,
+                    deliveryInfo: currentDeliveryInfo,
+                    userId: currentUser.uid,
+                    deliveryStatus: 'pending',
+                    totalPrice: currentTotalPrice,
+                    paymentIntent: paymentIntent.id
+                }
+
+                createOrderDocuments(order)
+                console.log('Order saved successfully:', order)
+            }
+            navigate('/completion')
+        } else {
+            console.log('Payment failed')
+        }
 
         setIsProcessing(false)
     }
@@ -39,7 +72,7 @@ const StripeForm = () => {
                 <div className="stripe-inputs-container">
                     <PaymentElement className="stripe-card" />
                     <Button buttonType="inverted">
-                        {isProcessing ? 'Proseccing...' : 'Pay Now'}
+                        {isProcessing ? 'Processing...' : 'Pay Now'}
                     </Button>
                 </div>
             </form>

@@ -23,6 +23,8 @@ import {
 } from 'firebase/firestore'
 import { ToyDataModel } from '../../Model/ToyDataModel'
 import { ToyModel } from '../../Model/ToyModel'
+import { OrderModel } from '../../Model/OrderModel'
+import { Order } from '@stripe/stripe-js'
 
 const firebaseConfig = {
     apiKey: 'AIzaSyC03aXbzBnVAaewz6BYd_PWRFjy6MUnFZU',
@@ -122,3 +124,32 @@ export const signOutAuthUser = async () => await signOut(auth)
 
 export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
     onAuthStateChanged(auth, callback)
+
+export const createOrderDocuments = async (order: OrderModel) => {
+    if (!order) return
+
+    const orderRef = doc(db, 'orders', order.id)
+    const {
+        orderItems,
+        deliveryInfo,
+        userId,
+        totalPrice,
+        deliveryStatus,
+        paymentIntent,
+    } = order
+    const createdAt = new Date()
+
+    try {
+        await setDoc(orderRef, {
+            orderItems,
+            deliveryInfo,
+            userId,
+            totalPrice,
+            deliveryStatus,
+            paymentIntent,
+            createdAt,
+        })
+    } catch {
+        console.log('error creating the user')
+    }
+}

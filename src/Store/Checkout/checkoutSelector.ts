@@ -9,6 +9,6 @@ export const currentDeliveryDetailSaved = createSelector(
 )
 
 export const currentDeliveryInfoStatus = createSelector(
-  [checkoutReducer],
-  (checkout) => checkout.deliveryInfo
+    [checkoutReducer],
+    (checkout) => checkout.deliveryInfo
 )
