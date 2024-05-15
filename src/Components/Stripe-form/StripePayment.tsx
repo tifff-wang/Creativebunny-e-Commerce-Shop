@@ -8,7 +8,7 @@ import './StripePayment.styles.scss'
 
 const StripePayment = () => {
     const [clientSecret, setClientSecret] = useState('')  
-    const amount = useSelector(totalPrice)
+    const amount = useSelector(totalPrice) * 0.8
 
     useEffect(() => {
         fetch('/.netlify/functions/create-payment-intent', {

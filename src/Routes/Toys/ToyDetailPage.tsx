@@ -13,16 +13,15 @@ const ToyDetailPage = () => {
     const { productId } = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const id = Number(productId)
-    const selectedProduct = useSelector(selectProductById(id))
+    const selectedProduct = useSelector(selectProductById(productId || ""))
     const [product, setProduct] = useState<ToyModel>()
     const [quantity, setQuantity] = useState(1)
 
     useEffect(() => {
-        if (id && selectedProduct) {
+        if (productId && selectedProduct) {
             setProduct(selectedProduct)
         }
-    }, [id, selectedProduct])
+    }, [productId, selectedProduct])
 
     return (
         <>

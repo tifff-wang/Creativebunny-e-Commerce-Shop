@@ -19,9 +19,16 @@ import ToyDetailPage from './Routes/Toys/ToyDetailPage'
 import Breadcrumbs from './Components/Breadcrumbs/Breadcrumbs'
 import ViewCartPage from './Routes/Checkout/ViewCartPage'
 import CheckoutPage from './Routes/Checkout/CheckoutPage'
+import { createCollectionAndDocuments } from './Utils/Firebase/Firebase.utils'
+import TOY_DATA from './toys-data'
 
 const App = () => {
     const dispatch = useDispatch()
+
+    // useEffect(() => {
+    //     createCollectionAndDocuments('categories', TOY_DATA)
+    // }, [])
+
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
             if (user) {

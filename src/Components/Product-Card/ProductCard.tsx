@@ -18,7 +18,7 @@ const ProductCard = (props: Props) => {
     const navigate = useNavigate()
     const [quantity, setQuantity] = useState(1)
 
-    const handleClick = (productId: number) => {
+    const handleClick = (productId: string) => {
         navigate(`/products/${categoryName}/${productId}`)
     }
 

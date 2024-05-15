@@ -29,7 +29,7 @@ export const categoriesData = createSelector(
     }
 )
 
-export const selectProductById = (productId: number) =>
+export const selectProductById = (productId: string) =>
     createSelector([categoriesData], (categoryMap) => {
         for (const categoryProducts of Object.values(categoryMap)) {
             const foundProduct = categoryProducts.find(

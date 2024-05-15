@@ -1,9 +1,23 @@
-.category-title {
-    display: flex;
-    justify-content: center;
-    font-weight: medium;
-    font-size: 25px;
-    margin: 40px 0 0 10px;
+.category-title-container {
+    position: relative;
+
+    .category-title {
+        display:flex;
+        justify-content: center;
+        font-weight: medium;
+        font-size: 25px;
+        margin: 40px 0 0 10px;
+    }
+
+    .view-more {
+        position: absolute;
+        right:20px;
+        bottom:4px;
+        text-decoration: underline;
+        font-family: system-ui;
+        font-size: 14px;
+        color: rgb(134, 134, 134);
+    }
 }
 
 .toys-card-container {

@@ -7,7 +7,7 @@ import './Breadcrumbs.styles.scss'
 const Breadcrumbs = () => {
     const location = useLocation()
     const crumbs = location.pathname.split('/').filter((crumb) => crumb !== '')
-    const productId = parseInt(crumbs[crumbs.length - 1])
+    const productId = crumbs[crumbs.length - 1]
     const selectedProduct = useSelector(selectProductById(productId))
 
     return (

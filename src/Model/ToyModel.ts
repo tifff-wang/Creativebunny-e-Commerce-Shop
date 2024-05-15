@@ -1,6 +1,7 @@
 export interface ToyModel {
-    id: number
+    id: string
     name: string
     imageUrl: string
     price: number
+    description: string
 }

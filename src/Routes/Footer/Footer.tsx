@@ -1,8 +1,9 @@
 import React from 'react'
 import './Footer.styles.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div className="footer-container">
@@ -13,9 +14,9 @@ const Footer = () => {
                 </div>
                 <div className="footer-card footer-nav">
                     <ul>
-                        <li>Home</li>
+                        <li onClick={() => navigate('/')}>Home</li>
                         <li>About Us</li>
-                        <li>Toys</li>
+                        <li onClick={() => navigate('/products')}>Toys</li>
                         <li>Shipping</li>
                         <li>Terms & Condition</li>
                         <li>Contact</li>
