@@ -10,8 +10,8 @@ import {
 
 const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
     const currentCartItems = useSelector(selectedCartItems)
-    const subtotal = useSelector(totalPrice)
-    const currentTotalPrice = useSelector(discountedPrice)
+    const subtotal = Number(useSelector(totalPrice).toFixed(2))
+    const currentTotalPrice = Number(useSelector(discountedPrice).toFixed(2))
     const discount = Number((subtotal - currentTotalPrice).toFixed(2))
     const shipping = 6.99
 
@@ -70,7 +70,9 @@ const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
                         <th scope="row" colSpan={4}>
                             Total Price:
                         </th>
-                        <td>${currentTotalPrice + shipping}</td>
+                        <td>
+                            ${Number((currentTotalPrice + shipping).toFixed(2))}
+                        </td>
                     </tr>
                 </tfoot>
             </table>
