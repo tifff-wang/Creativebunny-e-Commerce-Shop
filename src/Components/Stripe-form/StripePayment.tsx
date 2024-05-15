@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux'
 import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from '../../Utils/Stripe/Stripe.utils'
 import StripeForm from './StripeForm'
-import { totalPrice } from '../../Store/Cart/cartSelector'
+import { discountedPrice } from '../../Store/Cart/cartSelector'
 import './StripePayment.styles.scss'
 
 const StripePayment = () => {
-    const [clientSecret, setClientSecret] = useState('')  
-    const amount = useSelector(totalPrice) * 0.8
+    const [clientSecret, setClientSecret] = useState('')
+    const amount = useSelector(discountedPrice)
 
     useEffect(() => {
         fetch('/.netlify/functions/create-payment-intent', {
@@ -28,18 +28,15 @@ const StripePayment = () => {
     }, [])
 
     return (
-                <div>
-                    {clientSecret ? (
-                        <Elements
-                            stripe={stripePromise}
-                            options={{ clientSecret }}
-                        >
-                            <StripeForm />
-                        </Elements>
-                    ) : (
-                        <p>Loading payment details...</p>
-                    )}
-                </div>
+        <div>
+            {clientSecret ? (
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    <StripeForm />
+                </Elements>
+            ) : (
+                <p>Loading payment details...</p>
+            )}
+        </div>
     )
 }
 

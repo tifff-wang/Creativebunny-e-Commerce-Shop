@@ -15,6 +15,7 @@
 
     .product-detail-info {
         margin-left: 20px;
+        width:50%;
 
         .product-name {
             font-size: 38px;
@@ -32,13 +33,13 @@
             flex-direction: row;
             border-top: solid 0.5px darkgrey;
             padding-top: 20px;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
 
             .quantity-icon-container {
                 display: flex;
                 flex-direction: row;
-                justify-content: center;
+                justify-content:center;
                 align-items: center;
 
                 .checkout-table-icon {
@@ -52,6 +53,13 @@
                     padding: 3px 15px 3px 15px;
                 }
             }
+        }
+
+        .product-description-container{
+          margin-top: 30px;
+          font-family: system-ui;
+          font-size: 14px;
+          line-height: 20px;
         }
     }
 }

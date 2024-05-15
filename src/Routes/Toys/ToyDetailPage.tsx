@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 import { ToyModel } from '../../Model/ToyModel'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,7 +11,6 @@ import './ToyDetailPage.styles.scss'
 
 const ToyDetailPage = () => {
     const { productId } = useParams()
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const selectedProduct = useSelector(selectProductById(productId || ""))
     const [product, setProduct] = useState<ToyModel>()
@@ -38,24 +37,21 @@ const ToyDetailPage = () => {
                     <h3 className="product-price">${product?.price}</h3>
                     <div className="add-to-cart-container">
                         <div className="quantity-icon-container">
-                            
-                                <AiOutlineMinusCircle
-                                    className="checkout-table-icon"
-                                    onClick={() =>
-                                        setQuantity(Math.max(quantity - 1, 1))
-                                    }
-                                    size={20}
-                                />
-                        
+                            <AiOutlineMinusCircle
+                                className="checkout-table-icon"
+                                onClick={() =>
+                                    setQuantity(Math.max(quantity - 1, 1))
+                                }
+                                size={20}
+                            />
 
                             <div className="product-quantity">{quantity}</div>
-                           
-                                <AiOutlinePlusCircle
-                                    className="checkout-table-icon"
-                                    onClick={() => setQuantity(quantity + 1)}
-                                    size={20}
-                                />
-                           
+
+                            <AiOutlinePlusCircle
+                                className="checkout-table-icon"
+                                onClick={() => setQuantity(quantity + 1)}
+                                size={20}
+                            />
                         </div>
                         {product && (
                             <Button
@@ -72,6 +68,9 @@ const ToyDetailPage = () => {
                                 Add to cart
                             </Button>
                         )}
+                    </div>
+                    <div className="product-description-container">
+                        <p>{product?.description}</p>
                     </div>
                 </div>
             </div>
