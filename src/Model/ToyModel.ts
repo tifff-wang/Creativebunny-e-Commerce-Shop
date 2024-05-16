@@ -4,4 +4,7 @@ export interface ToyModel {
     imageUrl: string
     price: number
     description: string
+    material: string
+    size: string[]
+    age: string
 }

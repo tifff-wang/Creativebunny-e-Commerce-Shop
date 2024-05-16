@@ -12,9 +12,11 @@
         display: flex;
 
         .hero-image {
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             margin: auto;
+            border-radius: 5px;
+            border-top-right-radius: 100px;
         }
     }
 

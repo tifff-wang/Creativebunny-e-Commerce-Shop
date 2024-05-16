@@ -15,7 +15,7 @@
 
     .product-detail-info {
         margin-left: 20px;
-        width:50%;
+        width: 50%;
 
         .product-name {
             font-size: 38px;
@@ -39,12 +39,11 @@
             .quantity-icon-container {
                 display: flex;
                 flex-direction: row;
-                justify-content:center;
+                justify-content: center;
                 align-items: center;
 
                 .checkout-table-icon {
                     margin: 0 10px;
-
                 }
 
                 .product-quantity {
@@ -55,11 +54,26 @@
             }
         }
 
-        .product-description-container{
-          margin-top: 30px;
-          font-family: system-ui;
-          font-size: 14px;
-          line-height: 20px;
+        .product-description-container {
+            margin-top: 30px;
+            font-family: system-ui;
+            font-size: 14px;
+            line-height: 20px;
+
+            .product-description {
+                margin-top: 20px;
+            }
+
+            .size-list {
+                padding: 0;
+                list-style-type: none;
+                font-size: 13px;
+
+                .size {
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+            }
         }
     }
 }

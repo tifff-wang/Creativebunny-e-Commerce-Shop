@@ -11,7 +11,7 @@ const ProductBanner = () => {
             <div className="product-hightlight-container">
                 <div className="product-image-container">
                     <img
-                        src="/images/toy-photos/pizza-set.webp"
+                        src="/images/toy-photos/oven-bagette.webp"
                         alt="a pizza set toy"
                         className="product-image"
                     />

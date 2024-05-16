@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 import { ToyModel } from '../../Model/ToyModel'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectProductById } from '../../Store/Category/categorySelector'
+import {
+    categoriesData,
+    selectProductById,
+} from '../../Store/Category/categorySelector'
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai'
 
 import { addItemToCart } from '../../Store/Cart/cartSlice'
@@ -12,7 +15,7 @@ import './ToyDetailPage.styles.scss'
 const ToyDetailPage = () => {
     const { productId } = useParams()
     const dispatch = useDispatch()
-    const selectedProduct = useSelector(selectProductById(productId || ""))
+    const selectedProduct = useSelector(selectProductById(productId || ''))
     const [product, setProduct] = useState<ToyModel>()
     const [quantity, setQuantity] = useState(1)
 
@@ -24,56 +27,74 @@ const ToyDetailPage = () => {
 
     return (
         <>
-            <div className="product-detail-container">
-                <div className="product-detail-image-container">
-                    <img
-                        className="product-detail-image"
-                        src={product?.imageUrl}
-                        alt={product?.name}
-                    />
-                </div>
-                <div className="product-detail-info">
-                    <h2 className="product-name">{product?.name}</h2>
-                    <h3 className="product-price">${product?.price}</h3>
-                    <div className="add-to-cart-container">
-                        <div className="quantity-icon-container">
-                            <AiOutlineMinusCircle
-                                className="checkout-table-icon"
-                                onClick={() =>
-                                    setQuantity(Math.max(quantity - 1, 1))
-                                }
-                                size={20}
-                            />
+            {product && (
+                <div className="product-detail-container">
+                    <div className="product-detail-image-container">
+                        <img
+                            className="product-detail-image"
+                            src={product.imageUrl}
+                            alt={product.name}
+                        />
+                    </div>
+                    <div className="product-detail-info">
+                        <h2 className="product-name">{product.name}</h2>
+                        <h3 className="product-price">${product.price}</h3>
+                        <div className="add-to-cart-container">
+                            <div className="quantity-icon-container">
+                                <AiOutlineMinusCircle
+                                    className="checkout-table-icon"
+                                    onClick={() =>
+                                        setQuantity(Math.max(quantity - 1, 1))
+                                    }
+                                    size={20}
+                                />
 
-                            <div className="product-quantity">{quantity}</div>
+                                <div className="product-quantity">
+                                    {quantity}
+                                </div>
 
-                            <AiOutlinePlusCircle
-                                className="checkout-table-icon"
-                                onClick={() => setQuantity(quantity + 1)}
-                                size={20}
-                            />
+                                <AiOutlinePlusCircle
+                                    className="checkout-table-icon"
+                                    onClick={() => setQuantity(quantity + 1)}
+                                    size={20}
+                                />
+                            </div>
+                            {product && (
+                                <Button
+                                    buttonType="inverted"
+                                    onClick={() =>
+                                        dispatch(
+                                            addItemToCart({
+                                                item: product,
+                                                addQuantity: quantity,
+                                            })
+                                        )
+                                    }
+                                >
+                                    Add to cart
+                                </Button>
+                            )}
                         </div>
-                        {product && (
-                            <Button
-                                buttonType="inverted"
-                                onClick={() =>
-                                    dispatch(
-                                        addItemToCart({
-                                            item: product,
-                                            addQuantity: quantity,
-                                        })
-                                    )
-                                }
-                            >
-                                Add to cart
-                            </Button>
-                        )}
-                    </div>
-                    <div className="product-description-container">
-                        <p>{product?.description}</p>
+                        <div className="product-description-container">
+                            <p className="product-description">
+                                {product.description}
+                            </p>
+                            <p className="product-description">
+                                Material: {product.material}
+                            </p>
+                            <ul className="product-description size-list">
+                              Size:
+                                {product?.size.map((item) => (
+                                    <li className="size" key ={item}>{item}</li>
+                                ))}
+                            </ul>
+                            <p className="product-description">
+                                For age: {product?.age}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </>
     )
 }

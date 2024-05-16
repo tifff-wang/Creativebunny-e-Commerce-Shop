@@ -10,7 +10,7 @@ const HeroSection = () => {
             <div className="hero-container">
                 <div className="hero-image-container">
                     <img
-                        src="/images/toy-photos/bunny-shaker.webp"
+                        src="/images/toy-photos/star-shaker-hero.webp"
                         alt="a bunny shaker"
                         className="hero-image"
                     />
