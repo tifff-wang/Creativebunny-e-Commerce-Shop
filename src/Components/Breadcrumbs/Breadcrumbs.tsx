@@ -10,6 +10,10 @@ const Breadcrumbs = () => {
     const productId = crumbs[crumbs.length - 1]
     const selectedProduct = useSelector(selectProductById(productId))
 
+    if (location.pathname === '/') {
+        return null
+    }
+
     return (
         <div className='breadcrumbs-container'>
             {crumbs.length === 0 ? (
