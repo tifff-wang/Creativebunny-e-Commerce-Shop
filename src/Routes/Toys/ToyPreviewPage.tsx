@@ -9,10 +9,10 @@ const ToyPage = () => {
     const toysData = useSelector(categoriesData)
 
     return (
-        <>
+        <div className="categories-page-container">
             {Object.keys(toysData).map((categoryName) => (
                 <div key={categoryName}>
-                    <div className='category-title-container'>
+                    <div className="category-title-container">
                         <Link
                             to={`/products/${categoryName}`}
                             className="category-title"
@@ -42,7 +42,7 @@ const ToyPage = () => {
                     </div>
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 
