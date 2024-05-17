@@ -1,5 +1,5 @@
 .categories-page-container {
-   margin-top: 80px;
+   margin-top: 4.2rem;
 
     .category-title-container {
         position: relative;
@@ -7,8 +7,9 @@
         .category-title {
             display: flex;
             justify-content: center;
-            font-weight: medium;
-            font-size: 25px;
+            font-size: var(--font-size-large);
+            font-weight:600;
+            letter-spacing: 3px;
             margin: 40px 0 0 10px;
         }
 
@@ -18,8 +19,8 @@
             bottom: 4px;
             text-decoration: underline;
             font-family: system-ui;
-            font-size: 14px;
-            color: rgb(134, 134, 134);
+            font-size: var(--font-size-small);
+            color: rgb(92, 92, 92);
         }
     }
 }

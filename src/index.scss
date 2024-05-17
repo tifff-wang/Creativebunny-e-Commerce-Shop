@@ -1,35 +1,79 @@
+html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+:root {
+    --primary-font: 'Chau Philomene One', 'Poppins', sans-serif;
+    --secondary-font: 'System-ui', 'Arial', sans-serif;
+
+    --primary-color: #fea500;
+    --secondary-color: rgb(255, 240, 223);
+    --accent-color: #accfcb;
+    --text-color: rgb(61, 61, 61);
+    --text-secondary-color: #7f695e;
+    --text-alert-color:rgba(255, 0, 0, 0.679);
+    --background-color: #fdfdfd;
+    --background-grey:rgb(246, 246, 246);
+    --title-color: rgb(68, 68, 68);
+    --link-color: rgb(47, 47, 47);
+
+    --font-size-xsmall: 0.75rem; /* 13px */
+    --font-size-small: 0.875rem; /* 14px */
+    --font-size-medium: 1rem; /* 16px */
+    --font-size-large: 1.5rem; /* 24px */
+    --font-size-xlarge: 2rem; /* 32px */
+    --font-size-xxlarge: 3rem; /* 48px */
+}
+
 body {
     margin: 0;
-    padding-top:96px;
-    font-family: 'Chau Philomene One', 'Poppins', sans-serif;
+    padding-top: 96px;
+    font-family: var(--primary-font);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: var(--font-size-medium);
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+    font-size: var(--font-size-small);
 }
 
 a {
     text-decoration: none;
-    color: rgb(47, 47, 47);
+    color: var(--link-color);
+    font-size: var(--font-size-small);
 }
 
 h1,
+.h1 {
+    font-size: var(--font-size-xxlarge);
+    color: var(--text-color);
+}
+
 h2,
+.h2 {
+    font-size: var(--font-size-xlarge);
+    color: var(--text-color);
+}
+
 h3,
+.h3 {
+    font-size: var(--font-size-large);
+    color: var(--text-color);
+    line-height: 1.125rem;
+}
+
 h4,
 h5,
 h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
 p {
+    font-size: var(--font-size-small);
     margin-top: 0;
     margin-bottom: 0;
-    color: rgb(47, 47, 47);
+    color: var(--text-color);
+    line-height: 1.25rem;
 }

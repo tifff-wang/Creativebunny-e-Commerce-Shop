@@ -4,7 +4,6 @@ import Button from '../../Components/Button/Button'
 import { ToyModel } from '../../Model/ToyModel'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    categoriesData,
     selectProductById,
 } from '../../Store/Category/categorySelector'
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai'
@@ -37,7 +36,7 @@ const ToyDetailPage = () => {
                         />
                     </div>
                     <div className="product-detail-info">
-                        <h2 className="product-name">{product.name}</h2>
+                        <h3 className="product-name">{product.name}</h3>
                         <h3 className="product-price">${product.price}</h3>
                         <div className="add-to-cart-container">
                             <div className="quantity-icon-container">
@@ -61,7 +60,7 @@ const ToyDetailPage = () => {
                             </div>
                             {product && (
                                 <Button
-                                    buttonType="inverted"
+                                    buttonType="default"
                                     onClick={() =>
                                         dispatch(
                                             addItemToCart({
@@ -83,9 +82,11 @@ const ToyDetailPage = () => {
                                 Material: {product.material}
                             </p>
                             <ul className="product-description size-list">
-                              Size:
+                                Size:
                                 {product?.size.map((item) => (
-                                    <li className="size" key ={item}>{item}</li>
+                                    <li className="size" key={item}>
+                                        {item}
+                                    </li>
                                 ))}
                             </ul>
                             <p className="product-description">

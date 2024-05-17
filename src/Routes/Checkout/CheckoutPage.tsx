@@ -16,19 +16,19 @@ const CheckoutPage = () => {
     return (
         <div className="checkout-page-container">
             <div className="cart-summary">
-                <h2 className="cart-summary-text">1. Cart Summary</h2>
+                <h3 className="cart-summary-text">1. Cart Summary</h3>
                 <CheckoutTable canChangeQty={false} />
             </div>
 
             {currentUser ? (
                 <div className="delivery-info">
                     <ShippingForm />
-                    <h2
+                    <h3
                         className="cart-summary-text"
                         style={{ opacity: isDeliverySaved ? '1' : '0.3' }}
                     >
                         3. Payment
-                    </h2>
+                    </h3>
                     {isDeliverySaved && <StripePayment />}
                 </div>
             ) : (

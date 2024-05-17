@@ -3,10 +3,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 21rem;
     align-items: center;
     z-index: 10;
-    background-color: rgb(246, 246, 246);
+    background-color: var(--background-grey);
     border-radius: 5px;
 
     img {
@@ -31,7 +31,7 @@
         height: 5%;
         justify-content: space-between;
         align-items: center;
-        font-size: 18px;
+        font-size: 1.125rem;
         margin-top: 20px;
         margin-left:20px;
         
@@ -39,11 +39,17 @@
         .name-price-container {
             display: flex;
             flex-direction: column;
+            
+            .price{
+              font-family: var(--secondary-font);
+              font-size: var(--font-size-medium);
+              margin-top:5px;
+            }
         }
 
         .add-to-cart-icon-container {
-            border-radius: 15px;
-            background-color: rgb(255, 166, 0);
+            border-radius: 10px;
+            background-color: var(--primary-color);
             padding: 4px 5px 5px;
             color: white;
             display: flex;

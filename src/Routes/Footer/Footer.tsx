@@ -8,7 +8,7 @@ const Footer = () => {
         <>
             <div className="footer-container">
                 <div className="footer-card footer-message">
-                    Thanks for stopping by, We appreciate your support and look
+                    Thanks for stopping by, we appreciate your support and look
                     forward to being a part of your child's playtime!
                 </div>
                 <div className="footer-card footer-nav">

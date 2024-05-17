@@ -15,7 +15,7 @@ const ViewCartPage = () => {
                 <CheckoutTable canChangeQty={true} />
 
                 <Button
-                    buttonType="inverted"
+                    buttonType="default"
                     onClick={() => navigate('/cart/checkout')}
                 >
                     Check Out

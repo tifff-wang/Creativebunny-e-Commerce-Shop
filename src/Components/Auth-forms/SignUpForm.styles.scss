@@ -14,11 +14,12 @@
 
     h2 {
         margin: 20px 0;
-        color: #474747;
+        color: var(--text-color);
+        font-size:var(--font-size-large)
     }
 
     p {
         font-size: large;
-        color: #474747;
+        color:var(--text-color);
     }
 }

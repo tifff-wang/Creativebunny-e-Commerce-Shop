@@ -2,7 +2,7 @@
     display: flex;
     height: 40px;
     width: 165px;
-    font-size: 14px;
+    font-size: var(--font-size-small);
     background-color: white;
     font-weight:bolder;
     justify-content: center;
@@ -11,9 +11,9 @@
     border: none;
     border-radius: 24px;
 
-    &.default-button {
+    &.inverted-button {
         
-        color: #927464;
+        color: var(--text-secondary-color);
         border: solid 2px orange;
         width: 180px;
 
@@ -35,8 +35,8 @@
         }
     }
 
-    &.inverted-button {
-        background-color: orange;
+    &.default-button {
+        background-color: var(--primary-color);
         color: rgb(255, 255, 255);
 
         &:hover {

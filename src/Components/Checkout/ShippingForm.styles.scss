@@ -5,8 +5,8 @@
     flex-direction: column;
 
     .delivery-method{
-      font-family: system-ui;
-      font-size: 14px;
+      font-family: var(--secondary-font);
+      font-size: var(--font-size-small);
       margin: 14px 0 0 4px;
       font-weight: 600;
     }
@@ -22,8 +22,8 @@
     box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
     padding: 20px;
     margin: 20px 0;
-    font-family: system-ui;
-    font-size: 14px;
+    font-family: var(--secondary-font);
+    font-size: var(--font-size-xsmall);
     line-height: 20px;
     position: relative;
 
@@ -32,8 +32,8 @@
         border: none;
         background-color: white;
         text-decoration: underline;
-        font-size: 14px;
-        color:rgb(102, 102, 102);
+        font-size: var(--font-size-small);
+        color:var(--text-secondary-color);
         position: absolute;
         top: 0px;
         right: 16px;

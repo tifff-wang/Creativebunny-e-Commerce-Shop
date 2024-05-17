@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom'
 import { TbShoppingBagPlus } from 'react-icons/tb'
 
 interface Props {
-  toy: ToyModel
-  categoryName:string
+    toy: ToyModel
+    categoryName: string
 }
 
 const ProductCard = (props: Props) => {
     const { toy, categoryName } = props
-    const {id, name, imageUrl, price} = toy
+    const { id, name, imageUrl, price } = toy
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [quantity, setQuantity] = useState(1)
@@ -32,7 +32,7 @@ const ProductCard = (props: Props) => {
             <div className="product-info">
                 <div className="name-price-container">
                     <span className="name">{name}</span>
-                    <span className="price">${price}</span>
+                    <span className="price">${Number(price.toFixed(2))}</span>
                 </div>
                 <div className="add-to-cart-icon-container">
                     <TbShoppingBagPlus

@@ -9,10 +9,8 @@ const CartItem = ({ item }: { item: CartItemModel }) => {
                 <img src={item.imageUrl} alt={`${item.name}`} />
                 <div className="item-info">
                     <p className="name">{item.name}</p>
-                    <p className="price">
-                        ${item.price}
-                    </p>
                     <p className="quantity">Qty: {item.quantity}</p>
+                    <p className="price">${item.price}</p>
                 </div>
             </div>
         </>

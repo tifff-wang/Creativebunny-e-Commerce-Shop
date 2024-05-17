@@ -25,7 +25,7 @@ const CartDropdown = () => {
                             return <CartItem item={item} />
                         })}
                     </div>
-                    <Button buttonType="inverted" onClick={handleClick}>
+                    <Button buttonType="default" onClick={handleClick}>
                         View Cart
                     </Button>
                 </>

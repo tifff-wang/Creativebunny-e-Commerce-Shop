@@ -6,9 +6,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fdfdfd;
+    background-color: var(--background-color);
     padding-top: 10px;
-    box-shadow: 0 5px 10px #e8e8e854;
+    box-shadow: 0 5px 10px #e8e8e800;
     z-index: 1000;
 
     .logo-container {
@@ -27,7 +27,12 @@
         align-items: center;
         justify-content: end;
         margin-right: 40px;
-
+        color:var(--text-color);
+        
+        .nav-link{
+          font-size: 1.125rem;
+        }
+        
         .current-user-container{
           display:flex;
           align-items: center;
@@ -37,15 +42,13 @@
           .username{
             display:flex;
             align-items: baseline;
-            gap:5px;
-            color:#444444fc;
-           
+            gap:5px;         
           }
         }
 
         Button {
             width: 80px;
-            font-size: 14px;
+            font-size: var(--font-size-small);
             cursor: pointer;
         }
     }

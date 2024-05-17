@@ -21,7 +21,7 @@ const HeroSection = () => {
                         Carefully handcrafted that provides fun and safey
                     </h2>
                     <Button
-                        buttonType="inverted"
+                        buttonType="default"
                         onClick={() => navigate('/products')}
                     >
                         SHOP NOW

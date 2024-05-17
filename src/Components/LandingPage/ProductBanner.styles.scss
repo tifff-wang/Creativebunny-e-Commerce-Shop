@@ -1,10 +1,10 @@
 .product-hightlight-container {
     height: 500px;
     width:100%;
-    background-color: rgb(255, 240, 223);
+    background-color: var(--secondary-color);
     display: flex;
     flex-direction: row-reverse;
-    margin-bottom: 60px;
+    margin-bottom: 3.75rem;
 
     .product-image-container {
         width: 50%;
@@ -17,22 +17,22 @@
 
     .product-description-container {
         width: 50%;
-        margin-left: 40px;
+        margin-left: 3.75rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
 
         .product-title {
-            color: rgb(81, 81, 81);
+            color: var(--title-color);
             width: 80%;
-            font-size: 38px;
-            margin-bottom: 32px;
+            font-size: var(--font-size-xlarge);
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
         }
 
         Button {
-            background-color: rgba(255, 243, 226, 0.659);
-            color: rgb(45, 45, 45);
-            font-family: system-ui;
+            background-color: transparent;
+            font-family: var(--secondary-font);
             font-weight: 800;
         }
     }

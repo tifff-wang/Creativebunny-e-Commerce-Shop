@@ -22,7 +22,7 @@ const ProductBanner = () => {
                         and pretend play food
                     </h2>
                     <Button
-                        buttonType="default"
+                        buttonType="inverted"
                         onClick={() => navigate('products/kitchen')}
                     >
                         SHOP NOW

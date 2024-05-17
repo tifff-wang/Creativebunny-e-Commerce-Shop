@@ -51,7 +51,7 @@ const ShippingForm = () => {
     return (
         <>
             <div className="delivery-detail-container">
-                <h2>2. Delivery Detail</h2>
+                <h3>2. Delivery Detail</h3>
                 <p className="delivery-method">
                     Delivery Method: NZPost Standard Delivery
                 </p>
@@ -109,7 +109,7 @@ const ShippingForm = () => {
                             </div>
 
                             <div className="save-button-container">
-                                <Button buttonType="inverted" type="submit">
+                                <Button buttonType="default" type="submit">
                                     Save
                                 </Button>
                             </div>

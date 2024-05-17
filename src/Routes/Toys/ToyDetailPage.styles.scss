@@ -10,6 +10,7 @@
 
         .product-detail-image {
             width: 90%;
+            margin-top:2rem;
         }
     }
 
@@ -56,8 +57,7 @@
 
         .product-description-container {
             margin-top: 30px;
-            font-family: system-ui;
-            font-size: 14px;
+            font-family: var(--secondary-font);
             line-height: 20px;
 
             .product-description {

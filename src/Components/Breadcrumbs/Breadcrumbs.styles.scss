@@ -1,11 +1,10 @@
 .breadcrumbs-container {
-    background-color: rgb(244, 244, 244);
+    background-color: var(--background-grey);
     display: flex;
     align-items: center;
     width: 100%;
     padding: 10px 0 10px 24px;
-    font-family: roboto;
-    font-size: 14px;
+    font-family: var(--secondary-font);
     font-weight: 300;
     color: black;
     position:fixed;
@@ -25,7 +24,7 @@
     }
 
     .last-crumb {
-        font-size: 14px;
+        font-size: var(--font-size-small);
         font-weight: 300;
         color: rgb(49, 49, 49);
     }

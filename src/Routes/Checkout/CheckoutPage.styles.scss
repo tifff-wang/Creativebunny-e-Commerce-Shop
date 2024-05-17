@@ -18,7 +18,8 @@
 
     .signin-link{
       text-decoration: underline;
-      color:rgba(255, 0, 0, 0.521);
+      color:var(--text-alert-color);
+      font-size: var(--font-size-large);
     }
     
   }

@@ -23,7 +23,7 @@ const ToyListPage = () => {
 
     return (
         <div className="toys-list-container">
-            <h2 className="category-title">{categoryName}</h2>
+            <h3 className="category-title">{categoryName}</h3>
             <div className="toys-card-container">
                 {products &&
                     categoryName &&

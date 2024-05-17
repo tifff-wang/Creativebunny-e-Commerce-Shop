@@ -101,7 +101,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     required
                 />
-                <Button buttonType="inverted" type="submit">
+                <Button buttonType="default" type="submit">
                     Sign Up
                 </Button>
             </form>

@@ -80,7 +80,7 @@ const SignInForm = () => {
                 />
 
                 <div className="buttons-container">
-                    <Button buttonType="inverted" type="submit">
+                    <Button buttonType="default" type="submit">
                         Sign In
                     </Button>
                     <Button

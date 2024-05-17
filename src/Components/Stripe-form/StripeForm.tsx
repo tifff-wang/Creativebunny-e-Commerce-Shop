@@ -71,7 +71,7 @@ const StripeForm = () => {
             <form className="stripe-form" onSubmit={handleSubmit}>
                 <div className="stripe-inputs-container">
                     <PaymentElement className="stripe-card" />
-                    <Button buttonType="inverted">
+                    <Button buttonType="default">
                         {isProcessing ? 'Processing...' : 'Pay Now'}
                     </Button>
                 </div>

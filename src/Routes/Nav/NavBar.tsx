@@ -36,17 +36,19 @@ const NavBar = () => {
 
                 <div className="nav-links-container">
                     <Link className="nav-link" to="/products">
-                        Products
+                        <span>Products</span>
                     </Link>
 
                     {currentUser ? (
                         <div className="current-user-container">
                             <div className="username">
                                 <FaUser />
-                                <p>Welcome {firstName}</p>
+                                <span className="nav-link">
+                                    Welcome {firstName}
+                                </span>
                             </div>
                             <CartIcon />
-                            <Button buttonType="default" onClick={handleClick}>
+                            <Button buttonType="inverted" onClick={handleClick}>
                                 Logout
                             </Button>
                         </div>
@@ -54,7 +56,7 @@ const NavBar = () => {
                         <div className="current-user-container">
                             <CartIcon />
                             <Button
-                                buttonType="inverted"
+                                buttonType="default"
                                 onClick={() => navigate('/auth')}
                             >
                                 SIGN IN

@@ -10,7 +10,7 @@ const Listings = ({ categories }: ListingsProps) => {
     return (
         <div className="categories-section-container">
             <div className="categories-section-title">
-                <h2>POPULAR CATEGORIES</h2>
+                <h3>POPULAR CATEGORIES</h3>
             </div>
             <div className="listings-container">
                 {categories.map((category) => (
