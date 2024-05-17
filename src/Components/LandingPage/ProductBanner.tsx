@@ -18,8 +18,8 @@ const ProductBanner = () => {
                 </div>
                 <div className="product-description-container">
                     <h2 className="product-title">
-                        Our wooden kitchen range comes with a variety of kitchen
-                        tools and food
+                        Our wooden kitchen range comes with a variety of kitchenware
+                        and pretend play food
                     </h2>
                     <Button
                         buttonType="default"

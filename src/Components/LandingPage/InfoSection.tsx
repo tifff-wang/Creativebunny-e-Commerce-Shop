@@ -6,31 +6,29 @@ const InfoSection = () => {
         <div className="info-section-container">
             <div className="info-card">
                 <div className="info-image-container">
-                    <img src="/images/logo.webp" alt="info images" />
+                    <img src="/images/children.svg" alt="info images" />
                 </div>
                 <h3>
-                    Praesent at porta arcu, vitae dignissim ante. Morbi
-                    facilisis urna est, eu pharetra arcu aliquam eu.{' '}
+                    Our wooden toys bring endless fun and joy to children,
+                    sparking their imagination and creativity.
                 </h3>
             </div>
             <div className="info-card">
                 <div className="info-image-container">
-                    {' '}
-                    <img src="/images/logo.webp" alt="info images" />
+                    <img src="/images/tree.svg" alt="info images" />
                 </div>
                 <h3>
-                    Praesent at porta arcu, vitae dignissim ante. Morbi
-                    facilisis urna est, eu pharetra arcu aliquam eu.{' '}
+                    Crafted from high-quality wood, our toys are sustainably
+                    sourced, ensuring durability and a connection to nature.
                 </h3>
             </div>
             <div className="info-card">
                 <div className="info-image-container">
-                    {' '}
-                    <img src="/images/logo.webp" alt="info images" />
+                    <img src="/images/puzzle.svg" alt="info images" />
                 </div>
                 <h3>
-                    Praesent at porta arcu, vitae dignissim ante. Morbi
-                    facilisis urna est, eu pharetra arcu aliquam eu.{' '}
+                    Our wooden puzzles encourage problem-solving skills and
+                    cognitive development in a playful, engaging way.
                 </h3>
             </div>
         </div>
