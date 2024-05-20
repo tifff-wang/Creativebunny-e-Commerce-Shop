@@ -21,6 +21,8 @@ import ViewCartPage from './Routes/Checkout/ViewCartPage'
 import CheckoutPage from './Routes/Checkout/CheckoutPage'
 import { createCollectionAndDocuments } from './Utils/Firebase/Firebase.utils'
 import TOY_DATA from './toys-data'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -48,6 +50,10 @@ const App = () => {
         }
 
         getCategoriesData()
+    }, [])
+
+    useEffect(() => {
+        AOS.init()
     }, [])
 
     return (

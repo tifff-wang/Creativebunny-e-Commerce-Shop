@@ -8,7 +8,11 @@ interface ListingsProps {
 }
 const Listings = ({ categories }: ListingsProps) => {
     return (
-        <div className="categories-section-container">
+        <div
+            className="categories-section-container"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+        >
             <div className="categories-section-title">
                 <h3>POPULAR CATEGORIES</h3>
             </div>

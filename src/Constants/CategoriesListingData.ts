@@ -1,4 +1,4 @@
-import { CategoryModel } from "../Model/CategoryModel";
+import { CategoryModel } from '../Model/CategoryModel'
 
 export const categoriesList: CategoryModel[] = [
     {
@@ -9,15 +9,15 @@ export const categoriesList: CategoryModel[] = [
     },
     {
         id: 2,
-        name: 'Construction',
-        url: 'https://i.ibb.co/Cvcgy1v/mathtoy.webp',
-        route: 'products/construction',
+        name: 'Baby Shaker',
+        url: 'https://i.ibb.co/DYcY9f8/Screenshot-2024-03-27-at-10-44-44-AM.png',
+        route: 'products/baby shakers',
     },
     {
         id: 3,
-        name: 'Baby Shaker',
-        url: 'https://i.ibb.co/hmpcNDc/twobunnyshakers.png',
-        route: 'products/baby shakers',
+        name: 'Construction',
+        url: 'https://i.ibb.co/Cvcgy1v/mathtoy.webp',
+        route: 'products/construction',
     },
     {
         id: 4,

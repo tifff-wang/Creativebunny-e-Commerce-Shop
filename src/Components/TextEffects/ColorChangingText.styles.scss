@@ -2,9 +2,10 @@
     display: grid;
     place-items:center;
     text-align: center;
+    background-color: var(--background-grey);
 
     .title {
-        font-family: 'Montserrat', sans-serif;
+        font-family: var(--secondary-font);
         font-weight: 800;
         font-size: 6vw;
         text-transform: uppercase;

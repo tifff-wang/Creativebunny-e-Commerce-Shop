@@ -8,7 +8,11 @@ const ProductBanner = () => {
 
     return (
         <>
-            <div className="product-hightlight-container">
+            <div
+                className="product-hightlight-container"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+            >
                 <div className="product-image-container">
                     <img
                         src="/images/toy-photos/oven-bagette.webp"
@@ -18,8 +22,8 @@ const ProductBanner = () => {
                 </div>
                 <div className="product-description-container">
                     <h2 className="product-title">
-                        Our wooden kitchen range comes with a variety of kitchenware
-                        and pretend play food
+                        Our wooden kitchen range comes with a variety of
+                        kitchenware and pretend play food
                     </h2>
                     <Button
                         buttonType="inverted"
