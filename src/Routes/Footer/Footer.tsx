@@ -6,7 +6,7 @@ const Footer = () => {
     const navigate = useNavigate()
     return (
         <>
-            <div className="footer-container">
+            <footer className="footer-container">
                 <div className="footer-card footer-message">
                     Thanks for stopping by, we appreciate your support and look
                     forward to being a part of your child's playtime!
@@ -26,11 +26,11 @@ const Footer = () => {
                         <img
                             className="footer-image"
                             src="/images/logo.webp"
-                            alt="logo"
+                            alt="homepage link"
                         />
                     </Link>
                 </div>
-            </div>
+            </footer>
             <div className="copyright-container">
                 <p>@ Copyright 2024 Creative Bunny LTD. All rights reserved.</p>
             </div>

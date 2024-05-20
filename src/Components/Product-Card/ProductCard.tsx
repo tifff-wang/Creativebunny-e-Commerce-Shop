@@ -26,7 +26,7 @@ const ProductCard = (props: Props) => {
         <div className="product-card-container">
             <img
                 src={imageUrl}
-                alt={`${name}`}
+                alt=""
                 onClick={() => handleClick(id)}
             />
             <div className="product-info">

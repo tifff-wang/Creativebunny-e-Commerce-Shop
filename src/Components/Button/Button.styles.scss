@@ -14,7 +14,7 @@
     &.inverted-button {
         
         color: var(--text-secondary-color);
-        border: solid 2px orange;
+        border: solid 2px var(--highlight-color);
         width: 180px;
 
         &:hover {
@@ -40,7 +40,7 @@
         color: rgb(255, 255, 255);
 
         &:hover {
-            background-color: rgb(99, 99, 99);
+            background-color: var(--highlight-color);
             color: white;
         }
     }

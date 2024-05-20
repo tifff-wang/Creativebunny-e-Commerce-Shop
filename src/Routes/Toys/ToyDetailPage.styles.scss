@@ -1,6 +1,6 @@
 .product-detail-container {
     margin: auto;
-    margin-top: 80px;
+    margin-top: 5rem;
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -17,15 +17,16 @@
     .product-detail-info {
         margin-left: 20px;
         width: 50%;
+        margin-top:2rem;
 
         .product-name {
-            font-size: 38px;
+            font-size: var(--font-size-xlarge);
             margin-bottom: 20px;
         }
 
         .product-price {
-            font-size: 28px;
-            font-family: ubuntu;
+            font-size: var(--font-size-large);
+            font-family: var(--secondary-font);
             margin-bottom: 10px;
         }
 

@@ -32,11 +32,11 @@ const ToyDetailPage = () => {
                         <img
                             className="product-detail-image"
                             src={product.imageUrl}
-                            alt={product.name}
+                            alt=""
                         />
                     </div>
                     <div className="product-detail-info">
-                        <h3 className="product-name">{product.name}</h3>
+                        <h2 className="product-name">{product.name}</h2>
                         <h3 className="product-price">${product.price}</h3>
                         <div className="add-to-cart-container">
                             <div className="quantity-icon-container">

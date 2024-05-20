@@ -29,14 +29,14 @@ const NavBar = () => {
 
     return (
         <>
-            <div className="navigation">
+            <nav className="navigation">
                 <Link className="logo-container" to="/">
-                    <img className="logo" src="/images/logo.webp" alt="logo" />
+                    <img className="logo" src="/images/logo.webp" alt="homepage link" />
                 </Link>
 
                 <div className="nav-links-container">
                     <Link className="nav-link" to="/products">
-                        <span>Products</span>
+                        <span>Category</span>
                     </Link>
 
                     {currentUser ? (
@@ -65,7 +65,7 @@ const NavBar = () => {
                     )}
                 </div>
                 {cartDropdownOpen && <CartDropdown />}
-            </div>
+            </nav>
             <Outlet />
         </>
     )

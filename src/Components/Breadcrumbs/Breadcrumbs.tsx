@@ -33,10 +33,10 @@ const Breadcrumbs = () => {
                 return (
                     <nav key={crumb} className="crumb">
                         {isLastCrumb ? (
-                            <span className='last-crumb'>
+                            <h1 className='last-crumb'>
                                 {selectedProduct?.name.toLowerCase() ||
                                     decodedCrumb}
-                            </span>
+                            </h1>
                         ) : (
                             <Link className="crumb-link" to={currentLink}>
                                 {decodedCrumb}

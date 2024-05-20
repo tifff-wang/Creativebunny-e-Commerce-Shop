@@ -19,7 +19,7 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
                 onClick={() => navigate(`/${route}`)}
                 className="category-body-container"
             >
-                <h2>{name}</h2>
+                <h4>{name}</h4>
                 <p>Shop Now</p>
             </div>
         </div>

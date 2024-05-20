@@ -10,7 +10,7 @@ const InfoSection = () => {
                 data-aos-duration="500"
             >
                 <div className="info-image-container">
-                    <img src="/images/children.svg" alt="info images" />
+                    <img src="/images/children.svg" alt="an illustration of three children holding hand" />
                 </div>
                 <h3>
                     Our wooden toys bring endless fun and joy to children,
@@ -23,7 +23,7 @@ const InfoSection = () => {
                 data-aos-duration="1000"
             >
                 <div className="info-image-container">
-                    <img src="/images/tree.svg" alt="info images" />
+                    <img src="/images/tree.svg" alt="an illustratin of trees" />
                 </div>
                 <h3>
                     Crafted from high-quality wood, our toys are sustainably
@@ -36,7 +36,7 @@ const InfoSection = () => {
                 data-aos-duration="1500"
             >
                 <div className="info-image-container">
-                    <img src="/images/puzzle.svg" alt="info images" />
+                    <img src="/images/puzzle.svg" alt="an illustration of a 4 piece puzzle" />
                 </div>
                 <h3>
                     Our wooden puzzles encourage problem-solving skills and
