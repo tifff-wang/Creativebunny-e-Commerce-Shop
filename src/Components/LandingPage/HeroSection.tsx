@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import './HeroSection.styles.scss'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const HeroSection = () => {
     const navigate = useNavigate()
@@ -20,12 +20,12 @@ const HeroSection = () => {
                     <h2 className="hero-subtilte">
                         Carefully handcrafted that provides fun and safey
                     </h2>
-                    <Button
-                        buttonType="default"
-                        onClick={() => navigate('/products')}
+                    <Link
+                        to='/products'
+                        className="hero-section-link"
                     >
                         SHOP NOW
-                    </Button>
+                    </Link>
                 </div>
             </div>
         </>

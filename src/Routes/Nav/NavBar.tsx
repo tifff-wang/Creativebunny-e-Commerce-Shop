@@ -55,12 +55,12 @@ const NavBar = () => {
                     ) : (
                         <div className="current-user-container">
                             <CartIcon />
-                            <Button
-                                buttonType="default"
-                                onClick={() => navigate('/auth')}
+                            <Link
+                                className="sign-in-link"
+                                to='/auth'
                             >
                                 SIGN IN
-                            </Button>
+                            </Link>
                         </div>
                     )}
                 </div>

@@ -68,6 +68,7 @@ const SignUpForm = () => {
             <form onSubmit={handleSubmit}>
                 <FormInput
                     label="Display Name"
+                    id="displayName-input"
                     name="displayName"
                     type="text"
                     value={displayName}
@@ -77,6 +78,7 @@ const SignUpForm = () => {
 
                 <FormInput
                     label="Email"
+                    id="signin-email-input"
                     name="email"
                     type="email"
                     value={email}
@@ -86,6 +88,7 @@ const SignUpForm = () => {
 
                 <FormInput
                     label="Password"
+                    id="signin-password-input"
                     name="password"
                     type="password"
                     value={password}
@@ -95,6 +98,7 @@ const SignUpForm = () => {
 
                 <FormInput
                     label="Confirm Password"
+                    id="confirmPassword"
                     name="confirmPassword"
                     type="password"
                     value={confirmPassword}

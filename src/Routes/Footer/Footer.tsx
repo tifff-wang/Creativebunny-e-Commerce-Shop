@@ -22,13 +22,13 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="footer-card">
-                    <Link className="logo-container" to="/">
+                    <div className="logo-container">
                         <img
                             className="footer-image"
                             src="/images/logo.webp"
-                            alt="homepage link"
+                            alt="creative bunny shop logo"
                         />
-                    </Link>
+                    </div>
                 </div>
             </footer>
             <div className="copyright-container">

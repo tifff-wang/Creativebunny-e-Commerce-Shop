@@ -34,7 +34,7 @@ const ProductCard = (props: Props) => {
                     <span className="name">{name}</span>
                     <span className="price">${Number(price.toFixed(2))}</span>
                 </div>
-                <div className="add-to-cart-icon-container">
+                <div className="add-to-cart-icon-container" aria-label='add to cart'>
                     <TbShoppingBagPlus
                         onClick={() =>
                             dispatch(

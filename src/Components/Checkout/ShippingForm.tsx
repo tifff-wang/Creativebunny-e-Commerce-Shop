@@ -51,7 +51,7 @@ const ShippingForm = () => {
     return (
         <>
             <div className="delivery-detail-container">
-                <h3>2. Delivery Detail</h3>
+                <h2>2. Delivery Detail</h2>
                 <p className="delivery-method">
                     Delivery Method: NZPost Standard Delivery
                 </p>
@@ -61,6 +61,7 @@ const ShippingForm = () => {
                             <div>
                                 <FormInput
                                     label="Email"
+                                    id="email-input"
                                     name="email"
                                     type="email"
                                     value={email}
@@ -72,6 +73,7 @@ const ShippingForm = () => {
                             <div className="fullname-container">
                                 <FormInput
                                     label="First name"
+                                    id="firstName-input"
                                     name="firstName"
                                     type="text"
                                     value={firstName}
@@ -81,6 +83,7 @@ const ShippingForm = () => {
 
                                 <FormInput
                                     label="Last name"
+                                    id="lastName-input"
                                     name="lastName"
                                     type="text"
                                     value={lastName}
@@ -92,6 +95,7 @@ const ShippingForm = () => {
                             <div>
                                 <FormInput
                                     label="Delivery address"
+                                    id="deliveryAddress-input"
                                     name="deliveryAddress"
                                     type="text"
                                     value={deliveryAddress}
@@ -100,7 +104,8 @@ const ShippingForm = () => {
                                 />
 
                                 <FormInput
-                                    label="Notes to delivery person (optional). ex: leave at front door "
+                                    label="Notes to delivery person (optional). ex: leave at front door"
+                                    id="message-input"
                                     name="message"
                                     type="text"
                                     value={message}

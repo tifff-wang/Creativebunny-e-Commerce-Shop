@@ -12,20 +12,23 @@
         padding: 0px 60px 60px 60px;
     }
 
-    .signin-direct-message{
-    margin:auto;
-    font-size: 24px;
+    .signin-direct-message {
+        margin: auto;
+        font-size: 24px;
 
-    .signin-link{
-      text-decoration: underline;
-      color:var(--text-alert-color);
-      font-size: var(--font-size-large);
+        .signin-link {
+            text-decoration: underline;
+            color: var(--text-alert-color);
+            font-size: var(--font-size-large);
+        }
     }
-    
-  }
 
     .delivery-info {
         width: 40%;
         margin-left: 30px;
+    }
+
+    h2 {
+        font-size: var(--font-size-large);
     }
 }

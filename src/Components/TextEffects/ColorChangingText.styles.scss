@@ -1,5 +1,6 @@
 .text-effect-container {
     display: grid;
+    height:25vh;
     place-items:center;
     text-align: center;
     background-color: var(--background-grey);
@@ -9,6 +10,7 @@
         font-weight: 800;
         font-size: 6vw;
         text-transform: uppercase;
+        margin:auto;
 
         .title-word {
             animation: color-animation 4s linear infinite;

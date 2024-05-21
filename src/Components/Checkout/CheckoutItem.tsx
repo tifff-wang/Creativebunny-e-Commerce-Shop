@@ -25,7 +25,7 @@ const CheckoutItem = ({
                 <img
                     className="item-image"
                     src={item.imageUrl}
-                    alt={`${item.name}`}
+                    alt=""
                 />
             </td>
             <td>{item.name}</td>
