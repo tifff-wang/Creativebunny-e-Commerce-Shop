@@ -1,21 +1,50 @@
+$breakpoints: (
+    phone: 600px,
+    tablet: 768px,
+    desktop: 992px,
+    largeDesktop: 1200px,
+) !default;
+
 .hero-container {
-    width: 100%;
-    height: 65vh;
-    background-color: var(--primary-color);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    background-color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3rem;
+
+    @media (min-width: map-get($breakpoints, phone)) {
+        flex-direction: row;
+        height: 65vh;
+    }
 
     .hero-image-container {
-        width: 50%;
+        width: 100%;
         display: flex;
+        margin-top: 3rem;
+
+        @media (min-width: map-get($breakpoints, phone)) {
+          width: 50%;
+    }
 
         .hero-image {
-            width: 45vh;
+            width: 60vw;
             margin: auto;
             border-radius: 5px;
             border-top-right-radius: 100px;
             transform: translatey(0px);
             animation: float 4s ease-in-out infinite;
+
+            @media (min-width: map-get($breakpoints, phone)) {
+                width: 35vh;
+                margin-top: 0;
+            }
+
+            @media (min-width: map-get($breakpoints, tablet)) {
+                width: 45vh;
+            }
         }
 
         @keyframes float {
@@ -35,8 +64,14 @@
     }
 
     .hero-description-container {
-        width: 40%;
+        width: 70%;
         margin: auto;
+        text-align: center;
+
+        @media (min-width: map-get($breakpoints, phone)) {
+            width: 40%;
+            text-align: start;
+        }
 
         h1 {
             color: white;

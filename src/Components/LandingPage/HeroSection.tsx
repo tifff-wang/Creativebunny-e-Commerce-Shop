@@ -1,10 +1,8 @@
 import React from 'react'
-import Button from '../Button/Button'
 import './HeroSection.styles.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 const HeroSection = () => {
-    const navigate = useNavigate()
     return (
         <>
             <div className="hero-container">
