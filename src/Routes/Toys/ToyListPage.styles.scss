@@ -1,4 +1,10 @@
-.category-title {
-    margin: 6rem 0 0 26px;
-    letter-spacing: 2px;  
+.toys-list-container {
+    margin: 120px auto;
+    width: 90%;
+    max-width: max-content;
+
+    .category-title {
+        margin-left: 24px;
+        letter-spacing: 2px;
+    }
 }

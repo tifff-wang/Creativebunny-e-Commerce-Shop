@@ -1,37 +1,56 @@
+@import "../../Styles/variables";
+
 .footer-container {
-    height: 240px;
+    height: auto;
     background-color: var(--primary-color);
-    margin-top: 6.25rem;
     box-shadow: 0 1px 10px #71717154;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    padding-bottom: 2rem;
+
+    @media (min-width: map-get($breakpoints, phone)) {
+        height: 240px;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 0;
+    }
+
+    .footer-card {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 80%;
+        color: white;
+        margin-left: 1rem;
+
+        @media (min-width: map-get($breakpoints, phone)) {
+            justify-content: center;
+            width: 25%;
+        }
+    }
+
+    .footer-message {
+        font-size: 1.25rem;
+        margin: 1.5rem auto;
+
+        @media (min-width: map-get($breakpoints, phone)) {
+          margin:none;
+        }
+    }
+
+    .footer-image {
+        width: 180px;
+    }
+
+    li {
+        font-family: system-ui;
+        font-size: var(--font-size-small);
+        line-height: 1.5rem;
+        font-weight: 500;
+    }
 }
 
-.footer-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    color:white
-}
-
-.footer-message {
-    font-size: 1.25rem;
-    
-}
-
-.footer-image {
-    width: 180px;
-
-}
-
-li {
-    font-family: system-ui;
-    font-size: var(--font-size-small);
-    line-height: 1.5rem;
-    font-weight: 500;
-}
 .copyright-container {
     height: 30px;
     display: flex;

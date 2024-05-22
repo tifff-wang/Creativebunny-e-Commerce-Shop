@@ -22,44 +22,46 @@ const CheckoutItem = ({
     return (
         <tr>
             <td className="image">
-                <img
-                    className="item-image"
-                    src={item.imageUrl}
-                    alt=""
-                />
+                <img className="item-image" src={item.imageUrl} alt="" />
             </td>
             <td>{item.name}</td>
             <td>${item.price}</td>
             <td>
                 {canChangeQty ? (
                     <div className="item-qty">
-                        <IoMdArrowDropdown
-                            className="checkout-table-icon"
-                            onClick={() =>
-                                dispatch(
-                                    changeItemQuantity({
-                                        item: item,
-                                        isUp: false,
-                                    })
-                                )
-                            }
-                        />
-                        {item.quantity}
-                        <IoMdArrowDropup
-                            className="checkout-table-icon"
-                            onClick={() =>
-                                dispatch(
-                                    changeItemQuantity({
-                                        item: item,
-                                        isUp: true,
-                                    })
-                                )
-                            }
-                        />
-                        <MdDeleteOutline
-                            className="checkout-table-icon"
-                            onClick={() => dispatch(deleteItemfromCart(item))}
-                        />
+                        <div>
+                            <IoMdArrowDropdown
+                                className="checkout-table-icon"
+                                onClick={() =>
+                                    dispatch(
+                                        changeItemQuantity({
+                                            item: item,
+                                            isUp: false,
+                                        })
+                                    )
+                                }
+                            />
+                            {item.quantity}
+                            <IoMdArrowDropup
+                                className="checkout-table-icon"
+                                onClick={() =>
+                                    dispatch(
+                                        changeItemQuantity({
+                                            item: item,
+                                            isUp: true,
+                                        })
+                                    )
+                                }
+                            />
+                        </div>
+                        <div>
+                            <MdDeleteOutline
+                                className="checkout-table-icon"
+                                onClick={() =>
+                                    dispatch(deleteItemfromCart(item))
+                                }
+                            />
+                        </div>
                     </div>
                 ) : (
                     <div>{item.quantity}</div>

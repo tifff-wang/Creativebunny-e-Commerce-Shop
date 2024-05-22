@@ -1,19 +1,21 @@
-.categories-section-container{
-  margin: 0 2rem 8rem 2rem;
-  
+@import '../../Styles/variables';
 
-  .categories-section-title{
-    margin: 0 0 20px 10px;
-    letter-spacing: 2px;
-  }
+.categories-section-container {
+    margin: 0 8px 80px 8px;
 
-  .listings-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    @media (min-width: map-get($breakpoints, phone)) {
+        margin: 0 16px 80px 16px;
+    }
+
+    .categories-section-title {
+        margin: 0 0 20px 10px;
+        letter-spacing: 2px;
+    }
+
+    .listings-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 }
-}
-
-
-

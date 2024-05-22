@@ -1,20 +1,27 @@
+@import '../../Styles/variables';
+
 .text-effect-container {
     display: grid;
-    height:25vh;
-    place-items:center;
+    height: 4rem;
+    width: 100%;
+    place-items: center;
     text-align: center;
     background-color: var(--background-grey);
+
+    @media (min-width: map-get($breakpoints, phone)) {
+        height: 20vh;
+    }
 
     .title {
         font-family: var(--secondary-font);
         font-weight: 800;
         font-size: 6vw;
         text-transform: uppercase;
-        margin:auto;
+        margin: auto;
 
         .title-word {
             animation: color-animation 4s linear infinite;
-            margin:0 20px;
+            margin: 0 1.5vw;
         }
 
         .title-word-1 {

@@ -1,7 +1,11 @@
 .sign-up-container {
     display: flex;
     flex-direction: column;
-    width: 360px;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: var(--background-grey);
+    padding: 20px;
+    border-radius: 10px;
 
     .signin-error-message {
         margin-top: 20px;
@@ -15,11 +19,16 @@
     h2 {
         margin: 20px 0;
         color: var(--text-color);
-        font-size:var(--font-size-large)
+        font-size: var(--font-size-large);
+        color:var(--highlight-color)
     }
 
     p {
         font-size: large;
-        color:var(--text-color);
+        color: var(--text-color);
+    }
+
+    Button {
+        margin: auto;
     }
 }

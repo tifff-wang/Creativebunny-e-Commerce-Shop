@@ -1,11 +1,8 @@
 import React from 'react'
-import Button from '../Button/Button'
 import './ProductBanner.styles.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ProductBanner = () => {
-    const navigate = useNavigate()
-
     return (
         <>
             <div
@@ -25,10 +22,7 @@ const ProductBanner = () => {
                         Our wooden kitchen range comes with a variety of
                         kitchenware and pretend play food
                     </h2>
-                    <Link   
-                        to='products/kitchen'
-                        className="product-banner-link"
-                    >
+                    <Link to="products/kitchen" className="product-banner-link">
                         SHOP NOW
                     </Link>
                 </div>

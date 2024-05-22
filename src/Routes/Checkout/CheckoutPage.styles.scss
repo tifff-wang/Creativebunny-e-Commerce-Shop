@@ -1,15 +1,30 @@
+@import '../../Styles/variables';
+
 .checkout-page-container {
     display: flex;
-    flex-direction: row;
-    margin: 60px auto 300px auto;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px auto 300px auto;
+
+    @media (min-width: 850px) {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        margin: 80px auto 300px auto;
+    }
 
     .cart-summary-text {
         margin-bottom: 20px;
     }
 
     .cart-summary {
-        width: 40%;
-        padding: 0px 60px 60px 60px;
+        width: 90%;
+        margin-bottom:30px;
+
+        @media (min-width: 850px) {
+            width: 40%;
+            padding: 0px 60px 60px 60px;
+        }
     }
 
     .signin-direct-message {
@@ -24,8 +39,13 @@
     }
 
     .delivery-info {
-        width: 40%;
+        width: 90%;
         margin-left: 30px;
+
+        @media (min-width: 850px) {
+            width: 40%;
+            margin-left: 0;
+        }
     }
 
     h2 {

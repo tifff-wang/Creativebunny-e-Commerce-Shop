@@ -1,16 +1,23 @@
+@import '../../Styles/variables';
+
 .categories-page-container {
-   margin-top: 7rem;
+    margin: 120px auto;
+    max-width: max-content;
 
     .category-title-container {
         position: relative;
-       
+
         .category-title {
             display: flex;
-            justify-content: center;
+            justify-content: start;
             font-size: var(--font-size-large);
-            font-weight:600;
+            font-weight: 600;
             letter-spacing: 3px;
             margin: 40px 0 0 10px;
+
+            @media (min-width: 400px) {
+                justify-content: center;
+            }
         }
 
         .view-more {
@@ -27,8 +34,19 @@
 
 .toys-card-container {
     display: grid;
-    margin: 20px 16px 50px 16px;
-    grid-template-columns: repeat(3, 1fr);
+    margin: 20px 8px 50px 8px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 599px) {
+        & > :nth-child(3n) {
+            display: none;
+        }
+    }
+
+    @media (min-width: map-get($breakpoints, phone)) {
+        margin: 20px 16px 50px 16px;
+        grid-template-columns: repeat(3, 1fr);
+    }
     column-gap: 20px;
     row-gap: 50px;
 }

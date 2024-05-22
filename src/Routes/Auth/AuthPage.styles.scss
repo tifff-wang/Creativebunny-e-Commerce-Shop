@@ -1,6 +1,18 @@
+@import '../../Styles/variables';
+
 .auth-forms-container {
-  display: flex;
-  justify-content: space-between;
-  width: 850px;
-  margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    width: 80%;
+    margin: 80px auto;
+    align-items: center;
+
+    @media (min-width: 720px) {
+        flex-direction: row;
+        width: fit-content;
+        margin: 100px auto;
+        justify-content: center;
+        align-items: start;
+    }
 }

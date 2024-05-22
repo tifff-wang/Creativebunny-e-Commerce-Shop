@@ -1,34 +1,53 @@
+@import '../../Styles/variables';
+
 .info-section-container {
-    height: 300px;
-    margin: 5rem 0;
+    margin: 80px 0;
     display: flex;
-    flex-direction: row;
-    justify-content:center;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 48px;
+
+    @media (min-width: map-get($breakpoints, phone)) {
+        flex-direction: row;
+        height: 300px;
+    }
 
     .info-card {
-        height: 100%;
-        width: 25%;
+        height: 160px;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items:center;
+        align-items: center;
+        gap: 24px;
 
-        .info-image-container{
-          height:40%;
-     
-          img{
-            height:80%;
-          }
+        @media (min-width: map-get($breakpoints, phone)) {
+            height: 100%;
+            width: 25%;
+            gap: 0;
         }
 
-        p{
-          font-size: var(--font-size-small);
-          font-family: var(--secondary-font);
-          font-weight: 500;
-          text-align: center;
-          width:60%;
-          
+        .info-image-container {
+            height: 100%;
+             @media (min-width: map-get($breakpoints, phone)) {
+                    height:40%
+                }
+
+            img {
+                height: 100%;
+                @media (min-width: map-get($breakpoints, phone)) {
+                    height:80%
+                }
+            }
+        }
+
+        p {
+            font-size: var(--font-size-small);
+            font-family: var(--secondary-font);
+            font-weight: 500;
+            text-align: center;
+            width: 65%;
         }
     }
 }
