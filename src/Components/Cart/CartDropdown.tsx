@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../Button/Button'
 import './CartDropdown.styles.scss'
-import React from 'react'
+import React, { useRef } from 'react'
 import CartItem from './CartItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectedCartItems } from '../../Store/Cart/cartSelector'
@@ -16,6 +16,7 @@ const CartDropdown = () => {
         navigate('/cart')
         dispatch(setCartDropdownOpen(false))
     }
+
     return (
         <div className="cart-dropdown-container">
             {currentCartItems.length > 0 ? (
@@ -25,6 +26,7 @@ const CartDropdown = () => {
                             return <CartItem item={item} />
                         })}
                     </div>
+
                     <Button buttonType="default" onClick={handleClick}>
                         View Cart
                     </Button>

@@ -1,3 +1,5 @@
+@import '../../Styles/variables';
+
 .navigation {
     position: fixed;
     top: 0;
@@ -27,23 +29,28 @@
         align-items: center;
         justify-content: end;
         margin-right: 40px;
-        color:var(--text-color);
+        color: var(--text-color);
         
-        .nav-link{
-          font-size: 1.125rem;
-        }
-        
-        .current-user-container{
-          display:flex;
-          align-items: center;
-          margin-left:25px;
-          gap:20px;
+        @media (max-width: map-get($breakpoints, phone)) {
+        display: none;
+    }
 
-          .username{
-            display:flex;
-            align-items: baseline;
-            gap:5px;         
-          }
+
+        .nav-link {
+            font-size: 1.125rem;
+        }
+
+        .current-user-container {
+            display: flex;
+            align-items: center;
+            margin-left: 25px;
+            gap: 20px;
+
+            .username {
+                display: flex;
+                align-items: baseline;
+                gap: 5px;
+            }
         }
 
         Button {
@@ -52,10 +59,19 @@
             cursor: pointer;
         }
 
-        .sign-in-link{
-          font-size: var(--font-size-medium);
-          font-weight:600;
-          color:var(--primary-color);
+        .sign-in-link {
+            font-size: var(--font-size-medium);
+            font-weight: 600;
+            color: var(--primary-color);
         }
     }
+
+    .small-screen-nav{
+      display:none;
+
+      @media (max-width: map-get($breakpoints, phone)) {
+        display: flex;
+    }
+    }
 }
+
