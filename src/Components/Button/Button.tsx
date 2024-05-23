@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Button.styles.scss"
-import type { ComponentProps} from 'react'
+import type { ComponentPropsWithoutRef} from 'react'
 
-interface buttonProps extends ComponentProps<'button'> {
+interface buttonProps extends ComponentPropsWithoutRef<'button'> {
     children: string
     buttonType: 'google' | 'inverted' | "default"
 }

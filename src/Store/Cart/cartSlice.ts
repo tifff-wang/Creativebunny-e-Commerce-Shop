@@ -16,9 +16,6 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState: CART_INITIAL_STATE,
     reducers: {
-        setCartDropdownOpen(state, action: PayloadAction<boolean>) {
-            state.cartDropdownOpen = action.payload
-        },
         addItemToCart(
             state,
             action: PayloadAction<{ item: ToyModel; addQuantity: number }>
@@ -50,7 +47,6 @@ export const cartSlice = createSlice({
 })
 
 export const {
-    setCartDropdownOpen,
     addItemToCart,
     changeItemQuantity,
     deleteItemfromCart,

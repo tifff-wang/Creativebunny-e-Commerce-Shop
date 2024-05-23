@@ -1,37 +1,22 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Outlet, Link } from 'react-router-dom'
+import NormalScreenNavLinks from './NormalScreenNavLinks'
+import SmallScreenNavLinks from './SmallScreenNavLinks'
 import './NavBar.styles.scss'
-import { Outlet, Link, useNavigate } from 'react-router-dom'
-import { signOutAuthUser } from '../../Utils/Firebase/Firebase.utils'
-import CartIcon from '../../Components/Cart-icon/CartIcon'
-import CartDropdown from '../../Components/Cart/CartDropdown'
-import { CartDropdownOpenStatus } from '../../Store/Cart/cartSelector'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectedCurrentUser, setCurrentUser } from '../../Store/User/userSlice'
-import Button from '../../Components/Button/Button'
-import { FaUser } from 'react-icons/fa'
-import SmallScreenNav from './SmallScreenNavLinks'
-import useClickOutside from '../../Hooks/useClickOutside'
-import { setCartDropdownOpen } from '../../Store/Cart/cartSlice'
 
 const NavBar = () => {
-    const currentUser = useSelector(selectedCurrentUser)
-    const firstName = currentUser?.displayName.split(' ')[0]
-    const cartDropdownOpen = useSelector(CartDropdownOpenStatus)
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 600)
 
-    const handleClick = async () => {
-        try {
-            await signOutAuthUser()
-            dispatch(setCurrentUser(null))
-            navigate('/auth')
-        } catch (error) {
-            console.log(error)
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 600)
         }
-    }
 
-    const cartDropdownRef = useRef<HTMLDivElement | null>(null)
-    useClickOutside(cartDropdownRef, () => dispatch(setCartDropdownOpen(false)))
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
     return (
         <>
@@ -43,44 +28,12 @@ const NavBar = () => {
                         alt="homepage link"
                     />
                 </Link>
-
-                <div className="nav-links-container">
-                    <Link className="nav-link" to="/products">
-                        <span>Category</span>
-                    </Link>
-
-                    {currentUser ? (
-                        <div className="current-user-container">
-                            <div className="username">
-                                <FaUser />
-                                <span className="nav-link">
-                                    Welcome {firstName}
-                                </span>
-                            </div>
-                            <CartIcon />
-                            <Button buttonType="inverted" onClick={handleClick}>
-                                Logout
-                            </Button>
-                        </div>
-                    ) : (
-                        <div className="current-user-container">
-                            <CartIcon />
-                            <Link className="sign-in-link" to="/auth">
-                                SIGN IN
-                            </Link>
-                        </div>
-                    )}
-                </div>
-                {cartDropdownOpen && (
-                    <div ref={cartDropdownRef}>
-                        <CartDropdown />
-                    </div>
+                {isSmallScreen ? (
+                    <SmallScreenNavLinks />
+                ) : (
+                    <NormalScreenNavLinks />
                 )}
-                <nav className="small-screen-nav">
-                    <SmallScreenNav />
-                </nav>
             </nav>
-
             <Outlet />
         </>
     )

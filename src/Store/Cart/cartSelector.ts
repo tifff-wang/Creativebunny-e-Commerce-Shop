@@ -3,10 +3,6 @@ import { RootState } from '../store'
 
 const cartReducer = (state: RootState) => state.cart
 
-export const CartDropdownOpenStatus = createSelector(
-    [cartReducer],
-    (cart) => cart.cartDropdownOpen
-)
 
 export const selectedCartItems = createSelector(
     [cartReducer],

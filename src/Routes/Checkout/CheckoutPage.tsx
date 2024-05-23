@@ -11,7 +11,6 @@ import { selectedCurrentUser } from '../../Store/User/userSelector'
 const CheckoutPage = () => {
     const currentUser = useSelector(selectedCurrentUser)
     const isDeliverySaved = useSelector(currentDeliveryDetailSaved)
-    console.log(isDeliverySaved)
 
     return (
         <div className="checkout-page-container">

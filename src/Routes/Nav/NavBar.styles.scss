@@ -30,11 +30,6 @@
         justify-content: end;
         margin-right: 40px;
         color: var(--text-color);
-        
-        @media (max-width: map-get($breakpoints, phone)) {
-        display: none;
-    }
-
 
         .nav-link {
             font-size: 1.125rem;
@@ -65,13 +60,33 @@
             color: var(--primary-color);
         }
     }
-
-    .small-screen-nav{
-      display:none;
-
-      @media (max-width: map-get($breakpoints, phone)) {
-        display: flex;
-    }
-    }
 }
 
+.simple-nav-container {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: end;
+    margin-right: 40px;
+    color: var(--text-color);
+
+    .nav-link {
+        font-size: 1.125rem;
+    }
+
+    .user-profile {
+        position: absolute;
+        top: 80px;
+        right: 30px;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        border: 1px solid #c7ac9d;
+        background-color: var(--background-color);
+        cursor: pointer;
+        z-index: 100;
+    }
+}

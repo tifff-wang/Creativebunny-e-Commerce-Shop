@@ -43,7 +43,6 @@ const StripeForm = () => {
             setIsProcessing(false)
             return
         } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-            console.log('Payment succeeded')
             if (currentDeliveryInfo && currentUser) {
                 const order: OrderModel = {
                     id: uuid(),
@@ -56,7 +55,6 @@ const StripeForm = () => {
                 }
 
                 createOrderDocuments(order)
-                console.log('Order saved successfully:', order)
             }
             navigate('/completion')
         } else {
