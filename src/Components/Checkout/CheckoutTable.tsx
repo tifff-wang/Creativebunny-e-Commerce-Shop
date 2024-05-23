@@ -49,10 +49,10 @@ const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
                 </tbody>
                 <tfoot>
                     <tr className="foot-row">
-                        <th scope="row" colSpan={4}>
+                        <th className="subtotal-row" scope="row" colSpan={4}>
                             Subtotal:
                         </th>
-                        <td>${subtotal}</td>
+                        <td className="subtotal-row">${subtotal}</td>
                     </tr>
                     <tr className="foot-row discount-row">
                         <th scope="row" colSpan={4}>
@@ -68,7 +68,7 @@ const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
                     </tr>
                     <tr className="foot-row total-price">
                         <th scope="row" colSpan={4}>
-                            Total Price:
+                            Total Price: &nbsp;
                         </th>
                         <td>
                             ${Number((currentTotalPrice + shipping).toFixed(2))}

@@ -1,8 +1,8 @@
 .button-container {
     display: flex;
     height: 40px;
-    width: 165px;
-    font-size: var(--font-size-small);
+    width: 180px;
+    font-size: var(--font-size-medium);
     background-color: white;
     font-weight:bolder;
     justify-content: center;
@@ -27,7 +27,6 @@
     &.google-button {
         background-color: #ededed;
         color: #4285f4;
-        width: 180px;
 
         &:hover {
             background-color: none;

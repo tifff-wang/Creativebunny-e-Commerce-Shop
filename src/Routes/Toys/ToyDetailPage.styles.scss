@@ -8,7 +8,7 @@
     width: 80%;
 
     @media (min-width: map-get($breakpoints, phone)) {
-        margin: 5rem auto;
+        margin: 80px auto;
         display: flex;
         flex-direction: row;
         align-items: start;
@@ -19,12 +19,12 @@
         width: 80%;
 
         @media (min-width: map-get($breakpoints, phone)) {
-         width: 50%;
-    }
+            width: 50%;
+        }
 
         .product-detail-image {
             width: 90%;
-            margin-top: 2rem;
+            margin-top: 32px;
         }
     }
 
@@ -32,10 +32,10 @@
         width: 90%;
 
         @media (min-width: map-get($breakpoints, phone)) {
-        margin-left: 20px;
-        width: 50%;
-        margin-top: 1rem;
-    }
+            margin-left: 20px;
+            width: 50%;
+            margin-top: 16px;
+        }
 
         .product-name {
             font-size: var(--font-size-xlarge);
@@ -81,15 +81,17 @@
 
             .product-description {
                 margin-top: 20px;
+                font-size: var(--font-size-medium);
+                line-height:1.5rem;
             }
 
             .size-list {
                 padding: 0;
                 list-style-type: none;
-                font-size: 13px;
+                font-size: var(--font-size-medium);
 
                 .size {
-                    font-size: 13px;
+                    font-size: var(--font-size-medium);
                     line-height: 20px;
                 }
             }

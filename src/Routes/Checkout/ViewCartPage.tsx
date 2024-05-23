@@ -10,7 +10,7 @@ const ViewCartPage = () => {
         <>
             <div className="cart-container">
                 <Link className="continue-shopping" to="/products">
-                    continue shopping
+                    Continue shopping
                 </Link>
                 <CheckoutTable canChangeQty={true} />
 

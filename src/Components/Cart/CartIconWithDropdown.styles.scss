@@ -5,7 +5,7 @@
         align-items: center;
         margin: 0 10px 0 5px;
         cursor: pointer;
-        position:relative;
+        position: relative;
 
         .cart-icon {
             width: 18px;
@@ -48,9 +48,26 @@
             margin-bottom: 20px;
         }
 
-        button {
+        .view-cart-link {
             margin: auto;
-            width:180px;
+            display: flex;
+            height: 40px;
+            width: 165px;
+            font-size: var(--font-size-medium);
+            font-family: var(--secondary-font);
+            font-weight: bolder;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            border-radius: 24px;
+            background-color: var(--primary-color);
+            color: rgb(255, 255, 255);
+
+            &:hover {
+                background-color: var(--highlight-color);
+                color: white;
+            }
         }
     }
 }

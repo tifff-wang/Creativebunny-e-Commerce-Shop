@@ -54,14 +54,14 @@ const CheckoutItem = ({
                                 }
                             />
                         </div>
-                        <div>
+                        
                             <MdDeleteOutline
                                 className="checkout-table-icon"
                                 onClick={() =>
                                     dispatch(deleteItemfromCart(item))
                                 }
                             />
-                        </div>
+                    
                     </div>
                 ) : (
                     <div>{item.quantity}</div>

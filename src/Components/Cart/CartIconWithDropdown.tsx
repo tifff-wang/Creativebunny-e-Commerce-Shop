@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../Button/Button'
 import React, { useRef, useState } from 'react'
 import CartItem from './CartItem'
@@ -40,9 +40,13 @@ const CartIconWithDropdown = () => {
                                 })}
                             </div>
 
-                            <Button buttonType="default" onClick={handleClick}>
+                            <Link
+                                className="view-cart-link"
+                                to="/cart"
+                                onClick={() => setOpenDropdown(false)}
+                            >
                                 View Cart
-                            </Button>
+                            </Link>
                         </>
                     ) : (
                         <div className="cart-empty">The cart is empty</div>

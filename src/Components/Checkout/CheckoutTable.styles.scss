@@ -10,7 +10,7 @@ table {
     border-collapse: collapse;
 
     thead tr {
-        font-size: 14px;
+        font-size: var(--font-size-small);
         height: 40px;
         font-family: roboto;
 
@@ -20,7 +20,7 @@ table {
         }
 
         th.qty {
-            width: 15%;
+            width: 20%;
         }
     }
 
@@ -35,18 +35,27 @@ table {
 
     tfoot {
         text-align: end;
-        font-size: 18px;
+        font-size: 16px;
 
         .foot-row {
             font-family: roboto;
-            font-size: 14px;
-            font-weight: 500;
-            height: 35px;
+            font-size: 16px;
+            font-weight: 400;
+            height: 32px;
+
+            th {
+                font-weight: 400;
+            }
         }
 
         .total-price {
-            font-size: 16px;
+            font-size: 18px;
             height: 50px;
+            font-weight: 600;
+
+            th {
+                font-weight: 600;
+            }
         }
 
         td {
@@ -56,6 +65,11 @@ table {
 
     tfoot tr .shipping {
         border-bottom: solid 1px rgb(238, 238, 238);
+        padding-bottom: 12px;
+    }
+
+    tfoot tr .subtotal-row {
+        padding-top: 12px;
     }
 
     .discount-row {
