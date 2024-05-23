@@ -1,8 +1,9 @@
 import React from 'react'
 import './HeroSection.styles.scss'
-import { Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const HeroSection = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div className="hero-container">
@@ -18,12 +19,13 @@ const HeroSection = () => {
                     <h2 className="hero-subtilte">
                         Carefully handcrafted that provides fun and safey
                     </h2>
-                    <Link
-                        to='/products'
-                        className="hero-section-link"
+                    <div
+                        role="link"
+                        onClick={() => navigate('/products')}
+                        className="hero-section-link hero-section-link__shutter-out-horizontal"
                     >
                         SHOP NOW
-                    </Link>
+                    </div>
                 </div>
             </div>
         </>

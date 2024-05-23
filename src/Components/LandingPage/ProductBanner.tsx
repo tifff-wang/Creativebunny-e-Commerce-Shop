@@ -22,7 +22,10 @@ const ProductBanner = () => {
                         Our wooden kitchen range comes with a variety of
                         kitchenware and pretend play food
                     </h2>
-                    <Link to="products/kitchen" className="product-banner-link">
+                    <Link
+                        to="products/kitchen"
+                        className="product-banner-link product-banner-link__shutter-out"
+                    >
                         SHOP NOW
                     </Link>
                 </div>
