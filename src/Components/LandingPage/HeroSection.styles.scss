@@ -25,7 +25,7 @@
         }
 
         .hero-image {
-            width: 60vw;
+            width: 55vw;
             margin: auto;
             border-radius: 5px;
             border-top-right-radius: 100px;
@@ -39,6 +39,10 @@
 
             @media (min-width: map-get($breakpoints, tablet)) {
                 width: 45vh;
+            }
+
+            @media (min-width: map-get($breakpoints, desktop)) {
+                width: 50vh;
             }
         }
 
@@ -85,6 +89,7 @@
 
         .hero-section-link {
             position: relative;
+            margin: auto;
             width: 165px;
             height: 40px;
             line-height: 40px;
@@ -97,6 +102,10 @@
             text-align: center;
             box-shadow: 5px 5px var(--highlight-color);
             cursor: pointer;
+
+            @media (min-width: map-get($breakpoints, phone)) {
+                margin-left: 0;
+            }
         }
 
         .hero-section-link__shutter-out-horizontal {
