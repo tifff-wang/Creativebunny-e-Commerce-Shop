@@ -13,9 +13,26 @@ const Footer = () => {
                 </div>
                 <div className="footer-card footer-nav">
                     <ul>
-                        <li onClick={() => navigate('/')}>Home</li>
+                        <li>
+                            <Link
+                                to="/"
+                                className="footer-link"
+                                onClick={() => window.scroll(0, 0)}
+                            >
+                                Home
+                            </Link>
+                        </li>
                         <li>About Us</li>
-                        <li onClick={() => navigate('/products')}>Toys</li>
+                        <li>
+                            {' '}
+                            <Link
+                                to="products"
+                                className="footer-link"
+                                onClick={() => window.scroll(0, 0)}
+                            >
+                                Category
+                            </Link>
+                        </li>
                         <li>Shipping</li>
                         <li>Terms & Condition</li>
                         <li>Contact</li>

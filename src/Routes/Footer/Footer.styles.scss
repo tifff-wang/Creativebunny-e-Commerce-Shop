@@ -44,10 +44,14 @@
     }
 
     li {
-        font-family: system-ui;
+        font-family: var(--secondary-font);
         font-size: var(--font-size-small);
         line-height: 1.5rem;
         font-weight: 500;
+       
+        .footer-link{
+           color:white;
+        }
     }
 }
 
