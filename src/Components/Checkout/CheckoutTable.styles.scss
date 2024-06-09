@@ -12,7 +12,7 @@ table {
     thead tr {
         font-size: var(--font-size-small);
         height: 40px;
-        font-family: roboto;
+        font-family: var(--secondary-font);
 
         th.subtotal {
             width: 10%;
@@ -35,11 +35,11 @@ table {
 
     tfoot {
         text-align: end;
-        font-size: 16px;
+        font-size: var(--font-size-medium);
 
         .foot-row {
-            font-family: roboto;
-            font-size: 16px;
+            font-family: var(--secondary-font);
+            font-size: var(--font-size-medium);
             font-weight: 400;
             height: 32px;
 
