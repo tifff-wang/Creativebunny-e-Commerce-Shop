@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Creative Bunny E-commerce Toy Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Introduction**
+<br />
+This a full-stack web application project built using React, Redux Toolkit, and Firebase. It is based on a real toy business currently selling on Trademe. All toy details and images are copyrighted by Creative Bunny Ltd. 
 
-## Available Scripts
+Working on this project has strengthened my skills in the React and Redux frameworks, web responsiveness and accessability, and has provided valuable practice with essential e-commerce features such as setting up add-to-cart, checkout, and Stripe payment functionalities.
 
-In the project directory, you can run:
+## Responsiveness and Accessibility
 
-### `npm start`
+The website is fully responsive and it adheres to accessibility standards as evaluated by the WAVE Evaluation Tool.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## This website is deployed by Netlify
 
-### `npm test`
+[https://cerulean-beijinho-3bc29d.netlify.app/](https://cerulean-beijinho-3bc29d.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+![](https://img.shields.io/badge/React-purple) ![](https://img.shields.io/badge/Redux-purple) ![](https://img.shields.io/badge/Firebase_Authentication-blue)
+![](https://img.shields.io/badge/Firestore_Database-blue) ![](https://img.shields.io/badge/SCSS-grey) ![](https://img.shields.io/badge/TypeScript-green)![](https://img.shields.io/badge/Netlify_Deployment-grey) ![](https://img.shields.io/badge/Stripe_Payment-yellow)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Key pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   ### Landing Page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ![image](https://i.ibb.co/PW2yWWP/Creative-bunny-landing-page.png)
 
-### `npm run eject`
+-   ### Category
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ![image](https://i.ibb.co/kg1L9by/Category.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   ### Product detail
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ![image](https://i.ibb.co/bmnd1tj/Product-detail.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-   ### Cart
 
-## Learn More
+    ![image](https://i.ibb.co/kBSmdDR/Cart.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   ### Checkout
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ![image](https://i.ibb.co/r2vhGNv/Checkout.png)
 
-### Code Splitting
+-   ### Auth
+    ![image](https://i.ibb.co/hcrzD2y/Auth.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Future Enhancements
 
-### Making a Progressive Web App
+In the next phase of development, I plan to add the following features to further improve the functionality of the website:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-   **Order History and Status**: Users will be able to check their order history and the status of current orders. This feature will help customers track their purchases and view updates in real time.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   **Admin Access for Order Management**: A dedicated admin interface will be implemented to allow site administrators to view incoming orders from customers and update order statuses as needed.
