@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import {
     signInAuthUserWithEmailAndPassword,
     signInWithGooglePopup,
@@ -18,24 +18,29 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const [errorMessage, setErrorMessage] = useState('')
     const { email, password } = formFields
+    const [loading, setLoading] = useState(false)
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setFormFields({ ...formFields, [name]: value })
     }
 
-    const handleSubmit = async (event: any) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        setErrorMessage('')
 
+        setLoading(true)
         try {
             await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields()
+            setLoading(false)
             navigate(-1)
         } catch (error) {
+            setLoading(false)
             if ((error as any).code === 'auth/invalid-credential') {
                 setErrorMessage('Incorrect password')
             } else if ((error as any).code === 'auth/user-not-found') {
@@ -63,7 +68,7 @@ const SignInForm = () => {
             <form onSubmit={handleSubmit}>
                 <FormInput
                     label="Email"
-                    id = "email-input"
+                    id="email-input"
                     name="email"
                     type="email"
                     value={email}
@@ -73,7 +78,7 @@ const SignInForm = () => {
 
                 <FormInput
                     label="Password"
-                    id ="password-input"
+                    id="password-input"
                     name="password"
                     type="password"
                     value={password}
@@ -83,7 +88,7 @@ const SignInForm = () => {
 
                 <div className="buttons-container">
                     <Button buttonType="default" type="submit">
-                        Sign In
+                        {loading ? 'Signing In...' : 'Sign In'}
                     </Button>
                     <Button
                         buttonType="google"

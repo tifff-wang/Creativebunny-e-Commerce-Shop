@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import {
     createAuthUserWithEmailAndPassword,
     createUserDocument,
+    updateUserProfile,
 } from '../../Utils/Firebase/Firebase.utils'
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignUpForm.styles.scss'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setCurrentUser } from '../../Store/User/userSlice'
 
 const defaultFormFields = {
     displayName: '',
@@ -15,28 +19,32 @@ const defaultFormFields = {
 }
 
 const SignUpForm = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [formFields, setFormFields] = useState(defaultFormFields)
     const [errorMessage, setErrorMessage] = useState('')
     const { displayName, email, password, confirmPassword } = formFields
+    const [loading, setLoading] = useState(false)
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
-
         setFormFields({ ...formFields, [name]: value })
     }
 
-    const handleSubmit = async (event: any) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        setErrorMessage('')
 
         if (password !== confirmPassword) {
             setErrorMessage('passwords do not match')
             return
         }
 
+        setLoading(true)
         try {
             const { user } =
                 (await createAuthUserWithEmailAndPassword(email, password)) ||
@@ -45,16 +53,22 @@ const SignUpForm = () => {
             if (!user) {
                 throw new Error('User not found')
             }
+
+            await updateUserProfile(displayName)
             await createUserDocument(user, { displayName })
+            dispatch(setCurrentUser(user))
             resetFormFields()
+            navigate(-1)
         } catch (error) {
             if ((error as any).code === 'auth/email-already-in-use') {
-                setErrorMessage('Email aleary exists, please sign in')
+                setErrorMessage('Email aleady exists, please sign in')
             } else {
                 setErrorMessage(
                     'Oops, something went wrong, please try again later'
                 )
             }
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -105,8 +119,8 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     required
                 />
-                <Button buttonType="default" type="submit">
-                    Sign Up
+                <Button buttonType="default" type="submit" disabled={loading}>
+                    {loading ? 'Signing Up...' : 'Sign Up'}
                 </Button>
             </form>
         </div>

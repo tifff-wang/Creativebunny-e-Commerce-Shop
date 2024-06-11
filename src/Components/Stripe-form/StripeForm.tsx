@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import Button from '../Button/Button'
 import './StripeForm.styles.scss'
@@ -21,7 +21,7 @@ const StripeForm = () => {
     const orderItems = useSelector(selectedCartItems)
     const navigate = useNavigate()
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if (!stripe || !elements) {
@@ -51,7 +51,7 @@ const StripeForm = () => {
                     userId: currentUser.uid,
                     deliveryStatus: 'pending',
                     totalPrice: currentTotalPrice,
-                    paymentIntent: paymentIntent.id
+                    paymentIntent: paymentIntent.id,
                 }
 
                 createOrderDocuments(order)

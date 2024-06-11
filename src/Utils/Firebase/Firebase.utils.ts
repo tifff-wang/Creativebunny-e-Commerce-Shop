@@ -9,6 +9,7 @@ import {
     onAuthStateChanged,
     NextOrObserver,
     User,
+    updateProfile,
 } from 'firebase/auth'
 import {
     getFirestore,
@@ -60,7 +61,7 @@ export const createCollectionAndDocuments = async (
     })
 
     await batch.commit()
-    console.log("done")
+    console.log('done')
 }
 
 export const getCategoriesAndDocuments = async () => {
@@ -119,6 +120,23 @@ export const signInAuthUserWithEmailAndPassword = async (
     if (!email || !password) return
 
     return await signInWithEmailAndPassword(auth, email, password)
+}
+
+export const updateUserProfile = async (displayName: string) => {
+    if (!auth.currentUser) {
+        throw new Error('No authenticated user found.')
+    }
+
+    console.log(displayName)
+    try {
+        await updateProfile(auth.currentUser, { displayName })
+        console.log('User profile updated successfully.')
+    } catch (error) {
+        console.error('Failed to update user profile:', error)
+        throw error
+    }
+
+    console.log(auth.currentUser)
 }
 
 export const signOutAuthUser = async () => await signOut(auth)
