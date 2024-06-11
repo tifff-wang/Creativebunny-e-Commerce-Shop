@@ -8,7 +8,9 @@ import './StripePayment.styles.scss'
 
 const StripePayment = () => {
     const [clientSecret, setClientSecret] = useState('')
-    const amount = Number(useSelector(discountedPrice).toFixed(2))
+    const paymentAmount = Number(
+        (useSelector(discountedPrice) * 100).toFixed(2)
+    )
 
     useEffect(() => {
         fetch('/.netlify/functions/create-payment-intent', {
@@ -16,7 +18,7 @@ const StripePayment = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ amount: amount * 100 }),
+            body: JSON.stringify({ amount: paymentAmount }),
         }).then(async (r) => {
             const data = await r.json()
             if (r.ok) {

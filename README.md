@@ -18,7 +18,7 @@ The website is fully responsive and it adheres to accessibility standards as eva
 ## Technologies
 
 ![](https://img.shields.io/badge/React-purple) ![](https://img.shields.io/badge/Redux-purple) ![](https://img.shields.io/badge/Firebase_Authentication-blue)
-![](https://img.shields.io/badge/Firestore_Database-blue) ![](https://img.shields.io/badge/SCSS-grey) ![](https://img.shields.io/badge/TypeScript-green)![](https://img.shields.io/badge/Netlify_Deployment-grey) ![](https://img.shields.io/badge/Stripe_Payment-yellow)
+![](https://img.shields.io/badge/Firestore_Database-blue) ![](https://img.shields.io/badge/SCSS-grey) ![](https://img.shields.io/badge/TypeScript-green) ![](https://img.shields.io/badge/Netlify_Deployment-grey) ![](https://img.shields.io/badge/Stripe_Payment-yellow)
 
 ## Key pages
 

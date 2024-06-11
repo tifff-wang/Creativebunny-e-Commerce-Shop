@@ -3,7 +3,6 @@ import { RootState } from '../store'
 
 const cartReducer = (state: RootState) => state.cart
 
-
 export const selectedCartItems = createSelector(
     [cartReducer],
     (cart) => cart.cartItems
@@ -18,7 +17,7 @@ export const totalPrice = createSelector([selectedCartItems], (cartItems) =>
 
 export const discountedPrice = createSelector(
     [totalPrice],
-    (totalPrice) => Number(totalPrice) * 0.8
+    (totalPrice) => totalPrice * 0.8
 )
 
 export const totalQuantity = createSelector([selectedCartItems], (cartItems) =>

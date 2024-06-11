@@ -13,7 +13,7 @@ const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
     const subtotal = Number(useSelector(totalPrice).toFixed(2))
     const currentTotalPrice = Number(useSelector(discountedPrice).toFixed(2))
     const discount = Number((subtotal - currentTotalPrice).toFixed(2))
-    const shipping = 6.99
+    const shipping = Number((6.99).toFixed(2))
 
     return (
         <div className="cart-table-container">
@@ -28,53 +28,63 @@ const CheckoutTable = ({ canChangeQty }: { canChangeQty: boolean }) => {
                     </tr>
                 </thead>
 
-                <tbody>
-                    {currentCartItems.length > 0 ? (
-                        currentCartItems.map((item) => {
-                            return (
+                {currentCartItems.length > 0 ? (
+                    <>
+                        {currentCartItems.map((item) => (
+                            <tbody key={item.id}>
                                 <CheckoutItem
-                                    key={item.id}
                                     item={item}
                                     canChangeQty={canChangeQty}
                                 />
-                            )
-                        })
-                    ) : (
+                            </tbody>
+                        ))}
+                        <tfoot>
+                            <tr className="foot-row">
+                                <th
+                                    className="subtotal-row"
+                                    scope="row"
+                                    colSpan={4}
+                                >
+                                    Subtotal:
+                                </th>
+                                <td className="subtotal-row">${subtotal}</td>
+                            </tr>
+                            <tr className="foot-row discount-row">
+                                <th scope="row" colSpan={4}>
+                                    20% Off Discount:
+                                </th>
+                                <td>{`-$${discount}`}</td>
+                            </tr>
+                            <tr className="foot-row">
+                                <th
+                                    className="shipping"
+                                    scope="row"
+                                    colSpan={4}
+                                >
+                                    Shipping:
+                                </th>
+                                <td className="shipping">${shipping}</td>
+                            </tr>
+                            <tr className="foot-row total-price">
+                                <th scope="row" colSpan={4}>
+                                    Total Price: &nbsp;
+                                </th>
+                                <td>
+                                    $
+                                    {Number(
+                                        currentTotalPrice + shipping
+                                    ).toFixed(2)}
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </>
+                ) : (
+                    <tbody>
                         <tr className="cart-empty">
-                            <th scope="row" colSpan={5}>
-                                The cart is empty
-                            </th>
+                            <td colSpan={5}>The cart is empty</td>
                         </tr>
-                    )}
-                </tbody>
-                <tfoot>
-                    <tr className="foot-row">
-                        <th className="subtotal-row" scope="row" colSpan={4}>
-                            Subtotal:
-                        </th>
-                        <td className="subtotal-row">${subtotal}</td>
-                    </tr>
-                    <tr className="foot-row discount-row">
-                        <th scope="row" colSpan={4}>
-                            20% 0ff Discount:
-                        </th>
-                        <td>- ${discount}</td>
-                    </tr>
-                    <tr className="foot-row">
-                        <th className="shipping" scope="row" colSpan={4}>
-                            Shipping:
-                        </th>
-                        <td className="shipping">$ {shipping}</td>
-                    </tr>
-                    <tr className="foot-row total-price">
-                        <th scope="row" colSpan={4}>
-                            Total Price: &nbsp;
-                        </th>
-                        <td>
-                            ${Number((currentTotalPrice + shipping).toFixed(2))}
-                        </td>
-                    </tr>
-                </tfoot>
+                    </tbody>
+                )}
             </table>
         </div>
     )

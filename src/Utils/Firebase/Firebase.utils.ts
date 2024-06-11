@@ -126,7 +126,7 @@ export const updateUserProfile = async (displayName: string) => {
     if (!auth.currentUser) {
         throw new Error('No authenticated user found.')
     }
-    
+
     try {
         await updateProfile(auth.currentUser, { displayName })
     } catch (error) {
