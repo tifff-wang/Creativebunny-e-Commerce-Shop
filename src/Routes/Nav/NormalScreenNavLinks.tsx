@@ -9,7 +9,6 @@ import useSignOut from '../../Hooks/useSignout'
 
 const NormalScreenNavLinks = () => {
     const currentUser = useSelector(selectedCurrentUser)
-    console.log(currentUser?.displayName)
     const firstName = currentUser?.displayName.split(' ')[0]
     const signout = useSignOut()
 

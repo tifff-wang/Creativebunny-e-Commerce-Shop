@@ -42,7 +42,9 @@ const SignInForm = () => {
         } catch (error) {
             setLoading(false)
             if ((error as any).code === 'auth/invalid-credential') {
-                setErrorMessage('Incorrect password')
+                setErrorMessage(
+                    'The email or password you entered is not valid'
+                )
             } else if ((error as any).code === 'auth/user-not-found') {
                 setErrorMessage('Can not find the email, please sign up')
             } else {

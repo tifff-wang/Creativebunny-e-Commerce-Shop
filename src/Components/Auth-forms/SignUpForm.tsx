@@ -59,9 +59,15 @@ const SignUpForm = () => {
             dispatch(setCurrentUser(user))
             resetFormFields()
             navigate(-1)
-        } catch (error) {
+        } catch (error) { 
             if ((error as any).code === 'auth/email-already-in-use') {
                 setErrorMessage('Email aleady exists, please sign in')
+            } else if ((error as any).code === 'auth/invalid-email') {
+                setErrorMessage('Please provide a valid email')
+            } else if ((error as any).code === 'auth/weak-password') {
+                setErrorMessage(
+                    'Invalid password. Password should be at least 6 characters.'
+                )
             } else {
                 setErrorMessage(
                     'Oops, something went wrong, please try again later'
