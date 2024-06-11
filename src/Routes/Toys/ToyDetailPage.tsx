@@ -3,26 +3,42 @@ import { useParams } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 import { ToyModel } from '../../Model/ToyModel'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-    selectProductById,
-} from '../../Store/Category/categorySelector'
+import { selectProductById } from '../../Store/Category/categorySelector'
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai'
 
 import { addItemToCart } from '../../Store/Cart/cartSlice'
 import './ToyDetailPage.styles.scss'
 
 const ToyDetailPage = () => {
-    const { productId } = useParams()
     const dispatch = useDispatch()
+    const { productId } = useParams()
     const selectedProduct = useSelector(selectProductById(productId || ''))
     const [product, setProduct] = useState<ToyModel>()
     const [quantity, setQuantity] = useState(1)
+    const [buttonText, setButtonText] = useState('Add to Cart')
 
     useEffect(() => {
         if (productId && selectedProduct) {
             setProduct(selectedProduct)
         }
     }, [productId, selectedProduct])
+
+    const handleClick = (product: ToyModel) => {
+        setButtonText('Adding...')
+        setTimeout(() => {
+            dispatch(
+                addItemToCart({
+                    item: product,
+                    addQuantity: quantity,
+                })
+            )
+            setButtonText('Added ✅')
+
+            setTimeout(() => {
+                setButtonText('Add to Cart')
+            }, 1000)
+        }, 1000)
+    }
 
     return (
         <>
@@ -61,16 +77,10 @@ const ToyDetailPage = () => {
                             {product && (
                                 <Button
                                     buttonType="default"
-                                    onClick={() =>
-                                        dispatch(
-                                            addItemToCart({
-                                                item: product,
-                                                addQuantity: quantity,
-                                            })
-                                        )
-                                    }
+                                    onClick={() => handleClick(product)}
+                                    disabled={buttonText !== 'Add to Cart'}
                                 >
-                                    Add to cart
+                                    {buttonText}
                                 </Button>
                             )}
                         </div>

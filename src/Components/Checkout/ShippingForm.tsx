@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+    ChangeEvent,
+    FormEvent,
+    MouseEvent,
+    useEffect,
+    useState,
+} from 'react'
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import { selectedCurrentUser } from '../../Store/User/userSlice'
@@ -31,19 +37,19 @@ const ShippingForm = () => {
         }
     }, [currentUser, formFields.email])
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
         setFormFields({ ...formFields, [name]: value })
     }
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         setformInEdit(false)
         dispatch(setDeliveryDetailSaved(true))
         dispatch(setDeliveryInfo(formFields))
     }
 
-    const handleClick = async (event: any) => {
+    const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
         setformInEdit(true)
         await dispatch(setDeliveryDetailSaved(false))
     }
