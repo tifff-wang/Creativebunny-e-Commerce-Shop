@@ -2,14 +2,13 @@
 
 **Introduction**
 <br />
-This a full-stack web application project built using React, Redux Toolkit, and Firebase. It is based on a real toy business currently selling on Trademe. All toy details and images are copyrighted by Creative Bunny Ltd. 
+This a full-stack web application project built using React, Redux Toolkit, and Firebase. It is based on a real toy business currently selling on Trademe. All toy details and images are copyrighted by Creative Bunny Ltd.
 
 Working on this project has strengthened my skills in the React and Redux frameworks, web responsiveness and accessability, and has provided valuable practice with essential e-commerce features such as setting up add-to-cart, checkout, and Stripe payment functionalities.
 
 ## Responsiveness and Accessibility
 
 The website is fully responsive and it adheres to accessibility standards as evaluated by the WAVE Evaluation Tool.
-
 
 ## This website is deployed by Netlify
 
@@ -24,28 +23,26 @@ The website is fully responsive and it adheres to accessibility standards as eva
 
 -   ### Landing Page.
 
-    ![image](https://i.ibb.co/PW2yWWP/Creative-bunny-landing-page.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/creative-bunny-landing-page.png)
 
 -   ### Category
 
-    ![image](https://i.ibb.co/kg1L9by/Category.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/category.png)
 
 -   ### Product detail
 
-    ![image](https://i.ibb.co/bmnd1tj/Product-detail.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/product-detail.png)
 
 -   ### Cart
 
-    ![image](https://i.ibb.co/kBSmdDR/Cart.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/cart.png)
 
 -   ### Checkout
 
-    ![image](https://i.ibb.co/r2vhGNv/Checkout.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/checkout.png)
 
 -   ### Auth
-    ![image](https://i.ibb.co/BZDDYrt/auth.png)
-
-
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/auth.png)
 
 ## Future Enhancements
 
