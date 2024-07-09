@@ -23,23 +23,23 @@ The website is fully responsive and it adheres to accessibility standards as eva
 
 -   ### Landing Page.
 
-    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/creative-bunny-landing-page.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/Creative-bunny-landing-page.png)
 
 -   ### Category
 
-    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/category.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/Category.png)
 
 -   ### Product detail
 
-    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/product-detail.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/Product-detail.png)
 
 -   ### Cart
 
-    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/cart.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/Cart.png)
 
 -   ### Checkout
 
-    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/checkout.png)
+    ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/Checkout.png)
 
 -   ### Auth
     ![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/auth.png)
