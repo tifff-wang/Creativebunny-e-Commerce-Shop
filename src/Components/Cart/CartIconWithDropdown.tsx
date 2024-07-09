@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom'
-import Button from '../Button/Button'
 import React, { useRef, useState } from 'react'
 import CartItem from './CartItem'
 import { useSelector } from 'react-redux'
@@ -9,17 +8,11 @@ import useClickOutside from '../../Hooks/useClickOutside'
 import './CartIconWithDropdown.styles.scss'
 
 const CartIconWithDropdown = () => {
-    const navigate = useNavigate()
     const currentCartItems = useSelector(selectedCartItems)
     const currentTotalQuantity = useSelector(totalQuantity)
     const [openDropdown, setOpenDropdown] = useState(false)
     const cartDropdownRef = useRef<HTMLDivElement | null>(null)
     useClickOutside(cartDropdownRef, () => setOpenDropdown(false))
-
-    const handleClick = () => {
-        navigate('/cart')
-        setOpenDropdown(false)
-    }
 
     return (
         <div className="cartIcon-with-dropdown-container" ref={cartDropdownRef}>

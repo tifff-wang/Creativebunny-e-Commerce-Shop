@@ -43,7 +43,7 @@ The website is fully responsive and it adheres to accessibility standards as eva
     ![image](https://i.ibb.co/r2vhGNv/Checkout.png)
 
 -   ### Auth
-    ![image](https://i.ibb.co/hcrzD2y/Auth.png)
+    ![image](https://i.ibb.co/BZDDYrt/auth.png)
 
 
 
