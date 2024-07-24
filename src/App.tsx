@@ -23,6 +23,9 @@ import { createCollectionAndDocuments } from './Utils/Firebase/Firebase.utils'
 import TOY_DATA from './toys-data'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import AdminDashboardPage from './Routes/Admin/AdminDashboardPage'
+import AdminProductListPage from './Routes/Admin/AdminProductListPage'
+import AdminUserListPage from './Routes/Admin/AdminUserListPage'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -65,7 +68,6 @@ const App = () => {
                 <Route path="/">
                     <Route index element={<HomePage />} />
                     <Route path="auth" element={<AuthPage />} />
-
                     <Route
                         path="products/:categoryName/:productId"
                         element={<ToyDetailPage />}
@@ -78,6 +80,16 @@ const App = () => {
                     <Route path="cart" element={<ViewCartPage />} />
                     <Route path="cart/checkout" element={<CheckoutPage />} />
                     <Route path="completion" element={<PayCompletionPage />} />
+                    <Route
+                        path="admin/dashboard"
+                        element={<AdminDashboardPage />}
+                    />
+                    <Route
+                        path="admin/products"
+                        element={<AdminProductListPage />}
+                    />
+                    <Route path="admin/users" element={<AdminUserListPage />} />
+                    AdminUserListPage
                 </Route>
             </Routes>
             <Footer />

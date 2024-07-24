@@ -1,0 +1,27 @@
+.dashboard-container {
+    margin-top: 130px;
+    text-align: center;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .dashboard-card {
+        width: 40%;
+        display: flex;
+        margin: auto;
+        padding:0 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom:20px;
+        height: 100px;
+        z-index: 10;
+        background-color: var(--background-grey);
+        border-radius: 5px;
+
+        h2{
+          font-size: 1rem;
+        }
+    }
+}

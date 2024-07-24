@@ -8,5 +8,7 @@ export interface OrderModel {
     userId: string;
     totalPrice: number;
     deliveryStatus: string;
+    trackingNumber: string
     paymentIntent: string
+    orderStatus: string
   }
