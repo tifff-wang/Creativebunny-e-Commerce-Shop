@@ -27,13 +27,8 @@ import 'aos/dist/aos.css'
 const App = () => {
     const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     createCollectionAndDocuments('categories', TOY_DATA)
-    // }, [])
-
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
-            console.log(`currentUser: ${user}`)
             if (user) {
                 createUserDocument(user)
                 dispatch(setCurrentUser(user))
