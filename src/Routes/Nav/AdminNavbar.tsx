@@ -24,12 +24,17 @@ const AdminNavBar = () => {
                 <div className="nav-links-container">
                     {currentUser ? (
                         <div className="current-user-container">
+                            <Link className="nav-link" to="/admin/products">
+                                <span>Products</span>
+                            </Link>
+                            <Link className="nav-link" to="/admin/orders">
+                                <span>Orders</span>
+                            </Link>
                             <div className="username">
                                 <FaUser />
-                                <span className="nav-link">
-                                    Welcome {firstName}
-                                </span>
+                                <span className="nav-link">Admin</span>
                             </div>
+
                             <Button
                                 buttonType="inverted"
                                 onClick={() => signout('/auth')}

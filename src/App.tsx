@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import HomePage from './Routes/Home/HomePage'
 import NavBar from './Routes/Nav/NavBar'
 import AuthPage from './Routes/Auth/AuthPage'
@@ -26,10 +26,14 @@ import 'aos/dist/aos.css'
 import AdminDashboardPage from './Routes/Admin/AdminDashboardPage'
 import AdminProductListPage from './Routes/Admin/AdminProductListPage'
 import AdminUserListPage from './Routes/Admin/AdminUserListPage'
+import AdminOrderListPage from './Routes/Admin/AdminOrderListPage'
+import AdminNavBar from './Routes/Nav/AdminNavbar'
 
 const App = () => {
     const dispatch = useDispatch()
 
+    const location = useLocation()
+    const isAdminRoute = location.pathname.startsWith('/admin')
     // useEffect(() => {
     //     createCollectionAndDocuments('categories', TOY_DATA)
     // }, [])
@@ -62,8 +66,8 @@ const App = () => {
 
     return (
         <>
-            <NavBar />
-            <Breadcrumbs />
+            {!isAdminRoute ? <NavBar /> : <AdminNavBar />}
+            {!isAdminRoute && <Breadcrumbs />}
             <Routes>
                 <Route path="/">
                     <Route index element={<HomePage />} />
@@ -89,10 +93,13 @@ const App = () => {
                         element={<AdminProductListPage />}
                     />
                     <Route path="admin/users" element={<AdminUserListPage />} />
-                    AdminUserListPage
+                    <Route
+                        path="admin/orders"
+                        element={<AdminOrderListPage />}
+                    />
                 </Route>
             </Routes>
-            <Footer />
+            {!isAdminRoute && <Footer />}
         </>
     )
 }

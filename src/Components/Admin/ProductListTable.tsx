@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProductListTable.styles.scss'
 import { AdminProductModel } from '../../Model/AdminProductModel'
-import { MdOutlineEdit } from 'react-icons/md'
+import SortableTable from '../Table/SortableTable'
 
 const ProductListTable = () => {
     const productData: AdminProductModel[] = [
@@ -26,44 +26,53 @@ const ProductListTable = () => {
         },
     ]
 
+    const configProductData = [
+        {
+            header: 'Item',
+            render: (data: AdminProductModel) => (
+                <img className="item-image" src={data.imageUrl} alt="" />
+            ),
+        },
+        {
+            header: 'Name',
+            render: (data: AdminProductModel) => data.name,
+            sortedValue: (data: AdminProductModel) => data.name,
+            dataType: 'string',
+        },
+        {
+            header: 'Unit Price',
+            render: (data: AdminProductModel) => `$${data.price}`,
+            sortedValue: (data: AdminProductModel) => data.price,
+            dataType: 'number',
+        },
+        {
+            header: 'Stock',
+            render: (data: AdminProductModel) => data.stock,
+            sortedValue: (data: AdminProductModel) => data.stock,
+            dataType: 'number',
+        },
+        {
+            header: 'SKU',
+            render: (data: AdminProductModel) => data.SKU,
+        },
+        {
+            header: 'Publish',
+            render: (data: AdminProductModel) =>
+                data.isPublish ? 'yes' : 'no',
+        },
+    ]
+
+    const getKeyForTable = (data: AdminProductModel) => {
+        return data.id
+    }
+
     return (
         <div className="all-products-table-container">
-            <table>
-                <thead>
-                    <tr className="table-header">
-                        <th className="item">Item</th>
-                        <th className="name">Name</th>
-                        <th className="price">Unit Price</th>
-                        <th className="stock">Stock</th>
-                        <th className="sku">SKU</th>
-                        <th className="publish">Publish</th>
-                    </tr>
-                </thead>
-
-                {productData.map((item) => (
-                    <tbody key={item.id}>
-                        <tr>
-                            <td className="image">
-                                <img
-                                    className="item-image"
-                                    src={item.imageUrl}
-                                    alt=""
-                                />
-                            </td>
-                            <td>{item.name}</td>
-                            <td>${item.price}</td>
-                            <td>{item.stock}</td>
-                            <td>{item.SKU}</td>
-                            <td>{item.isPublish ? 'Yes' : 'No'}</td>
-                            <td>
-                                <div>
-                                    <MdOutlineEdit className="table-icon" />
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                ))}
-            </table>
+            <SortableTable
+                tableData={productData}
+                config={configProductData}
+                getKey={getKeyForTable}
+            />
         </div>
     )
 }

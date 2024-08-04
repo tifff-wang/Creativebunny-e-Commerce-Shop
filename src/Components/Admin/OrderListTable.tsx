@@ -1,71 +1,85 @@
 import React from 'react'
 import './ProductListTable.styles.scss'
-import { AdminProductModel } from '../../Model/AdminProductModel'
-import { MdOutlineEdit } from 'react-icons/md'
+import { OrderModel } from '../../Model/OrderModel'
+import { formatDate } from '../../Helpers/common'
+import SortableTable from '../Table/SortableTable'
 
-const ProductListTable = () => {
-    const productData: AdminProductModel[] = [
+const OrderListTable = () => {
+    const orderData: OrderModel[] = [
         {
-            id: '3d14d922-eded-42d8-83e6-ef477c750909',
-            name: 'Oven pizza grill set',
-            imageUrl: '/images/toy-photos/oven-pizza.webp',
-            price: 28,
-            description:
-                "Hungry? Let's grill some yummy pizza! Simply put the pizza on the grill pan and slide it into the oven. Cut the pizza into four pieces and share them with your friends!",
-            material: '100% quality beech wood',
-            size: [
-                'grill pan: 19 x 8.5 x 4cm',
-                'pizza: dia 8 x 2cm',
-                'oven: 11.5 x 11.5 x 9cm',
+            id: '08baaeb8-c1f1-4cd7-8c60-20ae6efec3e1',
+            orderItems: [
+                {
+                    id: '3',
+                    imageUrl: '/images/toy-photos/cat-shaker.webp',
+                    name: 'cat shaker',
+                    price: 26,
+                    quantity: 2,
+                    SKU: '3456',
+                },
             ],
-            age: '3yrs+',
-            SKU: '2456',
-            category: 'kitchen',
-            isPublish: true,
-            stock: 12,
+            deliveryInfo: {
+                deliveryAddress: '33A Glen Vista Place, Bayview',
+                email: 'thiffanyjun@gmail.com',
+                firstName: 'Tiffany',
+                lastName: 'Wang',
+                message: '',
+            },
+            userId: '5mGHZyhnKdhVsvYV4VYNor9VlFV2',
+            totalPrice: 46,
+            deliveryStatus: 'pending',
+            trackingNumber: '',
+            paymentIntent: 'pi_3PFtQ4LVPXMW8Iw7179bogfY',
+            orderStatus: 'processing',
+            createdAt: new Date('2018-01-01T00:00:00'),
+            userName: 'Tiffany Wang',
         },
     ]
 
+    const configOrderData = [
+        {
+            header: 'Id',
+            render: (data: OrderModel) => data.id,
+        },
+        {
+            header: 'User',
+            render: (data: OrderModel) => data.userName,
+            sortedValue: (data: OrderModel) => data.userName,
+            dataType: 'string',
+        },
+        {
+            header: 'Created At',
+            render: (data: OrderModel) => formatDate(data.createdAt),
+            sortedValue: (data: OrderModel) => formatDate(data.createdAt),
+            dataType: 'string',
+        },
+        {
+            header: 'Total Price',
+            render: (data: OrderModel) => data.totalPrice,
+        },
+        {
+            header: 'Order Status',
+            render: (data: OrderModel) => data.orderStatus,
+        },
+        {
+            header: 'Delivery Status',
+            render: (data: OrderModel) => data.deliveryStatus,
+        },
+    ]
+
+    const getKeyForTable = (data: OrderModel) => {
+        return data.id
+    }
+
     return (
         <div className="all-products-table-container">
-            <table>
-                <thead>
-                    <tr className="table-header">
-                        <th className="item">Item</th>
-                        <th className="name">Name</th>
-                        <th className="price">Unit Price</th>
-                        <th className="stock">Stock</th>
-                        <th className="sku">SKU</th>
-                        <th className="publish">Publish</th>
-                    </tr>
-                </thead>
-
-                {productData.map((item) => (
-                    <tbody key={item.id}>
-                        <tr>
-                            <td className="image">
-                                <img
-                                    className="item-image"
-                                    src={item.imageUrl}
-                                    alt=""
-                                />
-                            </td>
-                            <td>{item.name}</td>
-                            <td>${item.price}</td>
-                            <td>{item.stock}</td>
-                            <td>{item.SKU}</td>
-                            <td>{item.isPublish ? 'Yes' : 'No'}</td>
-                            <td>
-                                <div>
-                                    <MdOutlineEdit className="table-icon" />
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                ))}
-            </table>
+            <SortableTable
+                tableData={orderData}
+                config={configOrderData}
+                getKey={getKeyForTable}
+            />
         </div>
     )
 }
 
-export default ProductListTable
+export default OrderListTable

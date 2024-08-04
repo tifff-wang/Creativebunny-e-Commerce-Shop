@@ -1,6 +1,8 @@
 import React from 'react'
 import './ProductListTable.styles.scss'
 import { UserModel } from '../../Model/UserModel'
+import SortableTable from '../Table/SortableTable'
+import { formatDate } from '../../Helpers/common'
 
 const UserDataTable = () => {
     const userData: UserModel[] = [
@@ -12,33 +14,40 @@ const UserDataTable = () => {
         },
     ]
 
-    const formatDate = (date: Date) => {
-        return new Intl.DateTimeFormat('en-US').format(date)
+    const configUserData = [
+        {
+            header: 'Id',
+            render: (data: UserModel) => data.id,
+        },
+        {
+            header: 'Display Name',
+            render: (data: UserModel) => data.displayName,
+            sortedValue: (data: UserModel) => data.displayName,
+            dataType: 'string',
+        },
+        {
+            header: 'Created At',
+            render: (data: UserModel) => formatDate(data.createdAt),
+            sortedValue: (data: UserModel) => formatDate(data.createdAt),
+            dataType: 'string',
+        },
+        {
+            header: 'Email',
+            render: (data: UserModel) => data.email,
+        },
+    ]
+
+    const getKeyForTable = (data: UserModel) => {
+        return data.id
     }
 
     return (
         <div className="all-products-table-container">
-            <table>
-                <thead>
-                    <tr className="table-header">
-                        <th className="id">Id</th>
-                        <th className="name">User Name</th>
-                        <th className="email">Email</th>
-                        <th className="email">Created At</th>
-                    </tr>
-                </thead>
-
-                {userData.map((user) => (
-                    <tbody key={user.id}>
-                        <tr>
-                            <td>{user.id}</td>
-                            <td>{user.displayName}</td>
-                            <td>{user.email}</td>
-                            <td>{formatDate(user.createdAt)}</td>
-                        </tr>
-                    </tbody>
-                ))}
-            </table>
+            <SortableTable
+                tableData={userData}
+                config={configUserData}
+                getKey={getKeyForTable}
+            />
         </div>
     )
 }
