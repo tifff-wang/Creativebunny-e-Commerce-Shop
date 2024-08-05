@@ -17,8 +17,11 @@ const defaultFormFields = {
     password: '',
     confirmPassword: '',
 }
+interface SignUpFormProps {
+    role: 'admin' | 'user'
+}
 
-const SignUpForm = () => {
+const SignUpForm = ({ role }: SignUpFormProps) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [formFields, setFormFields] = useState(defaultFormFields)
@@ -46,9 +49,13 @@ const SignUpForm = () => {
 
         setLoading(true)
         try {
+            const additionalInformation = { displayName, role }
             const { user } =
-                (await createAuthUserWithEmailAndPassword(email, password)) ||
-                {}
+                (await createAuthUserWithEmailAndPassword(
+                    email,
+                    password,
+                    additionalInformation
+                )) || {}
 
             if (!user) {
                 throw new Error('User not found')
@@ -56,10 +63,14 @@ const SignUpForm = () => {
 
             await updateUserProfile(displayName)
             await createUserDocument(user, { displayName })
-            dispatch(setCurrentUser(user))
+            dispatch(setCurrentUser({ ...user, role }))
             resetFormFields()
-            navigate(-1)
-        } catch (error) { 
+            if (role === 'user') {
+                navigate(-1)
+            } else if (role === 'admin') {
+                navigate('/admin/')
+            }
+        } catch (error) {
             if ((error as any).code === 'auth/email-already-in-use') {
                 setErrorMessage('Email aleady exists, please sign in')
             } else if ((error as any).code === 'auth/invalid-email') {
@@ -80,7 +91,11 @@ const SignUpForm = () => {
 
     return (
         <div className="sign-up-container">
-            <h2>Don't have an account?</h2>
+            <h2>
+                {role === 'user'
+                    ? "Don't have an account?"
+                    : 'Create an admin account'}
+            </h2>
             <p>Sign up</p>
             {!errorMessage || (
                 <p className="signin-error-message">{errorMessage}</p>

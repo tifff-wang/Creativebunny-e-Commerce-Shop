@@ -15,13 +15,16 @@ export const userSlice = createSlice({
     initialState: USER_INITIAL_STATE,
     reducers: {
         setCurrentUser(state, action) {
+            console.log(`firebase setuser`)
             if (action.payload) {
-                const { uid, accessToken, displayName, email } = action.payload
+                const { uid, accessToken, displayName, email, role } =
+                    action.payload
                 state.currentUser = {
-                    uid: uid || "",
+                    uid: uid || '',
                     accessToken: accessToken || '',
                     displayName: displayName || '',
                     email: email || '',
+                    role: role || '',
                 }
             } else {
                 state.currentUser = null

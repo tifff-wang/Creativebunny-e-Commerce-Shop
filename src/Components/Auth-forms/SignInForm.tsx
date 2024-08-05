@@ -35,10 +35,17 @@ const SignInForm = () => {
 
         setLoading(true)
         try {
-            await signInAuthUserWithEmailAndPassword(email, password)
+            const role = await signInAuthUserWithEmailAndPassword(
+                email,
+                password
+            )
             resetFormFields()
             setLoading(false)
-            navigate(-1)
+            if (role === 'admin') {
+                navigate('/admin/')
+            } else {
+                navigate(-1)
+            }
         } catch (error) {
             setLoading(false)
             if ((error as any).code === 'auth/invalid-credential') {

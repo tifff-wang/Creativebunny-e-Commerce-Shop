@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import React, { useRef, useState } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 import CartItem from './CartItem'
 import { useSelector } from 'react-redux'
 import { selectedCartItems, totalQuantity } from '../../Store/Cart/cartSelector'
@@ -29,7 +29,11 @@ const CartIconWithDropdown = () => {
                         <>
                             <div className="cart-items-container">
                                 {currentCartItems.map((item) => {
-                                    return <CartItem item={item} />
+                                    return (
+                                        <Fragment key={item.id}>
+                                            <CartItem item={item} />
+                                        </Fragment>
+                                    )
                                 })}
                             </div>
 

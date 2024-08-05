@@ -7,7 +7,6 @@ import {
     createUserWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
-    NextOrObserver,
     User,
     updateProfile,
 } from 'firebase/auth'
@@ -20,12 +19,14 @@ import {
     writeBatch,
     query,
     getDocs,
-    where,
 } from 'firebase/firestore'
 import { ToyDataModel } from '../../Model/ToyDataModel'
 import { ToyModel } from '../../Model/ToyModel'
 import { OrderModel } from '../../Model/OrderModel'
-import { Order } from '@stripe/stripe-js'
+
+export interface CustomUser extends User {
+    role: string
+}
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -82,7 +83,6 @@ export const createUserDocument = async (
     if (!userAuth) return
 
     const userRef = doc(db, 'users', userAuth.uid)
-
     const userSnapshot = await getDoc(userRef)
 
     if (!userSnapshot.exists()) {
@@ -106,11 +106,18 @@ export const createUserDocument = async (
 
 export const createAuthUserWithEmailAndPassword = async (
     email: string,
-    password: string
+    password: string,
+    additionalInformation = {}
 ) => {
-    if (!email || !password) return
+    const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+    )
+    const user = userCredential.user
+    await createUserDocument(user, additionalInformation)
 
-    return await createUserWithEmailAndPassword(auth, email, password)
+    return userCredential
 }
 
 export const signInAuthUserWithEmailAndPassword = async (
@@ -119,7 +126,27 @@ export const signInAuthUserWithEmailAndPassword = async (
 ) => {
     if (!email || !password) return
 
-    return await signInWithEmailAndPassword(auth, email, password)
+    try {
+        const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        )
+        const user = userCredential.user
+        const userRef = doc(db, 'users', user.uid)
+        const userDoc = await getDoc(userRef)
+
+        if (userDoc.exists()) {
+            const userData = userDoc.data()
+            return userData.role
+        } else {
+            console.error('No such document!')
+            return null
+        }
+    } catch (error) {
+        console.error('Error signing in:', error)
+        return null
+    }
 }
 
 export const updateUserProfile = async (displayName: string) => {
@@ -137,8 +164,33 @@ export const updateUserProfile = async (displayName: string) => {
 
 export const signOutAuthUser = async () => await signOut(auth)
 
-export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
-    onAuthStateChanged(auth, callback)
+export const onAuthStateChangedListener = (
+    callback: (user: CustomUser | null) => void
+) => {
+    return onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            const userRef = doc(db, 'users', user.uid)
+            const userSnapshot = await getDoc(userRef)
+
+            let userWithRole: CustomUser = user as CustomUser
+            if (userSnapshot.exists()) {
+                const userData = userSnapshot.data()
+                const role = userData.role || 'user'
+                userWithRole = { ...user, role }
+            } else {
+                await setDoc(userRef, {
+                    uid: user.uid,
+                    email: user.email,
+                    role: 'user',
+                })
+                userWithRole = { ...user, role: 'user' }
+            }
+            callback(userWithRole)
+        } else {
+            callback(null)
+        }
+    })
+}
 
 export const createOrderDocuments = async (order: OrderModel) => {
     if (!order) return

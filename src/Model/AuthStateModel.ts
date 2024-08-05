@@ -3,4 +3,5 @@ export interface AuthState {
     accessToken: string
     displayName: string
     email: string
+    role: string
 }

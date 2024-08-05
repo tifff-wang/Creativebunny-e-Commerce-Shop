@@ -9,7 +9,7 @@ const AuthPage = () => {
         <>
             <div className="auth-forms-container">
                 <SignInForm />
-                <SignUpForm />
+                <SignUpForm role="user"/>
             </div>
         </>
     )
