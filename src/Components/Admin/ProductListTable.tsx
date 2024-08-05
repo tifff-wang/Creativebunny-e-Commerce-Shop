@@ -2,6 +2,9 @@ import React from 'react'
 import './ProductListTable.styles.scss'
 import { AdminProductModel } from '../../Model/AdminProductModel'
 import SortableTable from '../Table/SortableTable'
+import { MdDeleteOutline } from 'react-icons/md'
+import { IoMdAddCircle } from 'react-icons/io'
+import { FiEdit } from 'react-icons/fi'
 
 const ProductListTable = () => {
     const productData: AdminProductModel[] = [
@@ -60,6 +63,8 @@ const ProductListTable = () => {
             render: (data: AdminProductModel) =>
                 data.isPublish ? 'yes' : 'no',
         },
+        { header: '', render: () => <MdDeleteOutline size={15} /> },
+        { header: '', render: () => <FiEdit size={15} /> },
     ]
 
     const getKeyForTable = (data: AdminProductModel) => {
@@ -67,13 +72,18 @@ const ProductListTable = () => {
     }
 
     return (
-        <div className="all-products-table-container">
-            <SortableTable
-                tableData={productData}
-                config={configProductData}
-                getKey={getKeyForTable}
-            />
-        </div>
+        <>
+            <div className="add-product">
+                <IoMdAddCircle size={20} /> <span>Add Product</span>
+            </div>
+            <div className="all-products-table-container">
+                <SortableTable
+                    tableData={productData}
+                    config={configProductData}
+                    getKey={getKeyForTable}
+                />
+            </div>
+        </>
     )
 }
 

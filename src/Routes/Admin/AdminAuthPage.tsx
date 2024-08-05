@@ -7,7 +7,6 @@ const AdminAuthPage = () => {
         <>
             <div className="auth-forms-container">
                 <SignInForm role="admin" />
-          
             </div>
         </>
     )

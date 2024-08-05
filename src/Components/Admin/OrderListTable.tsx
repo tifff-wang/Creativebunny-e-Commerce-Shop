@@ -65,6 +65,7 @@ const OrderListTable = () => {
             header: 'Delivery Status',
             render: (data: OrderModel) => data.deliveryStatus,
         },
+        { header: '', render: () => <button>Detail</button> },
     ]
 
     const getKeyForTable = (data: OrderModel) => {

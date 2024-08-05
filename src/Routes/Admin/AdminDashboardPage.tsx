@@ -13,17 +13,12 @@ const AdminDashboardPage = () => {
     const dashboardInfo: DashboardInfo[] = [
         {
             section: 'Product',
-            amount: 3,
+            amount: 36,
             navigate: 'products',
         },
         {
-            section: 'Users',
-            amount: 2,
-            navigate: 'users',
-        },
-        {
             section: 'Orders',
-            amount: 1,
+            amount: 3,
             navigate: 'orders',
         },
     ]
@@ -36,8 +31,10 @@ const AdminDashboardPage = () => {
                     return (
                         <div className="dashboard-card">
                             <div>
-                                <h2>{info.section}</h2>
-                                <p>{info.amount}</p>
+                                <h2>
+                                    {info.amount} {''}
+                                    {info.section}
+                                </h2>
                             </div>
                             <Button
                                 buttonType={'default'}
