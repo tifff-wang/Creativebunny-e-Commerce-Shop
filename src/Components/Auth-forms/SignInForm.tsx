@@ -6,15 +6,21 @@ import {
 import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignInForm.styles.scss'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const defaultFormFields = {
     email: '',
     password: '',
 }
 
-const SignInForm = () => {
+interface SignInFormProps {
+    role: 'admin' | 'user'
+}
+
+const SignInForm = ({ role }: SignInFormProps) => {
     const navigate = useNavigate()
+    const location = useLocation()
+    const isAdminRoute = location.pathname.startsWith('/admin')
     const [formFields, setFormFields] = useState(defaultFormFields)
     const [errorMessage, setErrorMessage] = useState('')
     const { email, password } = formFields
@@ -41,8 +47,11 @@ const SignInForm = () => {
             )
             resetFormFields()
             setLoading(false)
+
             if (role === 'admin') {
                 navigate('/admin/')
+            } else if (role === 'user' && isAdminRoute) {
+                navigate('/')
             } else {
                 navigate(-1)
             }
@@ -69,7 +78,11 @@ const SignInForm = () => {
 
     return (
         <div className="sign-in-container">
-            <h2>Already have an account?</h2>
+            <h2>
+                {role === 'admin'
+                    ? 'Sign in as an admin'
+                    : 'Already have an account?'}
+            </h2>
             <p>Sign In</p>
             {!errorMessage || (
                 <p className="signin-error-message">{errorMessage}</p>

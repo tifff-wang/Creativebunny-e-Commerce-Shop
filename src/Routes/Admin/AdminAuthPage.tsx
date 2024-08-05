@@ -6,8 +6,8 @@ const AdminAuthPage = () => {
     return (
         <>
             <div className="auth-forms-container">
-                <SignInForm />
-                <SignUpForm role="admin" />
+                <SignInForm role="admin" />
+          
             </div>
         </>
     )

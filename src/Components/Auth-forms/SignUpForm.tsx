@@ -65,11 +65,7 @@ const SignUpForm = ({ role }: SignUpFormProps) => {
             await createUserDocument(user, { displayName })
             dispatch(setCurrentUser({ ...user, role }))
             resetFormFields()
-            if (role === 'user') {
-                navigate(-1)
-            } else if (role === 'admin') {
-                navigate('/admin/')
-            }
+            navigate(-1)
         } catch (error) {
             if ((error as any).code === 'auth/email-already-in-use') {
                 setErrorMessage('Email aleady exists, please sign in')
