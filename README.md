@@ -1,7 +1,5 @@
 # Creative Bunny E-commerce Toy Shop
 
-**Introduction**
-<br />
 This a full-stack web application project built using React, Redux Toolkit, and Firebase. It is based on a real toy business currently selling on Trademe. All toy details and images are copyrighted by Creative Bunny Ltd.
 
 Working on this project has strengthened my skills in the React and Redux frameworks, web responsiveness and accessibility, and has provided valuable practice with essential e-commerce features such as setting up add-to-cart, checkout, and Stripe payment functionalities.
