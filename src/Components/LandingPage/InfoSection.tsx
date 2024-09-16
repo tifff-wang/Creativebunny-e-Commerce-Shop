@@ -30,7 +30,7 @@ const InfoSection = () => {
                     sourced, ensuring durability and a connection to nature.
                 </p>
             </div>
-            <div
+            {/* <div
                 className="info-card"
                 data-aos="fade-up"
                 data-aos-duration="1500"
@@ -42,7 +42,7 @@ const InfoSection = () => {
                     Our wooden puzzles encourage problem-solving skills and
                     cognitive development in a playful, engaging way.
                 </p>
-            </div>
+            </div> */}
         </div>
     )
 }
