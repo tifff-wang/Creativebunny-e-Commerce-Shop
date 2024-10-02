@@ -10,6 +10,7 @@ import {
     NextOrObserver,
     User,
     updateProfile,
+    connectAuthEmulator,
 } from 'firebase/auth'
 import {
     getFirestore,
@@ -21,7 +22,9 @@ import {
     query,
     getDocs,
     where,
+    connectFirestoreEmulator,
 } from 'firebase/firestore'
+import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import { ToyDataModel } from '../../Model/ToyDataModel'
 import { ToyModel } from '../../Model/ToyModel'
 import { OrderModel } from '../../Model/OrderModel'
@@ -38,6 +41,19 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig)
 const googleProvider = new GoogleAuthProvider()
+
+const localhost = 'localhost'
+
+console.log(`hostname: ${window.location.hostname}`)
+console.log(`emulator-env: ${process.env.REACT_APP_FIREBASE_EMULATOR}`)
+if (
+    window.location.hostname === localhost &&
+    process.env.REACT_APP_FIREBASE_EMULATOR === 'true'
+) {
+    connectAuthEmulator(getAuth(firebaseApp), `http://${localhost}:9099`)
+    connectFunctionsEmulator(getFunctions(firebaseApp), localhost, 5001)
+    connectFirestoreEmulator(getFirestore(firebaseApp), localhost, 8080)
+}
 
 googleProvider.setCustomParameters({
     prompt: 'select_account',
