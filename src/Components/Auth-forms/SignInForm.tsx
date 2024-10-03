@@ -7,6 +7,7 @@ import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignInForm.styles.scss'
 import { useNavigate } from 'react-router-dom'
+import LoginPasskeyButton from '../Passkey/LoginPasskeyButton'
 
 const defaultFormFields = {
     email: '',
@@ -99,6 +100,7 @@ const SignInForm = () => {
                     >
                         Sign In With Google
                     </Button>
+                    <LoginPasskeyButton />
                 </div>
             </form>
         </div>

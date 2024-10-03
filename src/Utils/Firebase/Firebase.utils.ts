@@ -21,14 +21,14 @@ import {
     writeBatch,
     query,
     getDocs,
-    where,
+    // where,
     connectFirestoreEmulator,
 } from 'firebase/firestore'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import { ToyDataModel } from '../../Model/ToyDataModel'
-import { ToyModel } from '../../Model/ToyModel'
+// import { ToyModel } from '../../Model/ToyModel'
 import { OrderModel } from '../../Model/OrderModel'
-import { Order } from '@stripe/stripe-js'
+// import { Order } from '@stripe/stripe-js'
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

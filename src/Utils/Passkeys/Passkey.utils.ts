@@ -1,6 +1,9 @@
 import { getFunctions, httpsCallable } from 'firebase/functions'
-import { startRegistration } from '@simplewebauthn/browser'
-import { PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/types'
+import { startRegistration, startAuthentication } from '@simplewebauthn/browser'
+import {
+    PublicKeyCredentialCreationOptionsJSON,
+    PublicKeyCredentialRequestOptionsJSON,
+} from '@simplewebauthn/types'
 
 export async function registerPasskey() {
     const passkeyOptionsFunction = await httpsCallable(
@@ -12,7 +15,6 @@ export async function registerPasskey() {
         passkeyOptionsResponse.data as PublicKeyCredentialCreationOptionsJSON
 
     const attestationResponse = await startRegistration(options)
-    console.log(attestationResponse)
 
     const verifyPasskeyFunction = await httpsCallable(
         getFunctions(),
@@ -28,4 +30,36 @@ export async function registerPasskey() {
     } catch (error) {
         console.log(error)
     }
+}
+
+export async function loginPasskey() {
+    const loginOptionsFunction = await httpsCallable(
+        getFunctions(),
+        'generatePassKeyLogin'
+    )
+    const loginOptionsResponse = await loginOptionsFunction()
+    const optionsData = loginOptionsResponse.data as loginPasskeyOptionsResponse
+
+    const attestationResponse = await startAuthentication(optionsData.options)
+    const verifyLoginFunction = await httpsCallable(
+        getFunctions(),
+        'verifyPasskeyLogin'
+    )
+
+    const request = {
+        credential: JSON.stringify(attestationResponse),
+        challengeId: optionsData.challengeId,
+    }
+
+    try {
+        const loginResponse = await verifyLoginFunction(request)
+        console.log(loginResponse)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+interface loginPasskeyOptionsResponse {
+    challengeId: string
+    options: PublicKeyCredentialRequestOptionsJSON
 }

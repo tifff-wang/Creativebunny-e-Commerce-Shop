@@ -7,6 +7,7 @@ const UserProfilePage = () => {
         <section className="passkey-register-container">
             {' '}
             <RegisterPasskeyButton />
+            
         </section>
     )
 }
