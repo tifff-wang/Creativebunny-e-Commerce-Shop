@@ -19,8 +19,9 @@ import ToyDetailPage from './Routes/Toys/ToyDetailPage'
 import Breadcrumbs from './Components/Breadcrumbs/Breadcrumbs'
 import ViewCartPage from './Routes/Checkout/ViewCartPage'
 import CheckoutPage from './Routes/Checkout/CheckoutPage'
-import { createCollectionAndDocuments } from './Utils/Firebase/Firebase.utils'
-import TOY_DATA from './toys-data'
+import UserProfilePage from './Routes/UserProfile/UserProfilePage'
+// import { createCollectionAndDocuments } from './Utils/Firebase/Firebase.utils'
+// import TOY_DATA from './toys-data'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -73,6 +74,7 @@ const App = () => {
                     <Route path="cart" element={<ViewCartPage />} />
                     <Route path="cart/checkout" element={<CheckoutPage />} />
                     <Route path="completion" element={<PayCompletionPage />} />
+                    <Route path="profile" element={<UserProfilePage />} />
                 </Route>
             </Routes>
             <Footer />

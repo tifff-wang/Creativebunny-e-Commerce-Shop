@@ -92,7 +92,7 @@ export const createUserDocument = async (
         displayName: string | null
         email: string | null
     },
-    additionalInfomation = {}
+    additionalInfomation = { }
 ) => {
     if (!userAuth) return
 
