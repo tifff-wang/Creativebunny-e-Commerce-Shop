@@ -4,7 +4,7 @@
     width: 180px;
     font-size: var(--font-size-medium);
     background-color: white;
-    font-weight:bolder;
+    font-weight: bolder;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -12,20 +12,19 @@
     border-radius: 24px;
 
     &.inverted-button {
-        
         color: var(--text-secondary-color);
         border: solid 2px var(--highlight-color);
         width: 180px;
 
         &:hover {
             border: none;
-            background-color:rgb(99, 99, 99);
+            background-color: rgb(99, 99, 99);
             color: white;
         }
     }
 
     &.google-button {
-        background-color: #ededed;
+        background-color: #e3e3e3;
         color: #4285f4;
 
         &:hover {
@@ -37,6 +36,16 @@
     &.default-button {
         background-color: var(--primary-color);
         color: rgb(255, 255, 255);
+
+        &:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+    }
+
+    &.passkey-button {
+        background-color: #e3e3e3;
+        color: rgb(107, 107, 107);
 
         &:hover {
             background-color: var(--highlight-color);

@@ -4,6 +4,8 @@ import {
     PublicKeyCredentialCreationOptionsJSON,
     PublicKeyCredentialRequestOptionsJSON,
 } from '@simplewebauthn/types'
+import { getAuth, signInWithCustomToken } from 'firebase/auth'
+import { getApp } from 'firebase/app'
 
 export async function registerPasskey() {
     const passkeyOptionsFunction = await httpsCallable(
@@ -53,7 +55,14 @@ export async function loginPasskey() {
 
     try {
         const loginResponse = await verifyLoginFunction(request)
-        console.log(loginResponse)
+        const loginResult = loginResponse.data as verifyPasskeyloginResult
+        console.log(loginResult)
+        if (loginResult.success && loginResult.authToken) {
+            await signInWithCustomToken(
+                getAuth(getApp()),
+                loginResult.authToken
+            )
+        }
     } catch (error) {
         console.log(error)
     }
@@ -62,4 +71,9 @@ export async function loginPasskey() {
 interface loginPasskeyOptionsResponse {
     challengeId: string
     options: PublicKeyCredentialRequestOptionsJSON
+}
+
+interface verifyPasskeyloginResult {
+    success: boolean
+    authToken: string
 }

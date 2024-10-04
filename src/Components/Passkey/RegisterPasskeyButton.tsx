@@ -14,8 +14,8 @@ const RegisterPasskeyButton = () => {
 
     return (
         <>
-            <Button buttonType="default" type="button" onClick={createPasskey}>
-                Register Passkey
+            <Button buttonType="passkey" type="button" onClick={createPasskey}>
+                Register a Passkey
             </Button>
             {!errorMessage || (
                 <p className="signin-error-message">{errorMessage}</p>

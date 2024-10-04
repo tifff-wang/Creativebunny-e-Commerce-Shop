@@ -8,6 +8,8 @@ import Button from '../Button/Button'
 import './SignInForm.styles.scss'
 import { useNavigate } from 'react-router-dom'
 import LoginPasskeyButton from '../Passkey/LoginPasskeyButton'
+import LoginGoogleButton from './LoginGoogleButton'
+import useUserNavigate from '../../Hooks/useUserNavigate'
 
 const defaultFormFields = {
     email: '',
@@ -20,6 +22,7 @@ const SignInForm = () => {
     const [errorMessage, setErrorMessage] = useState('')
     const { email, password } = formFields
     const [loading, setLoading] = useState(false)
+    const userNavigate = useUserNavigate()
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
@@ -39,7 +42,7 @@ const SignInForm = () => {
             await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields()
             setLoading(false)
-            navigate(-1)
+            userNavigate()
         } catch (error) {
             setLoading(false)
             if ((error as any).code === 'auth/invalid-credential') {
@@ -54,11 +57,6 @@ const SignInForm = () => {
                 )
             }
         }
-    }
-
-    const signInWithGoogle = async () => {
-        await signInWithGooglePopup()
-        navigate(-1)
     }
 
     return (
@@ -93,14 +91,8 @@ const SignInForm = () => {
                     <Button buttonType="default" type="submit">
                         {loading ? 'Signing In...' : 'Sign In'}
                     </Button>
-                    <Button
-                        buttonType="google"
-                        type="button"
-                        onClick={signInWithGoogle}
-                    >
-                        Sign In With Google
-                    </Button>
-                    <LoginPasskeyButton />
+                    <LoginGoogleButton setErrorMessage={setErrorMessage} />
+                    <LoginPasskeyButton setErrorMessage={setErrorMessage} />
                 </div>
             </form>
         </div>
