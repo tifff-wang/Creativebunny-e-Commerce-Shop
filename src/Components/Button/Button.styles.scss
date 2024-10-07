@@ -1,7 +1,8 @@
 .button-container {
     display: flex;
     height: 40px;
-    width: 180px;
+    width: 200px;
+    gap: 6px;
     font-size: var(--font-size-medium);
     background-color: white;
     font-weight: bolder;
@@ -26,6 +27,7 @@
     &.google-button {
         background-color: #e3e3e3;
         color: #4285f4;
+        font-size: var(--font-size-small);
 
         &:hover {
             background-color: none;
@@ -45,11 +47,12 @@
 
     &.passkey-button {
         background-color: #e3e3e3;
-        color: rgb(107, 107, 107);
+        color: rgb(74, 74, 74);
+        font-size: var(--font-size-small);
 
         &:hover {
-            background-color: var(--highlight-color);
-            color: white;
+            background-color: none;
+            color: rgb(106, 105, 105);
         }
     }
 }
