@@ -15,7 +15,7 @@ const NavLinks = () => {
             <CartIconWithDropdown />
 
             {currentUser ? (
-                <ProfileDropdown />
+                <ProfileDropdown userName={currentUser.displayName} />
             ) : (
                 <Link className="sign-in-link" to="/auth">
                     SIGN IN

@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { selectedCurrentUser } from '../../Store/User/userSelector'
 import useSignOut from '../../Hooks/useSignout'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { FaUser } from 'react-icons/fa'
 import useClickOutside from '../../Hooks/useClickOutside'
 import './ProfileDropdown.styles.scss'
 
-const ProfileDropdown = () => {
-    const currentUser = useSelector(selectedCurrentUser)
-    const firstName = currentUser?.displayName.split(' ')[0]
+interface ProfileDropdownProps {
+    userName: string
+}
+const ProfileDropdown = ({ userName }: ProfileDropdownProps) => {
+    const firstName = userName.split(' ')[0]
     const [userIconOpen, setUserIconOpen] = useState(false)
-    const navigate = useNavigate()
     const signout = useSignOut()
     const profileDropdownRef = useRef<HTMLDivElement | null>(null)
     useClickOutside(profileDropdownRef, () => setUserIconOpen(false))
