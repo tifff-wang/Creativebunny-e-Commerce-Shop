@@ -18,7 +18,7 @@ export const userSlice = createSlice({
             if (action.payload) {
                 const { uid, accessToken, displayName, email } = action.payload
                 state.currentUser = {
-                    uid: uid || "",
+                    uid: uid || '',
                     accessToken: accessToken || '',
                     displayName: displayName || '',
                     email: email || '',

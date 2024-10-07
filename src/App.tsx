@@ -8,6 +8,7 @@ import React, { useEffect } from 'react'
 import {
     createUserDocument,
     getCategoriesAndDocuments,
+    getUserPasskeys,
     onAuthStateChangedListener,
 } from './Utils/Firebase/Firebase.utils'
 import { useDispatch } from 'react-redux'

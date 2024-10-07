@@ -12,6 +12,7 @@ const LoginPasskeyButton = ({ setErrorMessage }: LoginPasskeyButtonProps) => {
     const loginWithPasskey = async () => {
         try {
             await loginPasskey()
+            
             userNavigate()
         } catch (error) {
             setErrorMessage(error.message)

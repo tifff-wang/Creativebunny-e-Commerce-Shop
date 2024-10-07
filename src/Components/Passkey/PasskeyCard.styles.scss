@@ -25,4 +25,22 @@
         width: 80%;
         margin-bottom: 20px;
     }
+
+    .passkey-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        h4 {
+            font-family: var(--secondary-font);
+            font-size: var(--font-size-medium);
+        }
+    }
+
+    .passkey-create-date {
+        font-size: var(--font-size-small);
+        margin-top: 20px;
+    }
 }

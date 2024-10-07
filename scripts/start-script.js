@@ -7,8 +7,6 @@ const useEmulator = args.includes('--emulator')
 let command = 'react-scripts start'
 
 if (useEmulator) {
-    console.log(`useEmulator`)
-    console.log('Starting with Firebase Emulator...')
     command = 'cross-env REACT_APP_FIREBASE_EMULATOR=true react-scripts start'
 }
 

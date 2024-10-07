@@ -1,9 +1,8 @@
 import React from 'react'
-import Button from '../Button/Button'
 import './PasskeyCard.styles.scss'
 import RegisterPasskeyButton from './RegisterPasskeyButton'
 
-const PasskeyCard = () => {
+const PasskeyRegisterCard = () => {
     return (
         <div className="passkey-container">
             <div className="passkey-card">
@@ -22,4 +21,4 @@ const PasskeyCard = () => {
     )
 }
 
-export default PasskeyCard
+export default PasskeyRegisterCard

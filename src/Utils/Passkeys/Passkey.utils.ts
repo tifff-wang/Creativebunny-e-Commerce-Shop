@@ -27,8 +27,7 @@ export async function registerPasskey() {
     }
 
     try {
-        const verificationResponse = await verifyPasskeyFunction(request)
-        console.log(verificationResponse)
+        await verifyPasskeyFunction(request)
     } catch (error) {
         console.log(error)
     }
@@ -56,7 +55,6 @@ export async function loginPasskey() {
     try {
         const loginResponse = await verifyLoginFunction(request)
         const loginResult = loginResponse.data as verifyPasskeyloginResult
-        console.log(loginResult)
         if (loginResult.success && loginResult.authToken) {
             await signInWithCustomToken(
                 getAuth(getApp()),

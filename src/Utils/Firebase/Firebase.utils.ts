@@ -28,6 +28,7 @@ import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import { ToyDataModel } from '../../Model/ToyDataModel'
 // import { ToyModel } from '../../Model/ToyModel'
 import { OrderModel } from '../../Model/OrderModel'
+import { PasskeyModel } from '../../Model/PasskeyModel'
 // import { Order } from '@stripe/stripe-js'
 
 const firebaseConfig = {
@@ -44,8 +45,6 @@ const googleProvider = new GoogleAuthProvider()
 
 const localhost = 'localhost'
 
-console.log(`hostname: ${window.location.hostname}`)
-console.log(`emulator-env: ${process.env.REACT_APP_FIREBASE_EMULATOR}`)
 if (
     window.location.hostname === localhost &&
     process.env.REACT_APP_FIREBASE_EMULATOR === 'true'
@@ -86,13 +85,35 @@ export const getCategoriesAndDocuments = async () => {
     return querySnapshot.docs.map((doc) => doc.data())
 }
 
+export const getUserPasskeys = async (userId: string) => {
+    const userDocRef = doc(db, 'users', userId)
+    const userDocSnapshot = await getDoc(userDocRef)
+
+    if (!userDocSnapshot.exists()) {
+        console.log('no document found')
+        return null
+    } else if (userDocSnapshot.data().passkeys.length > 0) {
+        const userPasskeys = userDocSnapshot
+            .data()
+            .passkeys.map((passkey: any) => ({
+                id: passkey.credentialId,
+                counter: passkey.counter,
+                createdAt: passkey.createdAt,
+            })) as PasskeyModel[]
+
+        return userPasskeys
+    } else {
+        return []
+    }
+}
+
 export const createUserDocument = async (
     userAuth: {
         uid: string
         displayName: string | null
         email: string | null
     },
-    additionalInfomation = { }
+    additionalInfomation = {}
 ) => {
     if (!userAuth) return
 
