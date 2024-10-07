@@ -26,6 +26,7 @@
         width: 500px;
         height: 100%;
         display: flex;
+        gap: 20px;
         align-items: center;
         justify-content: end;
         margin-right: 40px;
@@ -35,58 +36,10 @@
             font-size: 1.125rem;
         }
 
-        .current-user-container {
-            display: flex;
-            align-items: center;
-            margin-left: 25px;
-            gap: 20px;
-
-            .username {
-                display: flex;
-                align-items: baseline;
-                gap: 5px;
-            }
-        }
-
-        Button {
-            width: 80px;
-            font-size: var(--font-size-small);
-            cursor: pointer;
-        }
-
         .sign-in-link {
             font-size: var(--font-size-medium);
             font-weight: 600;
             color: var(--primary-color);
         }
-    }
-}
-
-.simple-nav-container {
-    width: 200px;
-    height: 100%;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: end;
-    margin-right: 40px;
-    color: var(--text-color);
-
-    .nav-link {
-        font-size: 1.125rem;
-    }
-
-    .user-profile {
-        position: absolute;
-        top: 80px;
-        right: 30px;
-        width: 80px;
-        display: flex;
-        flex-direction: column;
-        padding: 16px;
-        border: 1px solid #c7ac9d;
-        background-color: var(--background-color);
-        cursor: pointer;
-        z-index: 100;
     }
 }

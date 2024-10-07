@@ -1,0 +1,24 @@
+.profile-icon {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    position: absolute;
+    font-family: var(--secondary-font);
+    font-size: var(--font-size-small);
+    top: 80px;
+    right: 40px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+    border: 1px solid #c7ac9d;
+    background-color: var(--background-color);
+    cursor: pointer;
+    z-index: 100;
+}
