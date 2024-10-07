@@ -1,5 +1,5 @@
 import React from 'react'
-import { PasskeyModel } from '../../Model/PasskeyModel'
+import { PasskeyModel } from '../../Model/Passkey/PasskeyModel'
 import { GoPasskeyFill } from 'react-icons/go'
 import './PasskeyCard.styles.scss'
 
@@ -18,7 +18,7 @@ const PassKeyInfoCard = ({ passkey, email }: PassKeyInfoCardProps) => {
             <div className="passkey-card">
                 <h3>Your Passkey:</h3>
                 <div className="passkey-info">
-                    <GoPasskeyFill size={30}/>
+                    <GoPasskeyFill size={30} />
                     <h4>{email}</h4>
                 </div>
                 <p className="passkey-create-date">

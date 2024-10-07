@@ -3,7 +3,7 @@ import './UserProfilePage.style.scss'
 import { useSelector } from 'react-redux'
 import { selectedCurrentUser } from '../../Store/User/userSlice'
 import { getUserPasskeys } from '../../Utils/Firebase/Firebase.utils'
-import { PasskeyModel } from '../../Model/PasskeyModel'
+import { PasskeyModel } from '../../Model/Passkey/PasskeyModel'
 import PassKeyInfoCard from '../../Components/Passkey/PassKeyInfoCard'
 import PasskeyRegisterCard from '../../Components/Passkey/PasskeyRegisterCard'
 

@@ -28,7 +28,7 @@ import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import { ToyDataModel } from '../../Model/ToyDataModel'
 // import { ToyModel } from '../../Model/ToyModel'
 import { OrderModel } from '../../Model/OrderModel'
-import { PasskeyModel } from '../../Model/PasskeyModel'
+import { PasskeyModel } from '../../Model/Passkey/PasskeyModel'
 // import { Order } from '@stripe/stripe-js'
 
 const firebaseConfig = {
