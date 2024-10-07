@@ -15,7 +15,11 @@ const LoginPasskeyButton = ({ setErrorMessage }: LoginPasskeyButtonProps) => {
             await loginPasskey()
             userNavigate()
         } catch (error) {
-            setErrorMessage(error.message)
+            if (error.name === 'NotAllowedError') {
+                return
+            } else {
+                setErrorMessage(error.message)
+            }
         }
     }
 

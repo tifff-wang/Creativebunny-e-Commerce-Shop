@@ -43,18 +43,20 @@ export async function loginPasskey() {
     const loginOptionsResponse = await loginOptionsFunction()
     const optionsData = loginOptionsResponse.data as loginPasskeyOptionsResponse
 
-    const attestationResponse = await startAuthentication(optionsData.options)
-    const verifyLoginFunction = await httpsCallable(
-        getFunctions(),
-        'verifyPasskeyLogin'
-    )
-
-    const request: verifyPasskeyLoginRequest = {
-        challengeId: optionsData.challengeId,
-        credential: JSON.stringify(attestationResponse),
-    }
-
     try {
+        const attestationResponse = await startAuthentication(
+            optionsData.options
+        )
+        const verifyLoginFunction = await httpsCallable(
+            getFunctions(),
+            'verifyPasskeyLogin'
+        )
+
+        const request: verifyPasskeyLoginRequest = {
+            challengeId: optionsData.challengeId,
+            credential: JSON.stringify(attestationResponse),
+        }
+
         const loginResponse = await verifyLoginFunction(request)
         const loginResult = loginResponse.data as verifyPasskeyloginResponse
         if (loginResult.success && loginResult.authToken) {
@@ -64,6 +66,6 @@ export async function loginPasskey() {
             )
         }
     } catch (error) {
-        console.log(error)
+        throw error
     }
 }
