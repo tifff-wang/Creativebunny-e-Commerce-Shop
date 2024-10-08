@@ -1,5 +1,9 @@
 import { getFunctions, httpsCallable } from 'firebase/functions'
-import { startRegistration, startAuthentication, browserSupportsWebAuthn } from '@simplewebauthn/browser'
+import {
+    startRegistration,
+    startAuthentication,
+    browserSupportsWebAuthn,
+} from '@simplewebauthn/browser'
 import { PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/types'
 import { getAuth, signInWithCustomToken } from 'firebase/auth'
 import { getApp } from 'firebase/app'
@@ -10,7 +14,6 @@ import {
 } from '../../Model/Passkey/PasskeyResponseModel'
 
 export async function registerPasskey() {
-
     const passkeyOptionsFunction = await httpsCallable(
         getFunctions(),
         'generatePasskeyRegistration'
@@ -19,20 +22,20 @@ export async function registerPasskey() {
     const options =
         passkeyOptionsResponse.data as PublicKeyCredentialCreationOptionsJSON
 
-    const attestationResponse = await startRegistration(options)
-
-    const verifyPasskeyFunction = await httpsCallable(
-        getFunctions(),
-        'verifyPasskeyRegistration'
-    )
-    const request = {
-        credential: JSON.stringify(attestationResponse),
-    }
-
     try {
+        const attestationResponse = await startRegistration(options)
+
+        const verifyPasskeyFunction = await httpsCallable(
+            getFunctions(),
+            'verifyPasskeyRegistration'
+        )
+        const request = {
+            credential: JSON.stringify(attestationResponse),
+        }
+
         await verifyPasskeyFunction(request)
     } catch (error) {
-        console.log(error)
+        throw error
     }
 }
 

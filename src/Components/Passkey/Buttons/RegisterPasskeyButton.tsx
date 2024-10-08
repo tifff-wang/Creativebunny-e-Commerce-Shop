@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../../Button/Button'
 import { registerPasskey } from '../../../Utils/Passkeys/Passkey.utils'
-import { useNavigate } from 'react-router-dom'
 
 const RegisterPasskeyButton = ({ onSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('')
@@ -10,7 +9,11 @@ const RegisterPasskeyButton = ({ onSuccess }) => {
             await registerPasskey()
             onSuccess()
         } catch (error) {
-            setErrorMessage(error.message)
+            if (error.name === 'NotAllowedError') {
+                return
+            } else {
+                setErrorMessage(error.message)
+            }
         }
     }
 
