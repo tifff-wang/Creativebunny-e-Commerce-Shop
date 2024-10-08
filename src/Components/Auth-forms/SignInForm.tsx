@@ -7,7 +7,7 @@ import FormInput from '../Form-input/FormInput'
 import Button from '../Button/Button'
 import './SignInForm.styles.scss'
 import { useNavigate } from 'react-router-dom'
-import LoginPasskeyButton from '../Passkey/LoginPasskeyButton'
+import LoginPasskeyButton from '../Passkey/Buttons/LoginPasskeyButton'
 import LoginGoogleButton from './LoginGoogleButton'
 import useUserNavigate from '../../Hooks/useUserNavigate'
 

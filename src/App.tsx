@@ -19,12 +19,11 @@ import ToyDetailPage from './Routes/Toys/ToyDetailPage'
 import Breadcrumbs from './Components/Breadcrumbs/Breadcrumbs'
 import ViewCartPage from './Routes/Checkout/ViewCartPage'
 import CheckoutPage from './Routes/Checkout/CheckoutPage'
-import UserProfilePage from './Routes/UserProfile/UserProfilePage'
+import UserProfilePage from './Components/Passkey/PasskeySection'
 // import { createCollectionAndDocuments } from './Utils/Firebase/Firebase.utils'
 // import TOY_DATA from './toys-data'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
 
 const App = () => {
     const dispatch = useDispatch()
