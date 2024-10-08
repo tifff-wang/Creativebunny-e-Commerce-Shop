@@ -3,13 +3,12 @@ import Button from '../Button/Button'
 import { registerPasskey } from '../../Utils/Passkeys/Passkey.utils'
 import { useNavigate } from 'react-router-dom'
 
-const RegisterPasskeyButton = () => {
-    const navigate = useNavigate()
+const RegisterPasskeyButton = ({ onSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('')
     const createPasskey = async () => {
         try {
             await registerPasskey()
-            navigate('/profile')
+            onSuccess()
         } catch (error) {
             setErrorMessage(error.message)
         }

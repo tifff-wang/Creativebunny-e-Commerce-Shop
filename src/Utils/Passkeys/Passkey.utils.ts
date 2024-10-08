@@ -1,5 +1,5 @@
 import { getFunctions, httpsCallable } from 'firebase/functions'
-import { startRegistration, startAuthentication } from '@simplewebauthn/browser'
+import { startRegistration, startAuthentication, browserSupportsWebAuthn } from '@simplewebauthn/browser'
 import { PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/types'
 import { getAuth, signInWithCustomToken } from 'firebase/auth'
 import { getApp } from 'firebase/app'
@@ -10,6 +10,7 @@ import {
 } from '../../Model/Passkey/PasskeyResponseModel'
 
 export async function registerPasskey() {
+
     const passkeyOptionsFunction = await httpsCallable(
         getFunctions(),
         'generatePasskeyRegistration'

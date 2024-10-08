@@ -2,7 +2,7 @@ import React from 'react'
 import './PasskeyCard.styles.scss'
 import RegisterPasskeyButton from './RegisterPasskeyButton'
 
-const PasskeyRegisterCard = () => {
+const PasskeyRegisterCard = ({onSuccess}) => {
     return (
         <div className="passkey-container">
             <div className="passkey-card">
@@ -14,7 +14,7 @@ const PasskeyRegisterCard = () => {
                     secure alternative to your password and two-factor
                     credentials.
                 </p>
-                <RegisterPasskeyButton />
+                <RegisterPasskeyButton onSuccess={onSuccess}/>
                 
             </div>
         </div>

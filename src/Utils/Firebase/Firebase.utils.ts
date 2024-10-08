@@ -92,7 +92,13 @@ export const getUserPasskeys = async (userId: string) => {
     if (!userDocSnapshot.exists()) {
         console.log('no document found')
         return null
-    } else if (userDocSnapshot.data().passkeys.length > 0) {
+    }
+
+    if (!userDocSnapshot.data().passkeys) {
+        return []
+    }
+
+    if (userDocSnapshot.data().passkeys.length > 0) {
         const userPasskeys = userDocSnapshot
             .data()
             .passkeys.map((passkey: any) => ({

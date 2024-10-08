@@ -8,7 +8,6 @@ import React, { useEffect } from 'react'
 import {
     createUserDocument,
     getCategoriesAndDocuments,
-    getUserPasskeys,
     onAuthStateChangedListener,
 } from './Utils/Firebase/Firebase.utils'
 import { useDispatch } from 'react-redux'
@@ -25,6 +24,7 @@ import UserProfilePage from './Routes/UserProfile/UserProfilePage'
 // import TOY_DATA from './toys-data'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+
 
 const App = () => {
     const dispatch = useDispatch()
