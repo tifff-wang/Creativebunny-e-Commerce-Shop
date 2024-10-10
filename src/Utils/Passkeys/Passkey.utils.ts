@@ -2,7 +2,6 @@ import { getFunctions, httpsCallable } from 'firebase/functions'
 import {
     startRegistration,
     startAuthentication,
-    browserSupportsWebAuthn,
 } from '@simplewebauthn/browser'
 import { PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/types'
 import { getAuth, signInWithCustomToken } from 'firebase/auth'
