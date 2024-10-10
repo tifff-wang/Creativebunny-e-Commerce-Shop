@@ -21,8 +21,10 @@ const PasskeySection = () => {
             if (currentUser?.uid) {
                 setLoading(true)
                 const fetchedPasskeys = await getUserPasskeys(currentUser.uid)
-                setPasskeys(fetchedPasskeys || [])
-                setLoading(false)
+                setTimeout(() => {
+                    setPasskeys(fetchedPasskeys || [])
+                    setLoading(false) 
+                }, 1000)
             }
         }
         fetchPasskeys()
@@ -30,15 +32,15 @@ const PasskeySection = () => {
 
     const handleRefresh = async () => {
         setRefresh((prev) => !prev)
-        setShowSuccessPopup(false) // Toggle to trigger re-fetch
+        setShowSuccessPopup(false) 
     }
 
     const handleRegisterSuccess = () => {
-        setShowSuccessPopup(true) // Show success popup
+        setShowSuccessPopup(true) 
     }
 
     if (loading) {
-        return <div>Loading...</div>
+        return <div className="loading">Loading...</div>
     }
 
     return (

@@ -3,16 +3,16 @@
     flex-direction: column;
     min-width: 300px;
     max-width: 400px;
-    height:460px;
     background-color: var(--background-grey);
     padding: 20px;
+    padding-bottom: 30px;
     border-radius: 10px;
 
     .signin-error-message {
         margin-top: 20px;
         background-color: rgba(255, 0, 0, 0.224);
         color: rgb(39, 39, 39);
-        font-size:  var(--font-size-small);
+        font-size: var(--font-size-small);
         font-family: system-ui;
         padding: 10px;
     }
@@ -21,7 +21,7 @@
         margin: 20px 0;
         color: var(--text-color);
         font-size: var(--font-size-large);
-        color:var(--highlight-color)
+        color: var(--highlight-color);
     }
 
     p {

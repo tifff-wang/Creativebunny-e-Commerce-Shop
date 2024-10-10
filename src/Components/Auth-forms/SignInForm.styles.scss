@@ -3,10 +3,9 @@
     flex-direction: column;
     min-width: 300px;
     max-width: 400px;
-    height:460px;
     background-color: var(--background-grey);
     padding: 20px;
-   
+    padding-bottom: 65px;
     border-radius: 10px;
 
     .signin-error-message {

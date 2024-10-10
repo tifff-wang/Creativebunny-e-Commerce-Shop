@@ -18,7 +18,9 @@ const LoginPasskeyButton = ({ setErrorMessage }: LoginPasskeyButtonProps) => {
             if (error.name === 'NotAllowedError') {
                 return
             } else {
-                setErrorMessage(error.message)
+                setErrorMessage(
+                    'Oops, something went wrong, try other sign-in options'
+                )
             }
         }
     }

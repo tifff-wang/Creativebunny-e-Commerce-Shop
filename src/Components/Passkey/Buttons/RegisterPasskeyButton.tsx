@@ -12,7 +12,7 @@ const RegisterPasskeyButton = ({ onSuccess }) => {
             if (error.name === 'NotAllowedError') {
                 return
             } else {
-                setErrorMessage(error.message)
+                setErrorMessage("Oops, something went wrong, please try again later")
             }
         }
     }
