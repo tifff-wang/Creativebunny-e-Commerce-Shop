@@ -8,11 +8,11 @@ const PasskeyRegisterCard = ({ onSuccess }) => {
             <div className="passkey-card">
                 <h3>Passwordless sign-in with passkeys</h3>
                 <p>
-                    Passkeys are webauthn credentials that validate your
-                    identity using touch. They can be used as a password
-                    replacement or as a 2FA method. Passkeys can be used for
-                    sign-in as a simple and secure alternative to your password
-                    and two-factor credentials.
+                    Passkeys are WebAuthn credentials that authenticate your
+                    identity through biometric methods like fingerprint.
+                    Passkeys offer a simple and safe way to sign in, replacing
+                    traditional passwords and other two-factor authentication
+                    options.
                 </p>
                 <RegisterPasskeyButton onSuccess={onSuccess} />
             </div>
