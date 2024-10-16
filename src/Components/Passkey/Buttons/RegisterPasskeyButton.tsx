@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Button from '../../Button/Button'
 import { registerPasskey } from '../../../Utils/Passkeys/Passkey.utils'
 import { platformAuthenticatorIsAvailable } from '@simplewebauthn/browser'
+import Spinner from '../../Shared/Spinner'
 
 const RegisterPasskeyButton = ({ onSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [passkeyAvailable, setPasskeyAvailable] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         const checkPasskeyAvailability = async () => {
@@ -18,10 +20,13 @@ const RegisterPasskeyButton = ({ onSuccess }) => {
 
     const createPasskey = async () => {
         if (passkeyAvailable) {
+            setLoading(true)
             try {
                 await registerPasskey()
                 onSuccess()
+                setLoading(false)
             } catch (error) {
+                setLoading(false)
                 if (error.name === 'NotAllowedError') {
                     return
                 } else {
@@ -42,6 +47,7 @@ const RegisterPasskeyButton = ({ onSuccess }) => {
             <Button buttonType="passkey" type="button" onClick={createPasskey}>
                 Register a Passkey
             </Button>
+            {loading && <Spinner>Preparing passkey registration...</Spinner>}
             {!errorMessage || (
                 <p className="signin-error-message">{errorMessage}</p>
             )}
