@@ -6,16 +6,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 48px;
+    gap: 140px;
 
     @media (min-width: map-get($breakpoints, phone)) {
         flex-direction: row;
         height: 300px;
+        gap: 48px;
     }
 
     .info-card {
-        height: 160px;
-        width: 90%;
+        height:150px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -29,15 +29,16 @@
         }
 
         .info-image-container {
-            height: 100%;
-             @media (min-width: map-get($breakpoints, phone)) {
-                    height:40%
-                }
+            height: 80%;
+            @media (min-width: map-get($breakpoints, phone)) {
+                height: 40%;
+            }
 
             img {
                 height: 100%;
+                vertical-align: middle;
                 @media (min-width: map-get($breakpoints, phone)) {
-                    height:80%
+                    height: 80%;
                 }
             }
         }

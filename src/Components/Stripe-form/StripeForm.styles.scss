@@ -3,16 +3,17 @@
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    width:95%;
+    max-width: 400px;
 
     .stripe-form {
         height: 100px;
-        width:100%;
-        
+        width: 100%;
 
         .stripe-inputs-container {
             border-radius: 15px;
             box-shadow: 5px 5px 30px opacify($color: #e4e4e4, $amount: 0);
-            padding:20px;
+            padding: 20px;
         }
 
         .stripe-card {

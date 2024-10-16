@@ -22,7 +22,7 @@ const ViewCartPage = () => {
                         buttonType="default"
                         onClick={() => navigate('/cart/checkout')}
                     >
-                        Check Out
+                        Checkout
                     </Button>
                 )}
             </div>
