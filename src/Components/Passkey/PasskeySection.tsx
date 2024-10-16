@@ -7,6 +7,7 @@ import { PasskeyModel } from '../../Model/Passkey/PasskeyModel'
 import PassKeyInfoCard from './PassKeyInfoCard'
 import PasskeyRegisterCard from './PasskeyRegisterCard'
 import PasskeyRegisterSuccessModal from '../Passkey/PasskeyRegisterSuccessModal'
+import Spinner from '../Shared/Spinner'
 
 const PasskeySection = () => {
     const [passkeys, setPasskeys] = useState<PasskeyModel[]>([])
@@ -23,8 +24,8 @@ const PasskeySection = () => {
                 const fetchedPasskeys = await getUserPasskeys(currentUser.uid)
                 setTimeout(() => {
                     setPasskeys(fetchedPasskeys || [])
-                    setLoading(false) 
-                }, 1000)
+                    setLoading(false)
+                }, 800)
             }
         }
         fetchPasskeys()
@@ -32,15 +33,19 @@ const PasskeySection = () => {
 
     const handleRefresh = async () => {
         setRefresh((prev) => !prev)
-        setShowSuccessPopup(false) 
+        setShowSuccessPopup(false)
     }
 
     const handleRegisterSuccess = () => {
-        setShowSuccessPopup(true) 
+        setShowSuccessPopup(true)
     }
 
     if (loading) {
-        return <div className="loading">Loading...</div>
+        return (
+            <div className="loading">
+                <Spinner>Fetching your profile...</Spinner>
+            </div>
+        )
     }
 
     return (
