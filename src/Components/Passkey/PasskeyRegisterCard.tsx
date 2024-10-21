@@ -9,7 +9,7 @@ const PasskeyRegisterCard = ({ onSuccess }) => {
                 <h3>Passwordless sign-in with passkeys</h3>
                 <p>
                     Passkeys are WebAuthn credentials that authenticate your
-                    identity through biometric methods like fingerprint.
+                    identity through biometric methods like fingerprint and face recognition.
                     Passkeys offer a simple and safe way to sign in, replacing
                     traditional passwords and other two-factor authentication
                     options.
