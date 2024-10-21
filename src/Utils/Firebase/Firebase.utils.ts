@@ -21,7 +21,6 @@ import {
     writeBatch,
     query,
     getDocs,
-    // where,
     connectFirestoreEmulator,
 } from 'firebase/firestore'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
@@ -50,7 +49,11 @@ if (
     process.env.REACT_APP_FIREBASE_EMULATOR === 'true'
 ) {
     connectAuthEmulator(getAuth(firebaseApp), `http://${localhost}:9099`)
-    connectFunctionsEmulator(getFunctions(firebaseApp), localhost, 5001)
+    connectFunctionsEmulator(
+        getFunctions(firebaseApp, 'australia-southeast1'),
+        localhost,
+        5001
+    )
     connectFirestoreEmulator(getFirestore(firebaseApp), localhost, 8080)
 }
 

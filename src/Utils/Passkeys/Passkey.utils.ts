@@ -1,8 +1,5 @@
 import { getFunctions, httpsCallable } from 'firebase/functions'
-import {
-    startRegistration,
-    startAuthentication,
-} from '@simplewebauthn/browser'
+import { startRegistration, startAuthentication } from '@simplewebauthn/browser'
 import { PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/types'
 import { getAuth, signInWithCustomToken } from 'firebase/auth'
 import { getApp } from 'firebase/app'
@@ -12,9 +9,11 @@ import {
     verifyPasskeyloginResponse,
 } from '../../Model/Passkey/PasskeyResponseModel'
 
+const functions = getFunctions(getApp(), 'australia-southeast1')
+
 export async function registerPasskey() {
     const passkeyOptionsFunction = await httpsCallable(
-        getFunctions(),
+        functions,
         'generatePasskeyRegistration'
     )
     const passkeyOptionsResponse = await passkeyOptionsFunction()
@@ -25,7 +24,7 @@ export async function registerPasskey() {
         const attestationResponse = await startRegistration(options)
 
         const verifyPasskeyFunction = await httpsCallable(
-            getFunctions(),
+            functions,
             'verifyPasskeyRegistration'
         )
         const request = {
@@ -40,7 +39,7 @@ export async function registerPasskey() {
 
 export async function loginPasskey() {
     const loginOptionsFunction = await httpsCallable(
-        getFunctions(),
+        functions,
         'generatePassKeyLogin'
     )
     const loginOptionsResponse = await loginOptionsFunction()
@@ -51,7 +50,7 @@ export async function loginPasskey() {
             optionsData.options
         )
         const verifyLoginFunction = await httpsCallable(
-            getFunctions(),
+            functions,
             'verifyPasskeyLogin'
         )
 
