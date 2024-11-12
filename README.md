@@ -14,8 +14,20 @@ The website is fully responsive and it adheres to accessibility standards as eva
 
 ## Technologies
 
-![](https://img.shields.io/badge/React-purple) ![](https://img.shields.io/badge/Redux-purple) ![](https://img.shields.io/badge/Firebase_Authentication-blue)
+![](https://img.shields.io/badge/React-purple) ![](https://img.shields.io/badge/Redux-purple) ![](https://img.shields.io/badge/Passkeys-orange)![](https://img.shields.io/badge/Firebase_Authentication-blue)
 ![](https://img.shields.io/badge/Firestore_Database-blue) ![](https://img.shields.io/badge/SaSS-grey) ![](https://img.shields.io/badge/TypeScript-green) ![](https://img.shields.io/badge/Netlify_Deployment-grey) ![](https://img.shields.io/badge/Stripe_Payment-yellow)
+
+## New Feature: Passkey Authentication
+
+The website now supports Passkey authentication as a secure and convenient passwordless sign-in option! Registered users can create a Passkey, allowing them to access their accounts seamlessly without needing to remember or enter a traditional password on future visits.
+
+![image](https://tech-portfolio-images.s3.ap-southeast-2.amazonaws.com/creative-bunny-readme-images/sign-in-with-passkey.png)
+
+#### How It Works:
+
+-   Registration: Users can sign up as usual using an email and password.
+-   Passkey Setup: After registration, users are given the option to create a Passkey.
+-   Passwordless Sign-In: On subsequent logins, users with a registered Passkey can sign in effortlessly with this option, enhancing both security and user convenience.
 
 ## Key pages
 
@@ -59,7 +71,6 @@ I aim not only to enhance the site but also to take the chance to experiment wit
 In the next phase of development, I plan to:
 
 -   **Complete the footer links**: Add relevant pages to the links in the footer.
--   **Implement PassKey**: Users will have the option to create a Passkey for passwordless sign-in.
 -   **Migrate to AWS**: As this e-commerce project evolves, such as integrating more features
     like order management and admin functionalities, transitioning to a more robust and scalable architecture
     becomes essential. Currently, the project uses Firebase for database interactions and Netlify
@@ -67,4 +78,3 @@ In the next phase of development, I plan to:
     implementing an AWS Lex chatbot and integrating additional order and admin-related APIs, I plan to migrate the
     project to AWS. This will not only provide the necessary infrastructure to improve the scalability and security
     of the application but also offer me a valuable opportunity to deepen my expertise with various AWS services.
-
